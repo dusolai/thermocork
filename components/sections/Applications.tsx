@@ -1,17 +1,45 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
 import AnimateIn from '@/components/ui/AnimateIn'
 import { motion, AnimatePresence } from 'framer-motion'
+
+const TAB_VISUALS: Record<string, { bg: string; accent: string; pattern: string }> = {
+  facades: {
+    bg: 'linear-gradient(135deg, #1a110a, #2e1d10)',
+    accent: '#C9A045',
+    pattern: '0.55',
+  },
+  roofs: {
+    bg: 'linear-gradient(135deg, #0e1510, #1a2215)',
+    accent: '#8BAF6A',
+    pattern: '0.45',
+  },
+  interiors: {
+    bg: 'linear-gradient(135deg, #130e1a, #1e1528)',
+    accent: '#9A7EC4',
+    pattern: '0.5',
+  },
+  commercial: {
+    bg: 'linear-gradient(135deg, #0e1218, #14202a)',
+    accent: '#6AAFC9',
+    pattern: '0.48',
+  },
+  vehicles: {
+    bg: 'linear-gradient(135deg, #181010, #2a1818)',
+    accent: '#C47A6A',
+    pattern: '0.5',
+  },
+}
 
 export default function Applications() {
   const { t: tr, lang } = useLang()
   const [active, setActive] = useState(0)
 
   const tab = t.applications.tabs[active]
+  const visual = TAB_VISUALS[tab.id] ?? TAB_VISUALS.facades
 
   return (
     <section id="applications" className="relative z-[1]" style={{ background: 'var(--bg)' }}>
@@ -51,12 +79,28 @@ export default function Applications() {
             className="grid gap-14 items-center"
             style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))' }}>
 
-            {/* Image */}
-            <div className="relative rounded-2xl overflow-hidden" style={{ height: 340, border: '1px solid var(--border)' }}>
-              <Image src={tab.img} alt={tr(tab.title)} fill sizes="(max-width:768px) 100vw, 50vw"
-                className="object-cover" loading="lazy" />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.8) 0%, transparent 50%)' }} />
-              <div className="absolute bottom-6 left-6 text-5xl">{tab.icon}</div>
+            {/* Visual panel — SVG texture, no external dependency */}
+            <div className="relative rounded-2xl overflow-hidden" style={{ height: 340, border: '1px solid var(--border)', background: visual.bg }}>
+              {/* Cork noise texture */}
+              <div style={{
+                position: 'absolute', inset: 0, opacity: Number(visual.pattern),
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E")`,
+                mixBlendMode: 'multiply',
+              }} />
+              {/* Radial glow */}
+              <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${visual.accent}22, transparent 70%)` }} />
+              {/* Large icon */}
+              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: 96, opacity: 0.18, filter: 'grayscale(0.4)' }}>{tab.icon}</span>
+              </div>
+              {/* Bottom label */}
+              <div className="absolute bottom-0 left-0 right-0 px-6 py-5"
+                style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.9) 0%, transparent 100%)' }}>
+                <div className="text-4xl mb-1">{tab.icon}</div>
+                <span className="text-xs font-bold tracking-widest uppercase" style={{ color: visual.accent }}>
+                  Thermocork · {tr(tab.label)}
+                </span>
+              </div>
             </div>
 
             {/* Text */}

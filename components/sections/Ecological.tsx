@@ -14,7 +14,7 @@ export default function Ecological() {
   return (
     <section id="ecological" className="parallax-section relative z-[1]" style={{ background: 'var(--bg)' }}>
       {/* Parallax bg */}
-      <div className="parallax-bg" style={{ backgroundImage: `url("${ECO_BG}")`, filter: 'brightness(0.12) saturate(0.7) sepia(0.3)' }} />
+      <div className="parallax-bg" style={{ backgroundImage: `url("${ECO_BG}")`, filter: 'brightness(0.32) saturate(0.8)' }} />
 
       <span className="ambient-blob" style={{ width: 600, height: 600, top: '20%', right: '-10%', background: 'radial-gradient(circle,rgba(74,100,44,0.15),transparent 70%)' }} />
 
