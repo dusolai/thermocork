@@ -6,36 +6,36 @@ import { t } from '@/lib/i18n'
 import AnimateIn from '@/components/ui/AnimateIn'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const TAB_VISUALS: Record<string, { bg: string; accent: string; pattern: string; glow: string }> = {
+const TAB_VISUALS: Record<string, { bg: string; accent: string; glow: string; img: string }> = {
   facades: {
     bg: 'linear-gradient(135deg, #7a4820, #b06830, #c98040)',
     accent: '#F5D080',
-    pattern: '0.18',
     glow: 'rgba(201,160,69,0.55)',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop',
   },
   roofs: {
     bg: 'linear-gradient(135deg, #2a5c1a, #3d7a28, #5a9e3a)',
     accent: '#B8E890',
-    pattern: '0.18',
     glow: 'rgba(90,158,58,0.55)',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop',
   },
   interiors: {
     bg: 'linear-gradient(135deg, #5a2880, #7a40a8, #9a60c8)',
     accent: '#E0C0FF',
-    pattern: '0.18',
     glow: 'rgba(154,96,200,0.55)',
+    img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&auto=format&fit=crop',
   },
   commercial: {
     bg: 'linear-gradient(135deg, #1a4870, #2a6898, #3a88b8)',
     accent: '#A8DEFF',
-    pattern: '0.18',
     glow: 'rgba(58,136,184,0.55)',
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop',
   },
   vehicles: {
     bg: 'linear-gradient(135deg, #7a2818, #a84030, #c85848)',
     accent: '#FFB8A0',
-    pattern: '0.18',
     glow: 'rgba(200,88,72,0.55)',
+    img: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80&auto=format&fit=crop',
   },
 }
 
@@ -84,23 +84,21 @@ export default function Applications() {
             className="grid gap-14 items-center"
             style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))' }}>
 
-            {/* Visual panel — fully local, no external dependency */}
+            {/* Visual panel */}
             <div className="relative rounded-2xl overflow-hidden" style={{ height: 340, border: '1px solid rgba(255,255,255,0.15)', background: visual.bg, boxShadow: `0 20px 60px ${visual.glow}` }}>
-              {/* Subtle noise texture */}
-              <div style={{
-                position: 'absolute', inset: 0, opacity: Number(visual.pattern),
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E")`,
-                mixBlendMode: 'overlay',
-              }} />
-              {/* Strong radial glow */}
-              <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 65% 55% at 50% 45%, ${visual.accent}40, transparent 70%)` }} />
-              {/* Large icon — fully visible */}
-              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: 60 }}>
-                <span style={{ fontSize: 110, filter: `drop-shadow(0 0 32px ${visual.glow}) drop-shadow(0 4px 12px rgba(0,0,0,0.4))` }}>{tab.icon}</span>
-              </div>
+              {/* Photo — plain <img> works in static export; fallback is the gradient bg */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={visual.img}
+                alt={tr(tab.label)}
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.72 }}
+              />
+              {/* Dark overlay so text stays readable */}
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%)' }} />
               {/* Bottom label */}
               <div className="absolute bottom-0 left-0 right-0 px-6 py-5"
-                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)' }}>
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)' }}>
+                <div className="text-3xl mb-1">{tab.icon}</div>
                 <span className="text-xs font-bold tracking-widest uppercase" style={{ color: visual.accent }}>
                   Thermocork · {tr(tab.label)}
                 </span>
