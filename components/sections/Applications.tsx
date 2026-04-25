@@ -6,31 +6,36 @@ import { t } from '@/lib/i18n'
 import AnimateIn from '@/components/ui/AnimateIn'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const TAB_VISUALS: Record<string, { bg: string; accent: string; pattern: string }> = {
+const TAB_VISUALS: Record<string, { bg: string; accent: string; pattern: string; glow: string }> = {
   facades: {
-    bg: 'linear-gradient(135deg, #3d2510, #5c3818)',
-    accent: '#C9A045',
-    pattern: '0.25',
+    bg: 'linear-gradient(135deg, #7a4820, #b06830, #c98040)',
+    accent: '#F5D080',
+    pattern: '0.18',
+    glow: 'rgba(201,160,69,0.55)',
   },
   roofs: {
-    bg: 'linear-gradient(135deg, #1a2e18, #253d20)',
-    accent: '#8BAF6A',
-    pattern: '0.22',
+    bg: 'linear-gradient(135deg, #2a5c1a, #3d7a28, #5a9e3a)',
+    accent: '#B8E890',
+    pattern: '0.18',
+    glow: 'rgba(90,158,58,0.55)',
   },
   interiors: {
-    bg: 'linear-gradient(135deg, #251838, #3a2458)',
-    accent: '#C4A0F0',
-    pattern: '0.22',
+    bg: 'linear-gradient(135deg, #5a2880, #7a40a8, #9a60c8)',
+    accent: '#E0C0FF',
+    pattern: '0.18',
+    glow: 'rgba(154,96,200,0.55)',
   },
   commercial: {
-    bg: 'linear-gradient(135deg, #142030, #1e3248)',
-    accent: '#80C8E8',
-    pattern: '0.22',
+    bg: 'linear-gradient(135deg, #1a4870, #2a6898, #3a88b8)',
+    accent: '#A8DEFF',
+    pattern: '0.18',
+    glow: 'rgba(58,136,184,0.55)',
   },
   vehicles: {
-    bg: 'linear-gradient(135deg, #301818, #4a2828)',
-    accent: '#E89880',
-    pattern: '0.22',
+    bg: 'linear-gradient(135deg, #7a2818, #a84030, #c85848)',
+    accent: '#FFB8A0',
+    pattern: '0.18',
+    glow: 'rgba(200,88,72,0.55)',
   },
 }
 
@@ -79,24 +84,23 @@ export default function Applications() {
             className="grid gap-14 items-center"
             style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))' }}>
 
-            {/* Visual panel — SVG texture, no external dependency */}
-            <div className="relative rounded-2xl overflow-hidden" style={{ height: 340, border: '1px solid var(--border)', background: visual.bg }}>
-              {/* Cork noise texture */}
+            {/* Visual panel — fully local, no external dependency */}
+            <div className="relative rounded-2xl overflow-hidden" style={{ height: 340, border: '1px solid rgba(255,255,255,0.15)', background: visual.bg, boxShadow: `0 20px 60px ${visual.glow}` }}>
+              {/* Subtle noise texture */}
               <div style={{
                 position: 'absolute', inset: 0, opacity: Number(visual.pattern),
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E")`,
-                mixBlendMode: 'multiply',
+                mixBlendMode: 'overlay',
               }} />
-              {/* Radial glow */}
-              <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${visual.accent}22, transparent 70%)` }} />
-              {/* Large icon */}
-              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: 96, opacity: 0.45, filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.2))' }}>{tab.icon}</span>
+              {/* Strong radial glow */}
+              <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 65% 55% at 50% 45%, ${visual.accent}40, transparent 70%)` }} />
+              {/* Large icon — fully visible */}
+              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: 60 }}>
+                <span style={{ fontSize: 110, filter: `drop-shadow(0 0 32px ${visual.glow}) drop-shadow(0 4px 12px rgba(0,0,0,0.4))` }}>{tab.icon}</span>
               </div>
               {/* Bottom label */}
               <div className="absolute bottom-0 left-0 right-0 px-6 py-5"
-                style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.9) 0%, transparent 100%)' }}>
-                <div className="text-4xl mb-1">{tab.icon}</div>
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)' }}>
                 <span className="text-xs font-bold tracking-widest uppercase" style={{ color: visual.accent }}>
                   Thermocork · {tr(tab.label)}
                 </span>
