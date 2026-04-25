@@ -16,7 +16,7 @@ export default function About() {
       {/* Parallax bg */}
       <div className="parallax-bg" style={{
         backgroundImage: `url("${ABOUT_BG}")`,
-        filter: 'brightness(0.1) saturate(0.8)',
+        filter: 'brightness(0.28) saturate(0.9)',
       }} />
 
       {/* Ambient blobs */}

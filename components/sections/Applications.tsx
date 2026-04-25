@@ -8,29 +8,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const TAB_VISUALS: Record<string, { bg: string; accent: string; pattern: string }> = {
   facades: {
-    bg: 'linear-gradient(135deg, #1a110a, #2e1d10)',
+    bg: 'linear-gradient(135deg, #3d2510, #5c3818)',
     accent: '#C9A045',
-    pattern: '0.55',
+    pattern: '0.25',
   },
   roofs: {
-    bg: 'linear-gradient(135deg, #0e1510, #1a2215)',
+    bg: 'linear-gradient(135deg, #1a2e18, #253d20)',
     accent: '#8BAF6A',
-    pattern: '0.45',
+    pattern: '0.22',
   },
   interiors: {
-    bg: 'linear-gradient(135deg, #130e1a, #1e1528)',
-    accent: '#9A7EC4',
-    pattern: '0.5',
+    bg: 'linear-gradient(135deg, #251838, #3a2458)',
+    accent: '#C4A0F0',
+    pattern: '0.22',
   },
   commercial: {
-    bg: 'linear-gradient(135deg, #0e1218, #14202a)',
-    accent: '#6AAFC9',
-    pattern: '0.48',
+    bg: 'linear-gradient(135deg, #142030, #1e3248)',
+    accent: '#80C8E8',
+    pattern: '0.22',
   },
   vehicles: {
-    bg: 'linear-gradient(135deg, #181010, #2a1818)',
-    accent: '#C47A6A',
-    pattern: '0.5',
+    bg: 'linear-gradient(135deg, #301818, #4a2828)',
+    accent: '#E89880',
+    pattern: '0.22',
   },
 }
 
@@ -91,7 +91,7 @@ export default function Applications() {
               <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${visual.accent}22, transparent 70%)` }} />
               {/* Large icon */}
               <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: 96, opacity: 0.18, filter: 'grayscale(0.4)' }}>{tab.icon}</span>
+                <span style={{ fontSize: 96, opacity: 0.45, filter: 'drop-shadow(0 0 24px rgba(255,255,255,0.2))' }}>{tab.icon}</span>
               </div>
               {/* Bottom label */}
               <div className="absolute bottom-0 left-0 right-0 px-6 py-5"
