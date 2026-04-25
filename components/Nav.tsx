@@ -79,10 +79,10 @@ export default function Nav() {
             {tr(t.nav.quote)}
           </a>
           {/* Mobile hamburger */}
-          <button className="lg:hidden flex flex-col gap-1.5 p-2" onClick={() => setOpen(!open)}>
-            <span className="w-6 h-0.5 block transition-all" style={{ background: 'var(--white)' }} />
-            <span className="w-6 h-0.5 block transition-all" style={{ background: 'var(--white)' }} />
-            <span className="w-4 h-0.5 block transition-all" style={{ background: 'var(--white)' }} />
+          <button className="lg:hidden flex flex-col gap-1.5 p-2" onClick={() => setOpen(!open)} aria-label="Menu">
+            <span className="w-6 h-0.5 block transition-all duration-300" style={{ background: 'var(--white)', transform: open ? 'rotate(45deg) translateY(8px)' : 'none' }} />
+            <span className="w-6 h-0.5 block transition-all duration-200" style={{ background: 'var(--white)', opacity: open ? 0 : 1 }} />
+            <span className="w-4 h-0.5 block transition-all duration-300" style={{ background: 'var(--white)', transform: open ? 'rotate(-45deg) translateY(-8px)' : 'none', width: open ? '24px' : '16px' }} />
           </button>
         </div>
       </nav>
