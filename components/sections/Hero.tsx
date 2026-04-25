@@ -48,7 +48,7 @@ export default function Hero() {
       {/* Video background */}
       <div ref={layerBgRef} className="hero-layer" style={{ zIndex: 0 }}>
         <video autoPlay muted loop playsInline
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.25, filter: 'brightness(0.6)' }}>
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55, filter: 'brightness(0.85)' }}>
           <source src="/cork-bg.mp4" type="video/mp4" />
         </video>
       </div>
@@ -56,8 +56,8 @@ export default function Hero() {
       {/* Gradient fog */}
       <div ref={layerGradRef} className="hero-layer" style={{ zIndex: 1,
         background: `
-          radial-gradient(ellipse 80% 60% at 50% 100%, rgba(139,94,60,0.5) 0%, transparent 70%),
-          linear-gradient(180deg, rgba(10,8,6,0.25) 0%, rgba(10,8,6,0.8) 100%)
+          radial-gradient(ellipse 80% 60% at 50% 100%, rgba(139,94,60,0.3) 0%, transparent 70%),
+          linear-gradient(180deg, rgba(10,8,6,0.1) 0%, rgba(10,8,6,0.55) 100%)
         ` }} />
 
       {/* Ambient orbs */}
