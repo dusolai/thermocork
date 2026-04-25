@@ -58,7 +58,7 @@ export default function Applications() {
         </AnimateIn>
 
         {/* Tabs */}
-        <div className="flex gap-2 flex-wrap mt-12 mb-8">
+        <div className="tabs-mobile-scroll flex gap-2 mt-12 mb-8">
           {t.applications.tabs.map((tab, i) => (
             <button key={i}
               onClick={() => setActive(i)}

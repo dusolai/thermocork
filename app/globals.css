@@ -355,3 +355,98 @@ nav.scrolled {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+/* Tabs horizontal scroll (Applications section) */
+.tabs-mobile-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-wrap: nowrap !important;
+  padding-bottom: 6px;
+}
+.tabs-mobile-scroll::-webkit-scrollbar { display: none; }
+
+@media (max-width: 1024px) {
+  /* Sections inner padding */
+  .max-w-6xl.mx-auto {
+    padding-left: clamp(16px, 5vw, 48px) !important;
+    padding-right: clamp(16px, 5vw, 48px) !important;
+    padding-top: clamp(60px, 8vw, 100px) !important;
+    padding-bottom: clamp(60px, 8vw, 100px) !important;
+  }
+
+  /* Fix parallax-bg to not overflow on mobile */
+  .parallax-bg {
+    inset: 0 !important;
+  }
+
+  /* Hide side CTA on mobile */
+  .side-cta { display: none !important; }
+
+  /* Whatsapp smaller */
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero min-height uses svh for mobile browser chrome */
+  #hero { min-height: 100svh; }
+
+  /* Hero two-column → single column */
+  #hero .max-w-6xl > div {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* Cork circle smaller on mobile */
+  #hero [style*="clamp(260px"] {
+    width: clamp(200px, 60vw, 280px) !important;
+  }
+
+  /* Video sections: ensure full coverage */
+  .parallax-bg video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Process video: proper aspect ratio */
+  #process video {
+    max-height: 220px !important;
+  }
+
+  /* About cards: single column on very small screens */
+  #about [style*="1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Applications panel: stack vertically */
+  #applications .grid {
+    gap: 32px !important;
+  }
+
+  /* Applications visual panel height */
+  #applications [style*="height: 340"] {
+    height: 240px !important;
+  }
+
+  /* Hero scroll indicator hidden on tiny screens */
+  #hero .absolute.bottom-8 { display: none; }
+
+  /* Buttons full-width on small screens */
+  #hero .flex.gap-4.flex-wrap a {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}

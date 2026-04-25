@@ -5,6 +5,7 @@ import { LangProvider } from '@/hooks/useLang'
 import SmoothScroll from '@/components/providers/SmoothScroll'
 import FloatingElements from '@/components/FloatingElements'
 import Nav from '@/components/Nav'
+import PwaRegister from '@/components/PwaRegister'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
   description: 'Thermocork — Natural projected cork insulation. Thermal, acoustic, ecological. Available worldwide through certified applicators.',
   keywords: ['cork insulation', 'aislamiento corcho', 'thermocork', 'corcho proyectado', 'aislamiento termoacústico', 'natural insulation'],
   authors: [{ name: 'Thermocork' }],
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Thermocork',
+  },
   openGraph: {
     title: 'THERMOCORK — The Future of Natural Insulation',
     description: 'Eco-friendly thermoacoustic cork spray insulation. No demolition, no solvents, no compromise.',
@@ -20,14 +27,6 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     alternateLocale: 'en_GB',
     siteName: 'Thermocork',
-    images: [
-      {
-        url: 'https://image.pollinations.ai/prompt/thermocork+natural+cork+insulation+premium+brand+editorial+8k?width=1200&height=630&seed=9999&nologo=true&model=flux',
-        width: 1200,
-        height: 630,
-        alt: 'Thermocork Natural Insulation',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -35,12 +34,19 @@ export const metadata: Metadata = {
     description: 'Eco-friendly thermoacoustic cork spray insulation. No demolition, no solvents, no compromise.',
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/icon.svg',
+  },
 }
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0A0806',
+  maximumScale: 5,
+  themeColor: '#C9A045',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -54,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <FloatingElements />
           </SmoothScroll>
         </LangProvider>
+        <PwaRegister />
       </body>
     </html>
   )
