@@ -7,11 +7,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 interface Props {
   children: React.ReactNode
   className?: string
+  style?: React.CSSProperties
   stagger?: number
   y?: number
 }
 
-export default function StaggerList({ children, className, stagger = 0.08, y = 50 }: Props) {
+export default function StaggerList({ children, className, style, stagger = 0.08, y = 50 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -38,5 +39,5 @@ export default function StaggerList({ children, className, stagger = 0.08, y = 5
     return () => { ScrollTrigger.getAll().forEach(t => { if (t.trigger === el) t.kill() }) }
   }, [stagger, y])
 
-  return <div ref={ref} className={className}>{children}</div>
+  return <div ref={ref} className={className} style={style}>{children}</div>
 }
