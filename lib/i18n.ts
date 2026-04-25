@@ -1,0 +1,341 @@
+export type Lang = 'es' | 'en'
+
+export const t = {
+  nav: {
+    products: { es: 'Productos', en: 'Products' },
+    applications: { es: 'Aplicaciones', en: 'Applications' },
+    ecology: { es: 'Ecología', en: 'Ecology' },
+    training: { es: 'Formación', en: 'Training' },
+    contact: { es: 'Contacto', en: 'Contact' },
+    quote: { es: 'Presupuesto Gratis', en: 'Free Quote' },
+  },
+  hero: {
+    badge: { es: 'Corcho Natural Proyectado · Thermocork', en: 'Natural Projected Cork · Thermocork' },
+    line1: { es: 'El Futuro del', en: 'The Future of' },
+    line2: { es: 'Aislamiento Natural', en: 'Natural Insulation' },
+    sub: {
+      es: 'Termoacústica ecológica de corcho proyectado. Sin obras, sin disolventes, sin compromisos. Disponible en todo el mundo a través de nuestra red de aplicadores certificados.',
+      en: 'Eco-friendly thermoacoustic cork spray insulation. No demolition, no solvents, no compromise. Available worldwide through our certified applicator network.',
+    },
+    cta1: { es: 'Solicitar Presupuesto', en: 'Get a Free Quote' },
+    cta2: { es: 'Ver Productos', en: 'View Products' },
+    scroll: { es: 'Descubrir', en: 'Discover' },
+  },
+  stats: [
+    { num: '70%', label: { es: 'Ahorro energético', en: 'Energy savings' } },
+    { num: '10+', label: { es: 'Países', en: 'Countries' } },
+    { num: '25+', label: { es: 'Años de duración', en: 'Years durability' } },
+    { num: '100+', label: { es: 'Aplicadores cert.', en: 'Certified applicators' } },
+    { num: '20', label: { es: 'Colores disponibles', en: 'Available colours' } },
+  ],
+  about: {
+    tag: { es: 'Qué es Thermocork', en: 'What is Thermocork' },
+    title1: { es: 'La naturaleza creó el mejor aislante.', en: 'Nature created the best insulator.' },
+    title2: { es: 'Nosotros lo proyectamos.', en: 'We spray it.' },
+    p1: {
+      es: 'Thermocork es un revestimiento de partículas de corcho natural de alcornoque, combinado con resinas de base acuosa y aditivos minerales, sin disolventes. Se aplica mediante proyección neumática, creando una capa continua y uniforme que adhiere sobre cualquier sustrato.',
+      en: 'Thermocork is a coating of natural cork oak particles, combined with water-based resins and mineral additives, solvent-free. It is applied by pneumatic spray, creating a continuous uniform layer adhering to any substrate.',
+    },
+    p2: {
+      es: 'El resultado es un revestimiento que aísla térmicamente, absorbe el ruido, impermeabiliza, es ignífugo, ecológico y dura más de 25 años sin mantenimiento. Todo en una sola aplicación.',
+      en: 'The result is a coating that thermally insulates, absorbs noise, waterproofs, is fire-resistant, ecological and lasts 25+ years without maintenance. All in a single application.',
+    },
+    highlights: [
+      {
+        icon: '🌿',
+        title: { es: '100% Natural y renovable', en: '100% Natural & renewable' },
+        desc: { es: 'Sin tala: solo se extrae la corteza del alcornoque cada 9 años', en: 'No felling: only the cork oak bark is harvested every 9 years' },
+      },
+      {
+        icon: '⚡',
+        title: { es: 'Aplicación sin obras', en: 'Application without demolition' },
+        desc: { es: 'Sin escombros, sin polvo, sin interrumpir tu vida cotidiana', en: 'No debris, no dust, no disruption to your daily life' },
+      },
+      {
+        icon: '🏛️',
+        title: { es: 'Certificado y garantizado', en: 'Certified & guaranteed' },
+        desc: { es: 'Certificaciones técnicas para cumplir con normativa CTE-HE y legislación europea', en: 'Technical certifications for CTE-HE compliance and European legislation' },
+      },
+    ],
+    cards: [
+      { big: '°C', label: { es: 'Puentes Térmicos', en: 'Thermal Bridges' }, value: '0', sub: { es: 'Eliminados completamente', en: 'Completely eliminated' } },
+      { big: 'dB', label: { es: 'Reducción acústica', en: 'Acoustic reduction' }, value: '35dB', sub: { es: 'Absorción de ruido aéreo', en: 'Airborne noise absorption' } },
+      { big: 'h', label: { es: 'Tiempo de aplicación', en: 'Application time' }, value: '1 día', sub: { es: 'Para una fachada estándar', en: 'For a standard facade' } },
+      { big: '★', label: { es: 'Garantía', en: 'Warranty' }, value: '10 años', sub: { es: 'En aplicaciones certificadas', en: 'On certified applications' } },
+    ],
+  },
+  products: {
+    tag: { es: 'Línea de Productos', en: 'Product Line' },
+    sub: {
+      es: 'Tres formulaciones especializadas para cada necesidad. Fabricadas con corcho natural de alcornoque, sin disolventes.',
+      en: 'Three specialized formulations for every need. Manufactured with natural cork oak, solvent-free.',
+    },
+    items: [
+      {
+        code: 'Thermocork · F01',
+        name: { es: 'Textura Fina', en: 'Fine Texture' },
+        desc: { es: 'Mezcla de gránulos de corcho de textura fina con resinas acrílicas de base acuosa. Ideal para superficies donde se requiere acabado suave y precisión estética.', en: 'Fine-texture cork granule blend with water-based acrylic resins. Ideal for surfaces requiring smooth finish and aesthetic precision.' },
+        features: {
+          es: ['Fachadas y paramentos verticales exteriores', 'Interiores de alta prestación decorativa', 'Techos y zonas de difícil acceso', 'Compatible con pinturas y acabados'],
+          en: ['Facades and exterior vertical surfaces', 'High-performance decorative interiors', 'Ceilings and hard-to-reach areas', 'Compatible with paints and finishes'],
+        },
+        badge: { es: 'Disponible en 20 colores', en: 'Available in 20 colours' },
+        img: 'https://image.pollinations.ai/prompt/fine+cork+granules+texture+macro+warm+golden+light+premium+editorial+photography+dark+background+8k?width=800&height=600&seed=1201&nologo=true&model=flux',
+      },
+      {
+        code: 'Thermocork · G01',
+        name: { es: 'Textura Gruesa', en: 'Coarse Texture' },
+        desc: { es: 'Gránulos de corcho de mayor tamaño para mayor espesor de capa y prestaciones térmicas superiores. El acabado rústico y natural es perfecto para fachadas con carácter.', en: 'Larger cork granules for greater layer thickness and superior thermal performance. The rustic natural finish is perfect for characterful facades.' },
+        features: {
+          es: ['Máximo rendimiento térmico y acústico', 'Fachadas con acabado rústico y natural', 'Naves industriales y almacenes', 'Proyectos de arquitectura singular'],
+          en: ['Maximum thermal and acoustic performance', 'Facades with rustic and natural finish', 'Industrial buildings and warehouses', 'Unique architecture projects'],
+        },
+        badge: { es: 'Mayor espesor disponible', en: 'Greatest available thickness' },
+        img: 'https://image.pollinations.ai/prompt/coarse+cork+texture+rustic+natural+wall+close+up+warm+tones+architectural+photography+premium+dark+moody+8k?width=800&height=600&seed=1202&nologo=true&model=flux',
+      },
+      {
+        code: 'Thermocork · TCI',
+        name: { es: 'Impermeabilizante', en: 'Waterproofing' },
+        desc: { es: 'Formulación especial que crea una membrana protectora continua en cubiertas y zonas expuestas al agua. Combina aislamiento térmico con impermeabilización durable y elástica.', en: 'Special formulation creating a continuous protective membrane on roofs and water-exposed areas. Combines thermal insulation with durable elastic waterproofing.' },
+        features: {
+          es: ['Cubiertas planas y terrazas transitables', 'Azoteas y tejados con pendiente', 'Impermeabilización de piscinas y fuentes', 'Elimina goteras definitivamente'],
+          en: ['Flat roofs and walkable terraces', 'Rooftops and pitched roofs', 'Waterproofing pools and fountains', 'Eliminates leaks permanently'],
+        },
+        badge: { es: 'Anti-goteras garantizado', en: 'Anti-leak guaranteed' },
+        img: 'https://image.pollinations.ai/prompt/water+droplet+on+cork+surface+macro+photography+cinematic+moody+dark+premium+editorial+8k?width=800&height=600&seed=1203&nologo=true&model=flux',
+      },
+    ],
+  },
+  benefits: {
+    tag: { es: 'Por qué Thermocork', en: 'Why Thermocork' },
+    title1: { es: 'Una solución.', en: 'One solution.' },
+    title2: { es: 'Seis ventajas.', en: 'Six advantages.' },
+    items: [
+      { icon: '🌡️', name: { es: 'Aislamiento Térmico', en: 'Thermal Insulation' }, desc: { es: 'Elimina puentes térmicos y reduce la transmitancia del muro. Interior fresco en verano y cálido en invierno.', en: 'Eliminates thermal bridges and reduces wall transmittance. Cool interior in summer, warm in winter.' }, value: '-70%' },
+      { icon: '🔇', name: { es: 'Aislamiento Acústico', en: 'Acoustic Insulation' }, desc: { es: 'Absorbe el ruido aéreo, de impacto y la reverberación. Silencio real en tu hogar o negocio.', en: 'Absorbs airborne, impact noise and reverberation. Real silence in your home or business.' }, value: '-35dB' },
+      { icon: '💧', name: { es: 'Impermeabilización', en: 'Waterproofing' }, desc: { es: 'Membrana continua sin juntas. Elimina filtraciones, condensaciones y humedad de forma definitiva.', en: 'Continuous jointless membrane. Permanently eliminates leaks, condensation and capillary moisture.' }, value: '100%' },
+      { icon: '🔥', name: { es: 'Resistencia al Fuego', en: 'Fire Resistance' }, desc: { es: 'El corcho es ignífugo de forma natural. No propaga llamas, no emite gases tóxicos y cumple normativa.', en: 'Cork is naturally fire-resistant. Doesn\'t propagate flames, doesn\'t emit toxic gases.' }, value: 'M1' },
+      { icon: '🌿', name: { es: '100% Ecológico', en: '100% Ecological' }, desc: { es: 'Material renovable, huella de carbono negativa, base acuosa sin disolventes. El único aislante que cuida el planeta.', en: 'Renewable material, negative carbon footprint, water-based solvent-free.' }, value: 'CO₂−' },
+      { icon: '✨', name: { es: 'Acabado Decorativo', en: 'Decorative Finish' }, desc: { es: '20 colores, 2 texturas, posibilidad de fabricación RAL/NCS a medida. Tu fachada, tu identidad.', en: '20 colours, 2 textures, custom RAL/NCS manufacturing. Your facade, your identity.' }, value: '20+' },
+    ],
+  },
+  applications: {
+    tag: { es: 'Dónde se Aplica', en: 'Where it\'s Applied' },
+    title1: { es: 'Cada superficie.', en: 'Every surface.' },
+    title2: { es: 'Una solución.', en: 'One solution.' },
+    tabs: [
+      {
+        id: 'facades',
+        label: { es: 'Fachadas', en: 'Facades' },
+        icon: '🏠',
+        title: { es: 'Fachadas y Paramentos Exteriores', en: 'Facades & Exterior Walls' },
+        desc: { es: 'La aplicación de Thermocork en fachadas transforma la eficiencia energética del edificio sin necesidad de andamios. Una sola capa crea el aislamiento continuo que elimina los puentes térmicos.', en: 'Applying Thermocork on facades transforms the building\'s energy efficiency without scaffolding. A single layer creates continuous insulation eliminating thermal bridges.' },
+        benefits: {
+          es: ['Mejora de 2-3 letras en la calificación energética', 'Compatible con SATE como capa de terminación', 'Aplicable sobre ladrillo, hormigón, madera y metal', 'Acabado continuo sin juntas visibles'],
+          en: ['2-3 letter improvement in energy rating', 'Compatible with ETICS as a finishing layer', 'Applicable on brick, concrete, wood and metal', 'Continuous finish without visible joints'],
+        },
+        img: 'https://image.pollinations.ai/prompt/modern+building+facade+cork+spray+insulation+applied+warm+tones+architectural+photography+premium+editorial+8k?width=800&height=600&seed=1211&nologo=true&model=flux',
+      },
+      {
+        id: 'roofs',
+        label: { es: 'Cubiertas', en: 'Roofs' },
+        icon: '🏚️',
+        title: { es: 'Cubiertas y Tejados', en: 'Roofs & Coverings' },
+        desc: { es: 'El producto TCI combina aislamiento térmico y membrana impermeabilizante en una sola aplicación. Ideal para cubiertas planas, terrazas, tejados inclinados.', en: 'The TCI product combines thermal insulation and waterproofing membrane in a single application. Ideal for flat roofs, terraces, sloped roofs.' },
+        benefits: {
+          es: ['Elimina goteras de forma definitiva', 'Reduce hasta 15°C la temperatura interior en verano', 'Membrana elástica que sigue los movimientos del edificio', 'Sin necesidad de retirar la cubierta existente'],
+          en: ['Eliminates leaks permanently', 'Reduces interior temperature by up to 15°C in summer', 'Elastic membrane following building movements', 'No need to remove existing roof'],
+        },
+        img: 'https://image.pollinations.ai/prompt/flat+roof+terrace+modern+architecture+warm+sunset+light+premium+editorial+photography+8k?width=800&height=600&seed=1212&nologo=true&model=flux',
+      },
+      {
+        id: 'interiors',
+        label: { es: 'Interiores', en: 'Interiors' },
+        icon: '🛋️',
+        title: { es: 'Interiores y Decoración', en: 'Interiors & Decoration' },
+        desc: { es: 'Thermocork es también una apuesta de diseño. En interiores, combina aislamiento acústico con un acabado decorativo de textura natural única.', en: 'Thermocork is also a design statement. Indoors, it combines acoustic insulation with a unique natural texture decorative finish.' },
+        benefits: {
+          es: ['Absorbe el ruido entre estancias y plantas', 'Elimina la condensación en paredes frías', 'Acabado cálido y acogedor de textura natural', 'Aplicable en paredes, techos y suelos'],
+          en: ['Absorbs noise between rooms and floors', 'Eliminates condensation on cold walls', 'Warm and welcoming natural texture finish', 'Applicable on walls, ceilings and floors'],
+        },
+        img: 'https://image.pollinations.ai/prompt/premium+interior+design+cork+wall+texture+warm+ambient+lighting+modern+architecture+editorial+8k?width=800&height=600&seed=1213&nologo=true&model=flux',
+      },
+      {
+        id: 'commercial',
+        label: { es: 'Comercial', en: 'Commercial' },
+        icon: '🏪',
+        title: { es: 'Espacios Comerciales e Industriales', en: 'Commercial & Industrial Spaces' },
+        desc: { es: 'Tiendas, restaurantes, hoteles, oficinas y naves industriales se benefician especialmente del aislamiento acústico y térmico de Thermocork.', en: 'Shops, restaurants, hotels, offices and industrial units particularly benefit from Thermocork\'s acoustic and thermal insulation.' },
+        benefits: {
+          es: ['Aplicación nocturna sin interrumpir el negocio', 'Soluciones específicas para cámaras frigoríficas', 'Certificación contra incendios para edificios públicos', 'ROI demostrable en reducción de facturas de energía'],
+          en: ['Night-time application without disrupting business', 'Specific solutions for cold storage rooms', 'Fire certification for public buildings', 'Demonstrable ROI in energy bill reduction'],
+        },
+        img: 'https://image.pollinations.ai/prompt/modern+commercial+space+natural+materials+warm+lighting+premium+architectural+photography+editorial+8k?width=800&height=600&seed=1214&nologo=true&model=flux',
+      },
+      {
+        id: 'vehicles',
+        label: { es: 'Vehículos', en: 'Vehicles' },
+        icon: '🚐',
+        title: { es: 'Vehículos y Aplicaciones Especiales', en: 'Vehicles & Special Applications' },
+        desc: { es: 'Thermocork es el favorito de los builders de furgonetas camper. Su aplicación en el interior de vehículos proporciona aislamiento térmico y acústico en espacios reducidos.', en: 'Thermocork is the favourite of campervan builders. Its application inside vehicles provides thermal and acoustic insulation in tight spaces.' },
+        benefits: {
+          es: ['Interior fresco en verano, cálido en invierno', 'Sin condensación ni formación de moho', 'Reduce el ruido del motor y la carretera', 'Aplicable en curvas y geometrías complejas'],
+          en: ['Cool interior in summer, warm in winter', 'No condensation or mould formation', 'Reduces engine and road noise', 'Applicable on curves and complex geometries'],
+        },
+        img: 'https://image.pollinations.ai/prompt/camper+van+interior+natural+cork+insulation+warm+cozy+modern+adventure+lifestyle+editorial+8k?width=800&height=600&seed=1215&nologo=true&model=flux',
+      },
+    ],
+  },
+  process: {
+    tag: { es: 'Cómo se Aplica', en: 'How it\'s Applied' },
+    title1: { es: 'Sin obras. Sin polvo.', en: 'No demolition. No dust.' },
+    title2: { es: 'Sin esperas.', en: 'No waiting.' },
+    sub: {
+      es: 'El proceso de aplicación Thermocork se completa en un solo día para la mayoría de proyectos estándar.',
+      en: 'The Thermocork application process is completed in a single day for most standard projects.',
+    },
+    steps: [
+      { num: 1, title: { es: 'Inspección', en: 'Inspection' }, desc: { es: 'El aplicador certificado inspecciona el sustrato, identifica patologías y diseña la solución óptima.', en: 'The certified applicator inspects the substrate, identifies pathologies and designs the optimal solution.' } },
+      { num: 2, title: { es: 'Preparación', en: 'Preparation' }, desc: { es: 'Limpieza y consolidación del sustrato. Protección de zonas no tratadas. Sin picar ni retirar revestimiento existente.', en: 'Cleaning and consolidation of the substrate. Protection of untreated areas. No chipping needed.' } },
+      { num: 3, title: { es: 'Proyección', en: 'Projection' }, desc: { es: 'Aplicación mediante equipo neumático de alta presión. El corcho crea una capa continua sin juntas en tiempo récord.', en: 'Application using high-pressure pneumatic equipment. Cork adheres creating a continuous jointless layer.' } },
+      { num: 4, title: { es: 'Entrega', en: 'Delivery' }, desc: { es: 'Revisión de acabado, limpieza y entrega. El producto está seco y funcional en 24-48 horas.', en: 'Finish review, cleanup and client handover. The product is dry and functional within 24-48 hours.' } },
+    ],
+  },
+  ecological: {
+    tag: { es: 'Compromiso Ecológico', en: 'Ecological Commitment' },
+    title1: { es: 'El único aislante con', en: 'The only insulation with' },
+    title2: { es: 'huella de carbono negativa.', en: 'a negative carbon footprint.' },
+    p1: {
+      es: 'El alcornoque es el árbol más sostenible de la naturaleza. Cada 9 años se puede extraer su corteza sin talar el árbol, que sigue viviendo y absorbiendo CO₂ durante cientos de años.',
+      en: 'The cork oak is the most sustainable tree in nature. Every 9 years its bark can be harvested without felling the tree, which continues absorbing CO₂ for hundreds of years.',
+    },
+    p2: {
+      es: 'Thermocork se fabrica con base acuosa, sin disolventes ni compuestos orgánicos volátiles. Su aplicación no genera residuos peligrosos y el producto es 100% reciclable.',
+      en: 'Thermocork is manufactured on a water base, without solvents or volatile organic compounds. Its application generates no hazardous waste and the product is 100% recyclable.',
+    },
+    stats: [
+      { num: '9', label: { es: 'años entre cosechas', en: 'years between harvests' } },
+      { num: '0', label: { es: 'árboles talados', en: 'trees felled' } },
+      { num: '0%', label: { es: 'disolventes', en: 'solvents' } },
+      { num: '25+', label: { es: 'años de vida útil', en: 'years useful life' } },
+    ],
+    pills: [
+      { es: '🌿 Base acuosa', en: '🌿 Water-based' },
+      { es: '♻️ 100% reciclable', en: '♻️ 100% recyclable' },
+      { es: '🌍 Carbono negativo', en: '🌍 Carbon negative' },
+      { es: '🚫 Sin COVs', en: '🚫 No VOCs' },
+      { es: '🌳 Sin tala', en: '🌳 No felling' },
+    ],
+  },
+  international: {
+    tag: { es: 'Presencia Internacional', en: 'International Presence' },
+    title1: { es: 'De Navarra', en: 'From Navarre' },
+    title2: { es: 'al mundo.', en: 'to the world.' },
+    sub: {
+      es: 'Nuestra red de aplicadores certificados cubre 10 países y sigue creciendo. Si eres profesional de la construcción, podemos formarte y certificarte.',
+      en: 'Our certified applicator network covers 10 countries and keeps growing. If you\'re a construction professional, we can train and certify you.',
+    },
+    countries: [
+      { flag: '🇪🇸', name: { es: 'España', en: 'Spain' }, desc: { es: 'Red completa nacional', en: 'Full national network' } },
+      { flag: '🇵🇹', name: { es: 'Portugal', en: 'Portugal' }, desc: { es: 'Aplicadores activos', en: 'Active applicators' } },
+      { flag: '🇫🇷', name: { es: 'Francia', en: 'France' }, desc: { es: 'Red en expansión', en: 'Expanding network' } },
+      { flag: '🇩🇪', name: { es: 'Alemania', en: 'Germany' }, desc: { es: 'Certificación activa', en: 'Active certification' } },
+      { flag: '🇬🇧', name: { es: 'Reino Unido', en: 'United Kingdom' }, desc: { es: 'Aplicadores certificados', en: 'Certified applicators' } },
+      { flag: '🇮🇹', name: { es: 'Italia', en: 'Italy' }, desc: { es: 'Red en crecimiento', en: 'Growing network' } },
+      { flag: '🇧🇪', name: { es: 'Bélgica', en: 'Belgium' }, desc: { es: 'Distribución activa', en: 'Active distribution' } },
+      { flag: '🇳🇱', name: { es: 'Países Bajos', en: 'Netherlands' }, desc: { es: 'Aplicadores certificados', en: 'Certified applicators' } },
+      { flag: '🇦🇹', name: { es: 'Austria', en: 'Austria' }, desc: { es: 'Lanzamiento 2026', en: 'Launching 2026' } },
+      { flag: '🌍', name: { es: 'Tu país', en: 'Your country' }, desc: { es: 'Contáctanos para distribuir', en: 'Contact us to distribute' } },
+    ],
+  },
+  subsidies: {
+    tag: { es: 'Ayudas y Subvenciones', en: 'Grants & Subsidies' },
+    title1: { es: 'Tu proyecto puede ser', en: 'Your project may be' },
+    title2: { es: 'subvencionado.', en: 'subsidised.' },
+    intro: {
+      es: 'La Unión Europea, a través de los fondos Next Generation y el Plan de Recuperación, financia gran parte de la rehabilitación energética de edificios. Thermocork, como solución certificada de aislamiento ecológico, es subvencionable en la mayoría de programas disponibles.',
+      en: 'The European Union, through Next Generation funds and the Recovery Plan, finances a large part of building energy rehabilitation. Thermocork, as a certified ecological insulation solution, is eligible for most available subsidy programmes.',
+    },
+    items: [
+      { pct: 'Hasta 40%', title: { es: 'Next Generation EU', en: 'Next Generation EU' }, desc: { es: 'Fondos europeos para rehabilitación energética de edificios residenciales y terciarios.', en: 'European funds for energy rehabilitation of residential and tertiary buildings.' } },
+      { pct: 'Hasta 35%', title: { es: 'Programa PREE 5000', en: 'PREE 5000 Programme' }, desc: { es: 'Plan de Recuperación con deducción en IRPF de hasta el 60% para mejoras de eficiencia energética.', en: 'Recovery Plan with income tax deduction of up to 60% for energy efficiency improvements.' } },
+      { pct: 'Hasta 60%', title: { es: 'Deducción fiscal IRPF', en: 'Income Tax Deduction' }, desc: { es: 'Deducción directa en la declaración de la renta por obras de mejora de eficiencia energética.', en: 'Direct income tax deduction for energy efficiency improvement works in main residence.' } },
+      { pct: 'Variable', title: { es: 'Ayudas Autonómicas', en: 'Regional Grants' }, desc: { es: 'Cada comunidad autónoma cuenta con programas propios adicionales para rehabilitación energética.', en: 'Each autonomous community has its own additional programmes for energy rehabilitation.' } },
+    ],
+    cta: { es: 'Consulta si tu proyecto es subvencionable', en: 'Check if your project is eligible' },
+  },
+  training: {
+    tag: { es: 'Red de Aplicadores', en: 'Applicator Network' },
+    title1: { es: 'Certifícate.', en: 'Get certified.' },
+    title2: { es: 'Empieza a crecer.', en: 'Start growing.' },
+    steps: [
+      { title: { es: 'Formación teórica', en: 'Theory training' }, desc: { es: 'Aprende las propiedades del corcho proyectado, sus certificaciones técnicas y normativa en nuestro centro de formación en Navarra.', en: 'Learn the properties of projected cork, its technical certifications and regulations at our training centre in Navarre.' } },
+      { title: { es: 'Práctica en obra real', en: 'Real-site practice' }, desc: { es: 'Aplica Thermocork en condiciones reales bajo la supervisión de nuestros técnicos especializados.', en: 'Apply Thermocork in real conditions under the supervision of our specialist technicians.' } },
+      { title: { es: 'Certificación oficial', en: 'Official certification' }, desc: { es: 'Obtén tu certificado de aplicador Thermocork, que te acredita para emitir garantías oficiales.', en: 'Obtain your Thermocork applicator certificate, accrediting you to issue official warranties.' } },
+      { title: { es: 'Alta en la red y primeros proyectos', en: 'Network registration & first projects' }, desc: { es: 'Te incorporamos en nuestra red nacional e internacional. Empiezas a recibir solicitudes desde el primer día.', en: 'We add you to our national and international network. You start receiving quote requests from day one.' } },
+    ],
+    promoTitle: { es: '¿Por qué convertirse en aplicador Thermocork?', en: 'Why become a Thermocork applicator?' },
+    promoDesc: {
+      es: 'El mercado de la rehabilitación energética en España moverá más de 2.000 millones de euros en 2026. Los aplicadores certificados tienen acceso exclusivo a una demanda creciente.',
+      en: 'The energy rehabilitation market in Spain will move more than €2 billion in 2026. Certified applicators have exclusive access to growing demand.',
+    },
+    stats: [
+      { num: '95%', label: { es: 'tasa de empleo en 3 meses', en: 'employment rate in 3 months' } },
+      { num: '100+', label: { es: 'aplicadores en España', en: 'applicators in Spain' } },
+      { num: '500+', label: { es: 'proyectos/año en la red', en: 'projects/year in the network' } },
+      { num: '10', label: { es: 'años de garantía en cada obra', en: 'years warranty on each project' } },
+    ],
+    cta: { es: 'Solicitar información sobre formación', en: 'Request training information' },
+  },
+  testimonials: {
+    tag: { es: 'Clientes Reales', en: 'Real Clients' },
+    title1: { es: 'Lo que dicen', en: 'What our' },
+    title2: { es: 'nuestros clientes.', en: 'clients say.' },
+    items: [
+      { quote: { es: 'Después de aplicar Thermocork en mi fachada, la factura de gas bajó 180€ al mes. En invierno, los radiadores casi no arrancan. La inversión se amortizó en menos de 3 años.', en: 'After applying Thermocork to my facade, my gas bill dropped by €180 a month. In winter, the radiators barely switch on. The investment paid for itself in less than 3 years.' }, name: 'Carlos M.', loc: { es: 'Vivienda unifamiliar · Pamplona', en: 'Family home · Pamplona' }, saving: { es: '💰 Ahorro: 180€/mes · Amortización: 2,8 años', en: '💰 Saving: €180/month · Payback: 2.8 years' } },
+      { quote: { es: 'El verano pasado no encendí el aire acondicionado ni un solo día. Mi terraza plana tenía una diferencia de 18°C entre interior y exterior. Thermocork la eliminó completamente.', en: 'Last summer I didn\'t switch on the air conditioning a single day. My flat roof had an 18°C difference inside and outside. Thermocork eliminated it completely.' }, name: 'María J.', loc: { es: 'Piso con terraza plana · Sevilla', en: 'Flat with roof terrace · Seville' }, saving: { es: '🌡️ Reducción: 18°C en cubierta · Sin AC todo el verano', en: '🌡️ Reduction: 18°C on roof · No AC all summer' } },
+      { quote: { es: 'La obra duró 8 horas. No tuve que salir de casa. Ahora mi piso suena completamente diferente, los vecinos ya no se escuchan. Fue la mejor inversión que hice.', en: 'The work took 8 hours. I didn\'t have to leave the house. Now my flat sounds completely different, you can\'t hear the neighbours. It was the best investment I made.' }, name: 'Roberto A.', loc: { es: 'Piso en edificio · Madrid', en: 'Apartment building · Madrid' }, saving: { es: '🔇 Reducción acústica: 35dB · Obra: 1 solo día', en: '🔇 Acoustic reduction: 35dB · Work: just 1 day' } },
+    ],
+  },
+  contact: {
+    tag: { es: 'Contacto', en: 'Contact' },
+    title1: { es: 'Solicita tu', en: 'Request your' },
+    title2: { es: 'presupuesto gratis.', en: 'free quote.' },
+    formTitle: { es: 'Cuéntanos tu proyecto', en: 'Tell us about your project' },
+    fields: {
+      name: { es: 'Nombre', en: 'Name' },
+      phone: { es: 'Teléfono', en: 'Phone' },
+      type: { es: 'Tipo de proyecto', en: 'Project type' },
+      area: { es: 'Superficie aproximada (m²)', en: 'Approximate area (m²)' },
+      message: { es: 'Mensaje (opcional)', en: 'Message (optional)' },
+    },
+    projectTypes: {
+      es: ['Vivienda unifamiliar', 'Piso en edificio', 'Local o comercio', 'Edificio de viviendas', 'Nave industrial', 'Vehículo / Camper', 'Otro'],
+      en: ['Single-family home', 'Apartment', 'Shop or commercial', 'Residential building', 'Industrial unit', 'Vehicle / Campervan', 'Other'],
+    },
+    submit: { es: 'Solicitar Presupuesto Gratis →', en: 'Request Free Quote →' },
+    directContact: { es: '¿Prefieres contactarnos directamente?', en: 'Prefer to contact us directly?' },
+    whatsapp: { es: 'Escríbenos por WhatsApp', en: 'Message us on WhatsApp' },
+    info: {
+      phone: '646 18 58 03',
+      email: 'info@thermocork.es',
+      address: { es: 'Paseo Industrial Calle 8\n31592 Cintruénigo, Navarra\nEspaña', en: 'Paseo Industrial Calle 8\n31592 Cintruénigo, Navarra\nSpain' },
+      hours: { es: 'Lun – Vie: 8:00 – 18:00\nRespuesta a presupuestos en 24h', en: 'Mon – Fri: 8:00 – 18:00\nQuote response within 24h' },
+    },
+  },
+  footer: {
+    desc: {
+      es: 'Aislamiento térmico y acústico de corcho natural proyectado. Fabricado en España. Disponible en todo el mundo.',
+      en: 'Natural projected cork thermal and acoustic insulation. Made in Spain. Available worldwide.',
+    },
+    copyright: {
+      es: '© 2026 Thermocork — Todos los derechos reservados · Fabricado en Cintruénigo, Navarra, España',
+      en: '© 2026 Thermocork — All rights reserved · Made in Cintruénigo, Navarra, Spain',
+    },
+    cols: {
+      products: { es: 'Productos', en: 'Products' },
+      company: { es: 'Empresa', en: 'Company' },
+      legal: { es: 'Legal', en: 'Legal' },
+    },
+  },
+} as const
