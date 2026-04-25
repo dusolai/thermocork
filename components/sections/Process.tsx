@@ -38,6 +38,25 @@ export default function Process() {
             ))}
           </StaggerList>
         </div>
+
+        {/* Application video */}
+        <AnimateIn delay={0.2}>
+          <div className="mt-16 rounded-2xl overflow-hidden relative"
+            style={{ border: '1px solid var(--border)', boxShadow: '0 32px 80px rgba(0,0,0,0.5)' }}>
+            <video
+              autoPlay muted loop playsInline
+              style={{ width: '100%', display: 'block', maxHeight: 520, objectFit: 'cover' }}>
+              <source src="/spray-cork.mp4" type="video/mp4" />
+            </video>
+            {/* Bottom label */}
+            <div className="absolute bottom-0 left-0 right-0 px-8 py-5"
+              style={{ background: 'linear-gradient(to top, rgba(10,8,6,0.92) 0%, transparent 100%)' }}>
+              <span className="section-tag" style={{ marginBottom: 0 }}>
+                {tr({ es: 'Proyección de corcho en tiempo real', en: 'Cork spray projection in real time' })}
+              </span>
+            </div>
+          </div>
+        </AnimateIn>
       </div>
     </section>
   )
