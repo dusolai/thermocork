@@ -13,7 +13,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduced) return
 
-    let lenis: { raf: (t: number) => void; scrollTo: (target: string | number, opts?: { offset?: number; duration?: number }) => void; on: (event: 'scroll' | 'virtual-scroll', cb: () => void) => () => void; destroy: () => void } | null = null
+    let lenis: any = null
 
     const initLenis = async () => {
       const { default: Lenis } = await import('lenis')
