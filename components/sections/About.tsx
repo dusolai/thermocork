@@ -1,23 +1,22 @@
 'use client'
 
-import Image from 'next/image'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
 import AnimateIn from '@/components/ui/AnimateIn'
 import StaggerList from '@/components/ui/StaggerList'
-
-const ABOUT_BG = 'https://image.pollinations.ai/prompt/dark+cork+wall+texture+close+up+warm+amber+highlights+architectural+editorial+moody+premium+8k?width=1600&height=900&seed=1101&nologo=true&model=flux'
 
 export default function About() {
   const { t: tr } = useLang()
 
   return (
     <section id="about" className="parallax-section relative z-[1]" style={{ background: 'var(--bg2)' }}>
-      {/* Parallax bg */}
-      <div className="parallax-bg" style={{
-        backgroundImage: `url("${ABOUT_BG}")`,
-        filter: 'brightness(0.28) saturate(0.9)',
-      }} />
+      {/* Video background — modern building with cork facade */}
+      <div className="parallax-bg" style={{ overflow: 'hidden' }}>
+        <video autoPlay muted loop playsInline
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.28) saturate(0.9)' }}>
+          <source src="/building-facade.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Ambient blobs */}
       <span className="ambient-blob" style={{ width: 500, height: 500, top: '10%', left: '-5%', background: 'radial-gradient(circle,rgba(201,160,69,0.15),transparent 70%)' }} />

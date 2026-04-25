@@ -108,17 +108,19 @@ export default function Hero() {
             <div className="spin-slow" style={{ position: 'absolute', inset: -20, borderRadius: '50%', border: '1px solid rgba(201,160,69,0.12)', borderTopColor: 'rgba(201,160,69,0.4)' }} />
             <div className="spin-slow-reverse" style={{ position: 'absolute', inset: -40, borderRadius: '50%', border: '1px solid rgba(201,160,69,0.06)', borderBottomColor: 'rgba(201,160,69,0.2)' }} />
 
-            {/* Cork circle */}
-            <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: 'linear-gradient(145deg, #3d2a18, #5a3d24, #7a5535)', boxShadow: '0 40px 100px rgba(139,94,60,0.3), inset 0 0 60px rgba(0,0,0,0.4)', position: 'relative' }}>
-              {/* Cork texture overlay */}
-              <div style={{ position: 'absolute', inset: 0, borderRadius: '50%',
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")`,
-                mixBlendMode: 'multiply', opacity: 0.5,
-              }} />
+            {/* Cork circle — video fill */}
+            <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#2a1a0a', boxShadow: '0 40px 100px rgba(139,94,60,0.45), inset 0 0 60px rgba(0,0,0,0.4)', position: 'relative' }}>
+              {/* Cork granules video */}
+              <video autoPlay muted loop playsInline
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}>
+                <source src="/cork-granules.mp4" type="video/mp4" />
+              </video>
+              {/* Vignette */}
+              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle, transparent 35%, rgba(10,6,2,0.55) 100%)' }} />
               {/* Center stat */}
               <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                 <div className="text-gold-gradient" style={{ fontWeight: 800, fontSize: 'clamp(52px,6vw,72px)', lineHeight: 1 }}>70%</div>
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(240,208,128,0.8)', marginTop: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(240,208,128,0.9)', marginTop: 6 }}>
                   {tr({ es: 'Ahorro Energético', en: 'Energy Savings' })}
                 </div>
               </div>

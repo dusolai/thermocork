@@ -1,20 +1,22 @@
 'use client'
 
-import Image from 'next/image'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
 import AnimateIn from '@/components/ui/AnimateIn'
 import StaggerList from '@/components/ui/StaggerList'
-
-const ECO_BG = 'https://image.pollinations.ai/prompt/ancient+cork+oak+tree+mediterranean+forest+golden+hour+sunlight+rays+cinematic+national+geographic+style+8k?width=1600&height=900&seed=1102&nologo=true&model=flux'
 
 export default function Ecological() {
   const { t: tr } = useLang()
 
   return (
     <section id="ecological" className="parallax-section relative z-[1]" style={{ background: 'var(--bg)' }}>
-      {/* Parallax bg */}
-      <div className="parallax-bg" style={{ backgroundImage: `url("${ECO_BG}")`, filter: 'brightness(0.42) saturate(0.9)' }} />
+      {/* Video background — drone over cork oak forest */}
+      <div className="parallax-bg" style={{ overflow: 'hidden' }}>
+        <video autoPlay muted loop playsInline
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.42) saturate(0.9)' }}>
+          <source src="/drone-forest.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <span className="ambient-blob" style={{ width: 600, height: 600, top: '20%', right: '-10%', background: 'radial-gradient(circle,rgba(74,100,44,0.15),transparent 70%)' }} />
 
