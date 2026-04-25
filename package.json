@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:deploy": "next build && node -e \"require('fs').rmSync('.next/cache',{recursive:true,force:true})\"",
+    "build:deploy": "next build",
     "start": "next start",
     "lint": "next lint"
   },

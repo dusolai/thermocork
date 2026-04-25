@@ -15,19 +15,11 @@ export default function Contact() {
     setLoading(true)
     const form = e.currentTarget
     const data = new FormData(form)
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(data)),
-      })
-      if (res.ok) { setSent(true); form.reset() }
-    } catch {
-      // fallback: open mailto
-      window.location.href = `mailto:info@thermocork.es?subject=Presupuesto&body=${encodeURIComponent(Array.from(data.entries()).map(([k,v]) => `${k}: ${v}`).join('\n'))}`
-    } finally {
-      setLoading(false)
-    }
+    const body = Array.from(data.entries()).map(([k, v]) => `${k}: ${v}`).join('\n')
+    window.location.href = `mailto:info@thermocork.es?subject=Presupuesto Thermocork&body=${encodeURIComponent(body)}`
+    setSent(true)
+    form.reset()
+    setLoading(false)
   }
 
   return (
