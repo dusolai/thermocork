@@ -42,10 +42,10 @@ export default function Process() {
         {/* Application video */}
         <AnimateIn delay={0.2}>
           <div className="mt-16 rounded-2xl overflow-hidden relative"
-            style={{ border: '1px solid var(--border)', boxShadow: '0 32px 80px rgba(0,0,0,0.5)' }}>
+            style={{ border: '1px solid var(--border)', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', aspectRatio: '16/9' }}>
             <video
               autoPlay muted loop playsInline
-              style={{ width: '100%', display: 'block', maxHeight: 520, objectFit: 'cover' }}>
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block', objectFit: 'cover' }}>
               <source src="/spray-cork.mp4" type="video/mp4" />
             </video>
             {/* Bottom label */}

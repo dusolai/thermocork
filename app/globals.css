@@ -306,13 +306,12 @@ html.lenis, html.lenis body {
 }
 
 /* Nav */
-nav {
+#navbar {
   transition: height 0.3s, background 0.3s;
 }
-
-nav.scrolled {
-  height: 60px !important;
-  background: rgba(10, 8, 6, 0.97) !important;
+#navbar.scrolled {
+  height: 56px !important;
+  background: rgba(10, 8, 6, 0.98) !important;
 }
 
 /* Spinning rings for hero visual */

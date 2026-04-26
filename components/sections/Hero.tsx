@@ -43,7 +43,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative flex items-center overflow-hidden z-[1]"
-      style={{ minHeight: '100vh', background: '#2C1E12' }}>
+      style={{ minHeight: '100svh', background: '#2C1E12' }}>
 
       {/* Video background */}
       <div ref={layerBgRef} className="hero-layer" style={{ zIndex: 0 }}>

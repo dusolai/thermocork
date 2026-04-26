@@ -7,11 +7,11 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const navLinks = [
-  { href: '#products', label: t.nav.products },
+  { href: '#products',     label: t.nav.products },
   { href: '#applications', label: t.nav.applications },
-  { href: '#ecological', label: t.nav.ecology },
-  { href: '#training', label: t.nav.training },
-  { href: '#contact', label: t.nav.contact },
+  { href: '#ecological',   label: t.nav.ecology },
+  { href: '#training',     label: t.nav.training },
+  { href: '#contact',      label: t.nav.contact },
 ]
 
 export default function Nav() {
@@ -29,26 +29,39 @@ export default function Nav() {
     })
   }, [])
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
+  const close = () => setOpen(false)
+
   return (
     <>
       <nav
         ref={navRef}
         id="navbar"
-        className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-8 lg:px-12"
+        className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between"
         style={{
-          height: '72px',
-          background: 'rgba(10,8,6,0.85)',
+          height: 68,
+          padding: '0 clamp(16px,4vw,48px)',
+          background: 'rgba(10,8,6,0.88)',
           backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
           borderBottom: '1px solid var(--border2)',
+          transition: 'height 0.3s, background 0.3s',
         }}
       >
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-3 no-underline group">
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg leading-none"
-            style={{ background: 'linear-gradient(135deg,var(--gold),var(--cork2))', color: 'var(--bg)', letterSpacing: '-1px' }}>
+        <a href="#hero" onClick={close} className="flex items-center gap-2.5 no-underline shrink-0">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm leading-none"
+            style={{ background: 'linear-gradient(135deg,var(--gold),var(--cork2))', color: 'var(--bg)' }}>
             TC
           </div>
-          <span className="text-lg font-bold tracking-widest text-gold-gradient">THERMOCORK</span>
+          <span className="font-bold tracking-widest text-gold-gradient" style={{ fontSize: 'clamp(13px,2.5vw,17px)' }}>
+            THERMOCORK
+          </span>
         </a>
 
         {/* Desktop links */}
@@ -67,47 +80,110 @@ export default function Nav() {
         </ul>
 
         {/* Right actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          {/* Language toggle */}
           <button onClick={toggle}
-            className="rounded-full text-xs font-bold tracking-widest transition-all duration-200 px-4 py-1.5"
-            style={{ background: 'var(--gold-dim)', border: '1px solid var(--border)', color: 'var(--gold)' }}
-            onMouseEnter={e => { (e.currentTarget.style.background = 'var(--gold)'); (e.currentTarget.style.color = 'var(--bg)') }}
-            onMouseLeave={e => { (e.currentTarget.style.background = 'var(--gold-dim)'); (e.currentTarget.style.color = 'var(--gold)') }}>
-            🌐 {lang === 'es' ? 'EN' : 'ES'}
+            className="rounded-full text-xs font-bold tracking-widest transition-all duration-200 shrink-0"
+            style={{
+              background: 'var(--gold-dim)', border: '1px solid var(--border)',
+              color: 'var(--gold)', padding: '6px 12px',
+            }}>
+            {lang === 'es' ? 'EN' : 'ES'}
           </button>
-          <a href="#contact" className="btn-primary hidden sm:inline-block !py-2.5 !px-5 !text-xs">
+
+          {/* Desktop CTA */}
+          <a href="#contact" className="btn-primary hidden lg:inline-block" style={{ padding: '10px 20px', fontSize: 12 }}>
             {tr(t.nav.quote)}
           </a>
-          {/* Mobile hamburger */}
-          <button className="lg:hidden flex flex-col gap-1.5 p-2" onClick={() => setOpen(!open)} aria-label="Menu">
-            <span className="w-6 h-0.5 block transition-all duration-300" style={{ background: 'var(--white)', transform: open ? 'rotate(45deg) translateY(8px)' : 'none' }} />
-            <span className="w-6 h-0.5 block transition-all duration-200" style={{ background: 'var(--white)', opacity: open ? 0 : 1 }} />
-            <span className="w-4 h-0.5 block transition-all duration-300" style={{ background: 'var(--white)', transform: open ? 'rotate(-45deg) translateY(-8px)' : 'none', width: open ? '24px' : '16px' }} />
+
+          {/* Hamburger — mobile only */}
+          <button
+            className="lg:hidden flex flex-col justify-center items-center gap-1.5 rounded-xl transition-all duration-200"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            style={{
+              width: 40, height: 40,
+              background: open ? 'var(--gold-dim)' : 'transparent',
+              border: '1px solid',
+              borderColor: open ? 'var(--border)' : 'transparent',
+            }}>
+            <span style={{
+              display: 'block', width: 20, height: 2, borderRadius: 2,
+              background: open ? 'var(--gold)' : 'var(--white)',
+              transform: open ? 'rotate(45deg) translateY(5.5px)' : 'none',
+              transition: 'transform 0.3s, background 0.3s',
+            }} />
+            <span style={{
+              display: 'block', width: 20, height: 2, borderRadius: 2,
+              background: 'var(--gold)',
+              opacity: open ? 0 : 1,
+              transform: open ? 'scaleX(0)' : 'none',
+              transition: 'opacity 0.2s, transform 0.2s',
+            }} />
+            <span style={{
+              display: 'block', width: 20, height: 2, borderRadius: 2,
+              background: open ? 'var(--gold)' : 'var(--white)',
+              transform: open ? 'rotate(-45deg) translateY(-5.5px)' : 'none',
+              transition: 'transform 0.3s, background 0.3s',
+            }} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile drawer */}
-      {open && (
-        <div className="fixed inset-0 z-[999] lg:hidden" onClick={() => setOpen(false)}>
-          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)' }} />
-          <nav className="absolute top-[72px] left-0 right-0 p-6 flex flex-col gap-4"
-            style={{ background: 'var(--bg2)', borderBottom: '1px solid var(--border2)' }}
-            onClick={e => e.stopPropagation()}>
-            {navLinks.map(link => (
-              <a key={link.href} href={link.href}
-                onClick={() => setOpen(false)}
-                className="text-sm font-medium tracking-widest uppercase py-2 no-underline"
-                style={{ color: 'var(--white2)', borderBottom: '1px solid var(--border2)' }}>
-                {tr(link.label)}
-              </a>
-            ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-center mt-2">
-              {tr(t.nav.quote)}
+      {/* ── Full-screen mobile menu ── */}
+      <div
+        className="lg:hidden fixed inset-0 z-[999] flex flex-col"
+        style={{
+          background: 'rgba(10,8,6,0.97)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          transform: open ? 'translateY(0)' : 'translateY(-100%)',
+          transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
+          paddingTop: 68,
+        }}
+      >
+        {/* Links */}
+        <nav className="flex flex-col flex-1 justify-center px-8 gap-1">
+          {navLinks.map((link, i) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={close}
+              className="no-underline flex items-center justify-between py-4 border-b"
+              style={{
+                borderColor: 'var(--border2)',
+                color: 'var(--white)',
+                fontSize: 'clamp(18px,5vw,24px)',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                transform: open ? 'translateX(0)' : 'translateX(-30px)',
+                opacity: open ? 1 : 0,
+                transition: `transform 0.4s ease ${0.05 * i + 0.15}s, opacity 0.4s ease ${0.05 * i + 0.15}s`,
+              }}
+            >
+              <span>{tr(link.label)}</span>
+              <span style={{ color: 'var(--gold)', fontSize: 18 }}>→</span>
             </a>
-          </nav>
+          ))}
+        </nav>
+
+        {/* Bottom CTA */}
+        <div className="px-8 pb-10 pt-6 flex flex-col gap-3"
+          style={{
+            borderTop: '1px solid var(--border2)',
+            opacity: open ? 1 : 0,
+            transform: open ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.4s ease 0.35s, transform 0.4s ease 0.35s',
+          }}>
+          <a href="#contact" onClick={close} className="btn-primary text-center w-full">
+            {tr(t.nav.quote)} →
+          </a>
+          <p className="text-center text-xs" style={{ color: 'var(--white3)' }}>
+            thermocork.es
+          </p>
         </div>
-      )}
+      </div>
     </>
   )
 }
