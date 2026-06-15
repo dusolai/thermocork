@@ -3,118 +3,132 @@
 import { useState } from 'react'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
-import AnimateIn from '@/components/ui/AnimateIn'
+import { CONTACT } from '@/lib/site'
+import Section from '@/components/ui/Section'
+import SectionHeading from '@/components/ui/SectionHeading'
+
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ''
 
 export default function Contact() {
   const { t: tr, lang } = useLang()
-  const [sent, setSent] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [state, setState] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setLoading(true)
     const form = e.currentTarget
     const data = new FormData(form)
-    const body = Array.from(data.entries()).map(([k, v]) => `${k}: ${v}`).join('\n')
-    window.location.href = `mailto:info@thermocork.es?subject=Presupuesto Thermocork&body=${encodeURIComponent(body)}`
-    setSent(true)
-    form.reset()
-    setLoading(false)
+
+    // No backend configured → graceful mailto fallback
+    if (!WEB3FORMS_KEY) {
+      const body = Array.from(data.entries())
+        .filter(([k]) => !k.startsWith('access_key') && !k.startsWith('botcheck'))
+        .map(([k, v]) => `${k}: ${v}`)
+        .join('\n')
+      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Presupuesto Thermocork')}&body=${encodeURIComponent(body)}`
+      setState('sent')
+      form.reset()
+      return
+    }
+
+    setState('loading')
+    try {
+      data.append('access_key', WEB3FORMS_KEY)
+      data.append('subject', 'Nuevo presupuesto · thermocork.es')
+      data.append('from_name', 'Web Thermocork')
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      const json = await res.json()
+      if (json.success) {
+        setState('sent')
+        form.reset()
+      } else setState('error')
+    } catch {
+      setState('error')
+    }
   }
 
   return (
-    <section id="contact" className="relative z-[1]" style={{ background: 'var(--bg)' }}>
-      <div className="max-w-6xl mx-auto" style={{ padding: '100px 48px' }}>
-        <AnimateIn>
-          <span className="section-tag">{tr(t.contact.tag)}</span>
-          <h2 className="font-extrabold leading-tight mb-8" style={{ fontSize: 'clamp(32px,4vw,52px)', letterSpacing: '-1px' }}>
-            <span style={{ color: 'var(--white)' }}>{tr(t.contact.title1)}</span><br />
-            <span className="text-gold-gradient">{tr(t.contact.title2)}</span>
-          </h2>
-        </AnimateIn>
+    <Section id="contact" tone="dark">
+      <SectionHeading
+        tag={tr(t.contact.tag)}
+        title={tr(t.contact.title1)}
+        accent={tr(t.contact.title2)}
+        className="mb-12"
+      />
 
-        <div className="grid gap-20 mt-4" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))' }}>
-          {/* Form */}
-          <AnimateIn delay={0.1}>
-            <div className="rounded-2xl p-10" style={{ background: 'var(--bg2)', border: '1px solid var(--border)' }}>
-              <h3 className="text-xl font-bold mb-6" style={{ color: 'var(--white)' }}>{tr(t.contact.formTitle)}</h3>
+      <div className="grid gap-12 lg:gap-16 lg:grid-cols-[1.2fr_1fr]">
+        {/* Form */}
+        <div className="card p-7 sm:p-9">
+          <h3 className="font-display text-xl font-semibold text-sand-100 mb-6">{tr(t.contact.formTitle)}</h3>
 
-              {sent ? (
-                <div className="text-center py-8">
-                  <div className="text-5xl mb-4">✅</div>
-                  <p className="font-bold" style={{ color: 'var(--gold)' }}>
-                    {lang === 'es' ? '¡Recibido! Te contactaremos en menos de 24h.' : 'Received! We\'ll contact you within 24h.'}
-                  </p>
+          {state === 'sent' ? (
+            <div className="text-center py-10">
+              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(201,160,69,0.15)', border: '1px solid var(--border)' }}>
+                <span className="text-gold-400 text-2xl">✓</span>
+              </div>
+              <p className="font-display text-lg font-semibold text-gold-400">{lang === 'es' ? '¡Recibido! Te contactaremos en menos de 24 h.' : 'Received! We will contact you within 24 h.'}</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="field-label">{tr(t.contact.fields.name)}</label>
+                  <input name="name" type="text" required className="field" placeholder={lang === 'es' ? 'Tu nombre' : 'Your name'} />
                 </div>
+                <div>
+                  <label className="field-label">{tr(t.contact.fields.phone)}</label>
+                  <input name="phone" type="tel" required className="field" placeholder="+34 600 000 000" />
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="field-label">{tr(t.contact.fields.type)}</label>
+                  <select name="type" className="field" style={{ appearance: 'none' }}>
+                    {t.contact.projectTypes[lang].map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="field-label">{tr(t.contact.fields.area)}</label>
+                  <input name="area" type="text" className="field" placeholder={lang === 'es' ? 'ej: 80 m²' : 'e.g. 80 m²'} />
+                </div>
+              </div>
+              <div>
+                <label className="field-label">{tr(t.contact.fields.message)}</label>
+                <textarea name="message" rows={4} className="field" placeholder={lang === 'es' ? 'Cuéntanos más sobre tu proyecto…' : 'Tell us more about your project…'} />
+              </div>
+              <button type="submit" disabled={state === 'loading'} className="btn btn-primary w-full disabled:opacity-70">
+                {state === 'loading' ? '…' : tr(t.contact.submit)}
+              </button>
+              {state === 'error' && <p className="text-sm text-red-400">{lang === 'es' ? 'No se pudo enviar. Inténtalo por WhatsApp.' : 'Could not send. Please try WhatsApp.'}</p>}
+            </form>
+          )}
+        </div>
+
+        {/* Info */}
+        <div className="flex flex-col gap-6">
+          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 rounded-2xl p-4 font-bold text-white no-underline transition-transform hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg,#25D366,#128C7E)' }}>
+            {tr(t.contact.whatsapp)}
+          </a>
+
+          {[
+            { title: { es: 'Teléfono', en: 'Phone' }, text: CONTACT.phone, href: `tel:${CONTACT.phoneIntl}` },
+            { title: { es: 'Email', en: 'Email' }, text: CONTACT.email, href: `mailto:${CONTACT.email}` },
+            { title: { es: 'Oficina central', en: 'Head office' }, text: tr(CONTACT.address) },
+            { title: { es: 'Horario', en: 'Hours' }, text: tr(CONTACT.hours) },
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col">
+              <span className="field-label">{tr(item.title)}</span>
+              {item.href ? (
+                <a href={item.href} className="text-[15px] text-sand-100 no-underline hover:text-gold-400 transition-colors">{item.text}</a>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--gold)' }}>{tr(t.contact.fields.name)}</label>
-                    <input name="name" type="text" required className="form-input" placeholder={lang === 'es' ? 'Tu nombre completo' : 'Your full name'} />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--gold)' }}>{tr(t.contact.fields.phone)}</label>
-                    <input name="phone" type="tel" required className="form-input" placeholder="+34 600 000 000" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--gold)' }}>{tr(t.contact.fields.type)}</label>
-                    <select name="type" className="form-input" style={{ appearance: 'none' }}>
-                      {t.contact.projectTypes[lang].map((opt, i) => <option key={i} value={opt}>{opt}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--gold)' }}>{tr(t.contact.fields.area)}</label>
-                    <input name="area" type="text" className="form-input" placeholder="ej: 80m²" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--gold)' }}>{tr(t.contact.fields.message)}</label>
-                    <textarea name="message" className="form-input" rows={3} placeholder={lang === 'es' ? 'Cuéntanos más sobre tu proyecto...' : 'Tell us more about your project...'} />
-                  </div>
-                  <button type="submit" disabled={loading}
-                    className="btn-primary w-full disabled:opacity-70 disabled:cursor-not-allowed">
-                    {loading ? '...' : tr(t.contact.submit)}
-                  </button>
-                </form>
+                <span className="text-[15px] text-sand-200 whitespace-pre-line">{item.text}</span>
               )}
             </div>
-          </AnimateIn>
-
-          {/* Info */}
-          <AnimateIn delay={0.2}>
-            <div className="flex flex-col gap-8">
-              <div>
-                <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--white)' }}>{tr(t.contact.directContact)}</h3>
-                <a href="https://wa.me/34646185803?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20Thermocork"
-                  target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full rounded-xl p-4 font-bold text-white transition-all duration-300"
-                  style={{ background: 'linear-gradient(135deg,#25D366,#128C7E)' }}
-                  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 12px 32px rgba(37,211,102,0.4)')}
-                  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}>
-                  <span className="text-2xl">💬</span> {tr(t.contact.whatsapp)}
-                </a>
-              </div>
-
-              {[
-                { icon: '📞', title: { es: 'Teléfono', en: 'Phone' }, text: t.contact.info.phone },
-                { icon: '✉️', title: { es: 'Email', en: 'Email' }, text: t.contact.info.email },
-                { icon: '📍', title: { es: 'Oficina Central', en: 'Head Office' }, text: tr(t.contact.info.address) },
-                { icon: '🕐', title: { es: 'Horario', en: 'Hours' }, text: tr(t.contact.info.hours) },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 items-start">
-                  <div className="w-12 h-12 min-w-[48px] rounded-xl flex items-center justify-center text-xl"
-                    style={{ background: 'var(--gold-dim)', border: '1px solid var(--border)' }}>
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold mb-1" style={{ color: 'var(--white)' }}>{tr(item.title)}</h4>
-                    <p className="text-sm whitespace-pre-line" style={{ color: 'var(--white2)' }}>{item.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
+          ))}
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

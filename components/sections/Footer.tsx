@@ -1,94 +1,80 @@
 'use client'
 
+import Link from 'next/link'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
+import { CONTACT } from '@/lib/site'
+import Logo from '@/components/ui/Logo'
+import Container from '@/components/ui/Container'
+
+const COLS = [
+  {
+    title: { es: 'Productos', en: 'Products' },
+    links: [
+      { href: '/productos', label: { es: 'Textura Fina · F01', en: 'Fine Texture · F01' } },
+      { href: '/productos', label: { es: 'Textura Gruesa · G01', en: 'Coarse Texture · G01' } },
+      { href: '/productos', label: { es: 'Impermeabilizante · TCI', en: 'Waterproofing · TCI' } },
+      { href: '/aplicaciones', label: { es: 'Aplicaciones', en: 'Applications' } },
+    ],
+  },
+  {
+    title: { es: 'Empresa', en: 'Company' },
+    links: [
+      { href: '/sobre-nosotros', label: { es: 'Sobre nosotros', en: 'About us' } },
+      { href: '/proyectos', label: { es: 'Proyectos', en: 'Projects' } },
+      { href: '/formacion', label: { es: 'Formación', en: 'Training' } },
+      { href: '/ayudas', label: { es: 'Ayudas y subvenciones', en: 'Grants & subsidies' } },
+    ],
+  },
+  {
+    title: { es: 'Legal', en: 'Legal' },
+    links: [
+      { href: '/legal/aviso-legal', label: { es: 'Aviso legal', en: 'Legal notice' } },
+      { href: '/legal/privacidad', label: { es: 'Privacidad', en: 'Privacy' } },
+      { href: '/legal/cookies', label: { es: 'Cookies', en: 'Cookies' } },
+    ],
+  },
+]
 
 export default function Footer() {
   const { t: tr } = useLang()
-
   return (
-    <footer style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border2)', padding: '60px 48px 32px' }}>
-      <div className="max-w-6xl mx-auto">
-        <div className="grid gap-12 mb-12" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))' }}>
+    <footer className="relative bg-ink-800 border-t" style={{ borderColor: 'var(--border-soft)' }}>
+      <Container className="py-16">
+        <div className="grid gap-12 lg:gap-8 lg:[grid-template-columns:minmax(240px,1.4fr)_repeat(3,minmax(0,1fr))]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-lg"
-                style={{ background: 'linear-gradient(135deg,var(--gold),var(--cork2))', color: 'var(--bg)' }}>TC</div>
-              <span className="text-xl font-bold tracking-widest text-gold-gradient">THERMOCORK</span>
+            <Logo variant="largo" height={32} />
+            <p className="mt-5 text-sm leading-relaxed text-sand-200 max-w-xs">{tr(t.footer.desc)}</p>
+            <div className="mt-6 flex flex-col gap-1.5 text-sm">
+              <a href={`tel:${CONTACT.phoneIntl}`} className="no-underline text-sand-200 hover:text-gold-400 transition-colors">{CONTACT.phone}</a>
+              <a href={`mailto:${CONTACT.email}`} className="no-underline text-sand-200 hover:text-gold-400 transition-colors">{CONTACT.email}</a>
+              <span className="whitespace-pre-line text-sand-300 text-[13px] mt-1">{tr(CONTACT.address)}</span>
             </div>
-            <p className="text-sm leading-relaxed max-w-[260px]" style={{ color: 'var(--white3)' }}>{tr(t.footer.desc)}</p>
           </div>
 
-          {/* Products */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--gold)' }}>{tr(t.footer.cols.products)}</h4>
-            <ul className="flex flex-col gap-2.5 list-none">
-              {['Thermocork F01', 'Thermocork G01', 'Thermocork TCI'].map(p => (
-                <li key={p}><a href="#products" className="text-sm no-underline transition-colors" style={{ color: 'var(--white3)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--white3)')}>{p}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--gold)' }}>{tr(t.footer.cols.company)}</h4>
-            <ul className="flex flex-col gap-2.5 list-none">
-              {[
-                { label: { es: 'Sobre nosotros', en: 'About us' }, href: '#about' },
-                { label: { es: 'Sostenibilidad', en: 'Sustainability' }, href: '#ecological' },
-                { label: { es: 'Formación', en: 'Training' }, href: '#training' },
-                { label: { es: 'Internacional', en: 'International' }, href: '#international' },
-              ].map((item, i) => (
-                <li key={i}><a href={item.href} className="text-sm no-underline transition-colors" style={{ color: 'var(--white3)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--white3)')}>{tr(item.label)}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--gold)' }}>{tr(t.footer.cols.legal)}</h4>
-            <ul className="flex flex-col gap-2.5 list-none">
-              {[
-                { label: { es: 'Política de privacidad', en: 'Privacy policy' } },
-                { label: { es: 'Aviso legal', en: 'Legal notice' } },
-                { label: { es: 'Cookies', en: 'Cookies' } },
-                { label: { es: 'Contacto', en: 'Contact' } },
-              ].map((item, i) => (
-                <li key={i}><a href="#" className="text-sm no-underline transition-colors" style={{ color: 'var(--white3)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--white3)')}>{tr(item.label)}</a></li>
-              ))}
-            </ul>
-          </div>
+          {/* Columns */}
+          {COLS.map((col, i) => (
+            <div key={i}>
+              <h4 className="font-display text-base font-semibold mb-4 text-sand-100">{tr(col.title)}</h4>
+              <ul className="list-none m-0 p-0 flex flex-col gap-2.5">
+                {col.links.map((l, j) => (
+                  <li key={j}>
+                    <Link href={l.href} className="no-underline text-sm text-sand-300 hover:text-gold-400 transition-colors">
+                      {tr(l.label)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-6" style={{ borderTop: '1px solid var(--border2)' }}>
-          <p className="text-xs" style={{ color: 'var(--white3)' }}>{tr(t.footer.copyright)}</p>
-          <div className="flex gap-3">
-            {[
-              { icon: '📸', href: 'https://www.instagram.com/thermocork/', title: 'Instagram' },
-              { icon: '👍', href: 'https://www.facebook.com/thermocork/', title: 'Facebook' },
-              { icon: '🎵', href: 'https://www.tiktok.com/@thermocork', title: 'TikTok' },
-              { icon: '💼', href: '#', title: 'LinkedIn' },
-              { icon: '▶️', href: '#', title: 'YouTube' },
-            ].map((s, i) => (
-              <a key={i} href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined}
-                rel="noopener noreferrer" title={s.title}
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-base no-underline transition-all duration-200"
-                style={{ background: 'var(--bg3)', border: '1px solid var(--border2)' }}
-                onMouseEnter={e => { (e.currentTarget.style.borderColor = 'var(--border)'); (e.currentTarget.style.transform = 'translateY(-2px)') }}
-                onMouseLeave={e => { (e.currentTarget.style.borderColor = 'var(--border2)'); (e.currentTarget.style.transform = 'translateY(0)') }}>
-                {s.icon}
-              </a>
-            ))}
-          </div>
+        <div className="mt-14 pt-6 border-t flex flex-col sm:flex-row gap-3 justify-between items-center" style={{ borderColor: 'var(--border-soft)' }}>
+          <p className="text-xs text-sand-300 m-0 text-center sm:text-left">{tr(t.footer.copyright)}</p>
+          <p className="text-xs text-gold-600 m-0 font-semibold tracking-[0.2em] uppercase">Natural Insulation System</p>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

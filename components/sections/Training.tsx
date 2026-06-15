@@ -2,63 +2,53 @@
 
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
-import AnimateIn from '@/components/ui/AnimateIn'
+import Section from '@/components/ui/Section'
+import SectionHeading from '@/components/ui/SectionHeading'
 import StaggerList from '@/components/ui/StaggerList'
+import AnimateIn from '@/components/ui/AnimateIn'
+import Stat from '@/components/ui/Stat'
+import Button from '@/components/ui/Button'
 
 export default function Training() {
   const { t: tr } = useLang()
-
   return (
-    <section id="training" className="relative z-[1]" style={{ background: 'var(--bg2)' }}>
-      <div className="max-w-6xl mx-auto" style={{ padding: '100px 48px' }}>
-        <AnimateIn>
-          <span className="section-tag">{tr(t.training.tag)}</span>
-          <h2 className="font-extrabold leading-tight mb-8" style={{ fontSize: 'clamp(32px,4vw,52px)', letterSpacing: '-1px' }}>
-            <span style={{ color: 'var(--white)' }}>{tr(t.training.title1)}</span><br />
-            <span className="text-gold-gradient">{tr(t.training.title2)}</span>
-          </h2>
-        </AnimateIn>
+    <>
+      <Section id="training" tone="dark">
+        <SectionHeading
+          tag={tr(t.training.tag)}
+          title={tr(t.training.title1)}
+          accent={tr(t.training.title2)}
+          className="mb-12"
+        />
+        <StaggerList className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {t.training.steps.map((step, i) => (
+            <div key={i} className="card p-7 h-full">
+              <div className="font-display text-4xl font-semibold text-gold-600 mb-4 leading-none">{String(i + 1).padStart(2, '0')}</div>
+              <h3 className="font-display text-lg font-semibold text-sand-100 mb-2">{tr(step.title)}</h3>
+              <p className="text-sm leading-relaxed text-sand-300">{tr(step.desc)}</p>
+            </div>
+          ))}
+        </StaggerList>
+      </Section>
 
-        <div className="grid gap-16 mt-4" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))' }}>
-          {/* Steps */}
-          <StaggerList className="flex flex-col gap-5">
-            {t.training.steps.map((step, i) => (
-              <div key={i} className="flex gap-5 rounded-2xl p-6 transition-all duration-300"
-                style={{ background: 'var(--bg3)', border: '1px solid var(--border2)' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--border)')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border2)')}>
-                <div className="w-11 h-11 min-w-[44px] rounded-full flex items-center justify-center font-black text-lg"
-                  style={{ background: 'linear-gradient(135deg,var(--gold),var(--cork2))', color: 'var(--bg)' }}>
-                  {i + 1}
+      <Section tone="cream">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          <AnimateIn>
+            <h2 className="font-display font-semibold tracking-tightest text-sand-900" style={{ fontSize: 'clamp(26px,3.4vw,40px)', lineHeight: 1.12 }}>{tr(t.training.promoTitle)}</h2>
+            <p className="mt-5 text-[16px] leading-relaxed text-sand-700">{tr(t.training.promoDesc)}</p>
+            <div className="mt-8"><Button href="/contacto" variant="primary">{tr(t.training.cta)} →</Button></div>
+          </AnimateIn>
+          <AnimateIn delay={0.1}>
+            <div className="grid grid-cols-2 gap-px rounded-3xl overflow-hidden" style={{ background: 'rgba(26,22,17,0.08)' }}>
+              {t.training.stats.map((s, i) => (
+                <div key={i} className="bg-cream-50 p-8 flex flex-col items-center text-center text-sand-900">
+                  <Stat value={s.num} label={tr(s.label)} className="flex flex-col items-center" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold mb-1" style={{ color: 'var(--white)' }}>{tr(step.title)}</h4>
-                  <p className="text-xs leading-relaxed" style={{ color: 'var(--white3)' }}>{tr(step.desc)}</p>
-                </div>
-              </div>
-            ))}
-          </StaggerList>
-
-          {/* Promo card */}
-          <AnimateIn delay={0.15}>
-            <div className="rounded-2xl p-10 text-center" style={{ background: 'linear-gradient(135deg,var(--bg3),var(--bg4))', border: '1px solid var(--border)' }}>
-              <h3 className="text-xl font-bold text-gold-gradient mb-4">{tr(t.training.promoTitle)}</h3>
-              <p className="text-sm leading-relaxed mb-8" style={{ color: 'var(--white2)' }}>{tr(t.training.promoDesc)}</p>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {t.training.stats.map((stat, i) => (
-                  <div key={i} className="rounded-xl p-4 text-center" style={{ background: 'var(--bg)' }}>
-                    <div className="font-extrabold" style={{ fontSize: 28, color: 'var(--gold)' }}>{stat.num}</div>
-                    <div className="text-xs uppercase tracking-wide mt-1" style={{ color: 'var(--white3)' }}>{tr(stat.label)}</div>
-                  </div>
-                ))}
-              </div>
-
-              <a href="#contact" className="btn-primary">{tr(t.training.cta)}</a>
+              ))}
             </div>
           </AnimateIn>
         </div>
-      </div>
-    </section>
+      </Section>
+    </>
   )
 }

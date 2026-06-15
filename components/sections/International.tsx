@@ -2,40 +2,30 @@
 
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
-import AnimateIn from '@/components/ui/AnimateIn'
+import Section from '@/components/ui/Section'
+import SectionHeading from '@/components/ui/SectionHeading'
 import StaggerList from '@/components/ui/StaggerList'
 
 export default function International() {
   const { t: tr } = useLang()
-
   return (
-    <section id="international" className="relative z-[1]" style={{ background: 'var(--bg2)' }}>
-      <div className="max-w-6xl mx-auto" style={{ padding: '100px 48px' }}>
-        <AnimateIn>
-          <span className="section-tag">{tr(t.international.tag)}</span>
-          <h2 className="font-extrabold leading-tight mb-4" style={{ fontSize: 'clamp(32px,4vw,52px)', letterSpacing: '-1px' }}>
-            <span style={{ color: 'var(--white)' }}>{tr(t.international.title1)}</span><br />
-            <span className="text-gold-gradient">{tr(t.international.title2)}</span>
-          </h2>
-          <p className="max-w-xl leading-relaxed" style={{ fontSize: 17, color: 'var(--white2)' }}>{tr(t.international.sub)}</p>
-        </AnimateIn>
-
-        <StaggerList className="grid gap-4 mt-12" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(190px,1fr))' } as React.CSSProperties}>
-          {t.international.countries.map((c, i) => (
-            <div key={i}
-              className="flex items-center gap-3.5 rounded-xl p-5 transition-all duration-300 cursor-default"
-              style={{ background: 'var(--bg3)', border: '1px solid var(--border2)' }}
-              onMouseEnter={e => { (e.currentTarget.style.borderColor = 'var(--border)'); (e.currentTarget.style.transform = 'translateX(4px)') }}
-              onMouseLeave={e => { (e.currentTarget.style.borderColor = 'var(--border2)'); (e.currentTarget.style.transform = 'translateX(0)') }}>
-              <span className="text-3xl">{c.flag}</span>
-              <div>
-                <strong className="block text-sm font-bold" style={{ color: 'var(--white)' }}>{tr(c.name)}</strong>
-                <span className="text-xs" style={{ color: 'var(--white3)' }}>{tr(c.desc)}</span>
-              </div>
-            </div>
-          ))}
-        </StaggerList>
-      </div>
-    </section>
+    <Section id="international" tone="darker">
+      <SectionHeading
+        tag={tr(t.international.tag)}
+        title={tr(t.international.title1)}
+        accent={tr(t.international.title2)}
+        sub={tr(t.international.sub)}
+        className="mb-12"
+      />
+      <StaggerList className="grid gap-px rounded-3xl overflow-hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ background: 'var(--border-soft)' }}>
+        {t.international.countries.map((c, i) => (
+          <div key={i} className="bg-ink-800 p-6 flex flex-col items-center text-center transition-colors duration-300 hover:bg-ink-700">
+            <span className="text-3xl mb-3" aria-hidden>{c.flag}</span>
+            <div className="font-display font-semibold text-sand-100">{tr(c.name)}</div>
+            <div className="text-[12px] text-sand-300 mt-1">{tr(c.desc)}</div>
+          </div>
+        ))}
+      </StaggerList>
+    </Section>
   )
 }

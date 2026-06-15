@@ -1,103 +1,84 @@
-# THERMOCORK — Premium Web Application
+# THERMOCORK — Sitio web premium
 
-Next.js 14 + TypeScript + Tailwind CSS + GSAP + Lenis + Framer Motion
+Sitio multipágina de alto standing para THERMOCORK (aislamiento de corcho natural proyectado), construido con identidad de marca real y fotografía/vídeo de obras reales.
 
-## Tech Stack
+## Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS + Custom CSS Variables
-- **Animations**: GSAP 3 + ScrollTrigger (parallax, scroll reveals, count-up)
-- **Smooth Scroll**: Lenis
-- **Component Animations**: Framer Motion (tab transitions, stagger reveals)
-- **Images**: Pollinations.ai (AI-generated, no API key required)
-- **Bilingual**: ES / EN via React context
+- **Next.js 14** (App Router, `output: 'export'` → sitio 100% estático)
+- **TypeScript** + **Tailwind CSS** con design tokens de marca
+- **GSAP + ScrollTrigger** (parallax y reveals), **Lenis** (scroll suave), **Framer Motion** (transiciones)
+- Tipografía editorial: **Fraunces** (display serif) + **Inter** (sans) + **JetBrains Mono** (datos técnicos)
+- Bilingüe **ES / EN** con persistencia en `localStorage`
 
-## Features
-
-- ✅ Multi-layer parallax hero (3 depth layers)
-- ✅ Lenis smooth scrolling
-- ✅ Scroll-triggered animations (reveals, staggers, count-up)
-- ✅ Sticky nav with scroll progress bar
-- ✅ Floating side CTA
-- ✅ Custom cursor trail (desktop)
-- ✅ Film grain overlay
-- ✅ Ambient glowing blobs
-- ✅ AI-generated imagery (Pollinations.ai)
-- ✅ Fully bilingual ES/EN
-- ✅ Contact form with API route
-- ✅ WhatsApp float button
-- ✅ Fully responsive
-- ✅ SEO optimized (OpenGraph, meta tags)
-
-## Quick Start
-
-```bash
-npm install
-npm run dev
-# → http://localhost:3000
-```
-
-## Deploy to Vercel (recommended)
-
-1. Push this repo to GitHub
-2. Go to [vercel.com](https://vercel.com) → Import project
-3. Select repo → Deploy (zero config needed)
-
-## Deploy to Netlify
-
-```bash
-npm run build
-# Deploy the .next folder or connect via GitHub
-```
-
-## Environment Variables (optional)
-
-Create `.env.local` for email integration:
-
-```env
-RESEND_API_KEY=re_xxxx         # For Resend email service
-SENDGRID_API_KEY=SG.xxxx       # Alternative: SendGrid
-```
-
-The contact form works without these — it logs to console and shows success to the user. Add an email provider in `app/api/contact/route.ts` to receive real email notifications.
-
-## Adding email notifications
-
-In `app/api/contact/route.ts`, uncomment and configure:
-
-```ts
-import { Resend } from 'resend'
-const resend = new Resend(process.env.RESEND_API_KEY)
-await resend.emails.send({
-  from: 'web@thermocork.es',
-  to: 'info@thermocork.es',
-  subject: `Nuevo presupuesto de ${name}`,
-  text: `Nombre: ${name}\nTeléfono: ${phone}\nTipo: ${type}\nSuperficie: ${area}\nMensaje: ${message}`,
-})
-```
-
-Install: `npm install resend`
-
-## Project Structure
+## Arquitectura
 
 ```
 app/
-├── layout.tsx          Root layout, fonts, meta
-├── page.tsx            Main page (assembles all sections)
-├── globals.css         CSS variables, animations, global styles
-└── api/contact/        Contact form API route
+├── layout.tsx              Fuentes, metadata, JSON-LD, shell
+├── page.tsx                Home
+├── productos/              Gama F01 · G01 · TCI + propiedades + datos técnicos
+├── aplicaciones/           Sectores (tabs + grid)
+├── proyectos/              Índice de casos de estudio
+│   └── [slug]/             Caso de estudio (foto + vídeo + métricas)
+├── sobre-nosotros/         Empresa, ecología, presencia internacional
+├── formacion/              Red de aplicadores certificados
+├── ayudas/                 Subvenciones + calculadora de ahorro
+├── contacto/               Formulario real + datos
+├── legal/                  Aviso legal · Privacidad · Cookies
+├── sitemap.ts / robots.ts  SEO técnico
 
 components/
-├── Nav.tsx             Sticky navigation with mobile drawer
-├── FloatingElements.tsx Grain, progress bar, side CTA, WhatsApp, cursor
-├── providers/
-│   └── SmoothScroll.tsx Lenis + GSAP initialization
-├── ui/
-│   ├── AnimateIn.tsx   Single element fade-in on scroll
-│   └── StaggerList.tsx Children stagger-in on scroll
-└── sections/           One component per page section
+├── ui/                     Primitivas: Container, Section, SectionHeading,
+│                           Button, Card, Icon (iconos oficiales), Stat, Logo, AnimateIn, StaggerList
+├── sections/               Una sección por bloque (reutilizadas entre páginas)
+├── Nav.tsx · JsonLd.tsx · FloatingElements.tsx
 
-lib/i18n.ts             All text strings (ES + EN)
-hooks/useLang.tsx       Language context + toggle
+lib/
+├── i18n.ts                 Textos ES/EN de las secciones base
+├── site.ts                 Navegación, propiedades, FAQ, contacto, imágenes por sector
+├── projects.ts             Datos de los 5 casos de estudio reales
+├── legal.ts                Textos legales
+└── asset.ts                Helper de rutas (soporta basePath)
+
+public/
+├── brand/                  Logos e iconos oficiales THERMOCORK
+├── img/                    Fotografía real de obra (WebP optimizado)
+└── video/                  Vídeos reales de proyecto (MP4 + póster)
 ```
+
+## Assets reales
+
+Toda la imaginería procede de los assets oficiales de marca y de obras reales
+(curados y optimizados: ~24 MB en total). Sin imágenes de stock ni IA genérica, sin emojis.
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # genera el sitio estático en out/
+```
+
+## Configuración (variables de entorno)
+
+Crea `.env.local`:
+
+```env
+# Formulario de contacto (Web3Forms — gratis, sin backend). Sin esta clave,
+# el formulario hace fallback a un email mailto automáticamente.
+NEXT_PUBLIC_WEB3FORMS_KEY=tu_access_key
+
+# Solo si se despliega como "project site" en GitHub Pages (p. ej. /thermocork).
+# Déjalo vacío para dominio propio (thermocork.es) o Vercel.
+NEXT_PUBLIC_BASE_PATH=
+```
+
+## Despliegue
+
+- **Dominio propio / Vercel:** sin configuración. `npm run build` y publica `out/`.
+- **GitHub Pages (project site):** define `NEXT_PUBLIC_BASE_PATH=/nombre-repo` antes del build.
+
+## Pendiente de aportar por el cliente
+
+- Clave de Web3Forms (o EmailJS) para recibir los leads del formulario.
+- Datos registrales reales (CIF, razón social) para las páginas legales.

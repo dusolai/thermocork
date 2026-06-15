@@ -1,187 +1,138 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-const navLinks = [
-  { href: '#products',     label: t.nav.products },
-  { href: '#applications', label: t.nav.applications },
-  { href: '#ecological',   label: t.nav.ecology },
-  { href: '#training',     label: t.nav.training },
-  { href: '#contact',      label: t.nav.contact },
-]
+import { NAV } from '@/lib/site'
+import Logo from '@/components/ui/Logo'
+import clsx from 'clsx'
 
 export default function Nav() {
   const { lang, toggle, t: tr } = useLang()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const navRef = useRef<HTMLElement>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const nav = navRef.current
-    if (!nav) return
-    ScrollTrigger.create({
-      start: 50, end: 99999,
-      onToggle: (self) => nav.classList.toggle('scrolled', self.isActive),
-    })
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  // Close drawer on route change
+  useEffect(() => { setOpen(false) }, [pathname])
+
   const close = () => setOpen(false)
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
     <>
       <nav
         ref={navRef}
         id="navbar"
-        className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between"
+        className={clsx(
+          'fixed top-0 left-0 right-0 z-[100] flex items-center justify-between transition-all duration-300',
+          'border-b',
+        )}
         style={{
-          height: 68,
-          padding: '0 clamp(16px,4vw,48px)',
-          background: 'rgba(10,8,6,0.88)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid var(--border2)',
-          transition: 'height 0.3s, background 0.3s',
+          height: scrolled ? 60 : 76,
+          padding: '0 clamp(16px,4vw,40px)',
+          background: scrolled ? 'rgba(10,8,6,0.96)' : 'rgba(10,8,6,0.55)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+          borderColor: scrolled ? 'var(--border-soft)' : 'transparent',
         }}
       >
-        {/* Logo */}
-        <a href="#hero" onClick={close} className="flex items-center gap-2.5 no-underline shrink-0">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm leading-none"
-            style={{ background: 'linear-gradient(135deg,var(--gold),var(--cork2))', color: 'var(--bg)' }}>
-            TC
-          </div>
-          <span className="font-bold tracking-widest text-gold-gradient" style={{ fontSize: 'clamp(13px,2.5vw,17px)' }}>
-            THERMOCORK
-          </span>
-        </a>
+        <Logo variant="largo" height={scrolled ? 26 : 30} onClick={close} />
 
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-8 list-none">
-          {navLinks.map(link => (
+        <ul className="hidden lg:flex items-center gap-7 list-none m-0">
+          {NAV.map((link) => (
             <li key={link.href}>
-              <a href={link.href}
-                className="no-underline text-xs font-medium tracking-widest uppercase transition-colors duration-200"
-                style={{ color: 'var(--white3)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'var(--white3)')}>
+              <Link
+                href={link.href}
+                className={clsx(
+                  'no-underline text-[12px] font-medium tracking-[0.14em] uppercase transition-colors duration-200',
+                  isActive(link.href) ? 'text-gold-400' : 'text-sand-300 hover:text-gold-400',
+                )}
+              >
                 {tr(link.label)}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-2">
-          {/* Language toggle */}
-          <button onClick={toggle}
-            className="rounded-full text-xs font-bold tracking-widest transition-all duration-200 shrink-0"
-            style={{
-              background: 'var(--gold-dim)', border: '1px solid var(--border)',
-              color: 'var(--gold)', padding: '6px 12px',
-            }}>
+        <div className="flex items-center gap-2.5">
+          <button
+            onClick={toggle}
+            className="rounded-full text-[11px] font-bold tracking-[0.14em] transition-all duration-200 shrink-0 text-gold-400"
+            style={{ background: 'var(--border-soft)', border: '1px solid var(--border)', padding: '6px 12px' }}
+            aria-label="Toggle language"
+          >
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
 
-          {/* Desktop CTA */}
-          <a href="#contact" className="btn-primary hidden lg:inline-block" style={{ padding: '10px 20px', fontSize: 12 }}>
+          <Link href="/contacto" className="btn btn-primary hidden lg:inline-flex" style={{ padding: '9px 20px', fontSize: 12 }}>
             {tr(t.nav.quote)}
-          </a>
+          </Link>
 
-          {/* Hamburger — mobile only */}
+          {/* Hamburger */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center gap-1.5 rounded-xl transition-all duration-200"
+            className="lg:hidden flex flex-col justify-center items-center gap-[5px] rounded-xl"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            style={{
-              width: 40, height: 40,
-              background: open ? 'var(--gold-dim)' : 'transparent',
-              border: '1px solid',
-              borderColor: open ? 'var(--border)' : 'transparent',
-            }}>
-            <span style={{
-              display: 'block', width: 20, height: 2, borderRadius: 2,
-              background: open ? 'var(--gold)' : 'var(--white)',
-              transform: open ? 'rotate(45deg) translateY(5.5px)' : 'none',
-              transition: 'transform 0.3s, background 0.3s',
-            }} />
-            <span style={{
-              display: 'block', width: 20, height: 2, borderRadius: 2,
-              background: 'var(--gold)',
-              opacity: open ? 0 : 1,
-              transform: open ? 'scaleX(0)' : 'none',
-              transition: 'opacity 0.2s, transform 0.2s',
-            }} />
-            <span style={{
-              display: 'block', width: 20, height: 2, borderRadius: 2,
-              background: open ? 'var(--gold)' : 'var(--white)',
-              transform: open ? 'rotate(-45deg) translateY(-5.5px)' : 'none',
-              transition: 'transform 0.3s, background 0.3s',
-            }} />
+            aria-expanded={open}
+            style={{ width: 42, height: 42, background: open ? 'var(--border-soft)' : 'transparent', border: '1px solid', borderColor: open ? 'var(--border)' : 'transparent' }}
+          >
+            <span style={{ display: 'block', width: 20, height: 2, borderRadius: 2, background: open ? 'var(--gold-400)' : 'var(--sand-100)', transform: open ? 'rotate(45deg) translateY(7px)' : 'none', transition: 'transform 0.3s, background 0.3s' }} />
+            <span style={{ display: 'block', width: 20, height: 2, borderRadius: 2, background: 'var(--gold-400)', opacity: open ? 0 : 1, transition: 'opacity 0.2s' }} />
+            <span style={{ display: 'block', width: 20, height: 2, borderRadius: 2, background: open ? 'var(--gold-400)' : 'var(--sand-100)', transform: open ? 'rotate(-45deg) translateY(-7px)' : 'none', transition: 'transform 0.3s, background 0.3s' }} />
           </button>
         </div>
       </nav>
 
-      {/* ── Full-screen mobile menu ── */}
+      {/* Mobile drawer */}
       <div
-        className="lg:hidden fixed inset-0 z-[999] flex flex-col"
+        className="lg:hidden fixed inset-0 z-[99] flex flex-col"
         style={{
-          background: 'rgba(10,8,6,0.97)',
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
+          background: 'rgba(10,8,6,0.98)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
           transform: open ? 'translateY(0)' : 'translateY(-100%)',
-          transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
-          paddingTop: 68,
+          transition: 'transform 0.45s cubic-bezier(0.4,0,0.2,1)', paddingTop: 76,
         }}
       >
-        {/* Links */}
         <nav className="flex flex-col flex-1 justify-center px-8 gap-1">
-          {navLinks.map((link, i) => (
-            <a
+          {NAV.map((link, i) => (
+            <Link
               key={link.href}
               href={link.href}
               onClick={close}
               className="no-underline flex items-center justify-between py-4 border-b"
               style={{
-                borderColor: 'var(--border2)',
-                color: 'var(--white)',
-                fontSize: 'clamp(18px,5vw,24px)',
-                fontWeight: 700,
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-                transform: open ? 'translateX(0)' : 'translateX(-30px)',
-                opacity: open ? 1 : 0,
+                borderColor: 'var(--border-soft)', color: isActive(link.href) ? 'var(--gold-400)' : 'var(--sand-100)',
+                fontFamily: 'var(--font-display)', fontSize: 'clamp(22px,6vw,28px)', fontWeight: 600,
+                transform: open ? 'translateX(0)' : 'translateX(-24px)', opacity: open ? 1 : 0,
                 transition: `transform 0.4s ease ${0.05 * i + 0.15}s, opacity 0.4s ease ${0.05 * i + 0.15}s`,
               }}
             >
               <span>{tr(link.label)}</span>
-              <span style={{ color: 'var(--gold)', fontSize: 18 }}>→</span>
-            </a>
+              <span style={{ color: 'var(--gold-600)', fontSize: 18 }}>→</span>
+            </Link>
           ))}
         </nav>
-
-        {/* Bottom CTA */}
-        <div className="px-8 pb-10 pt-6 flex flex-col gap-3"
-          style={{
-            borderTop: '1px solid var(--border2)',
-            opacity: open ? 1 : 0,
-            transform: open ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 0.4s ease 0.35s, transform 0.4s ease 0.35s',
-          }}>
-          <a href="#contact" onClick={close} className="btn-primary text-center w-full">
+        <div className="px-8 pb-10 pt-6 flex flex-col gap-3" style={{ borderTop: '1px solid var(--border-soft)' }}>
+          <Link href="/contacto" onClick={close} className="btn btn-primary w-full">
             {tr(t.nav.quote)} →
-          </a>
-          <p className="text-center text-xs" style={{ color: 'var(--white3)' }}>
-            thermocork.es
-          </p>
+          </Link>
+          <p className="text-center text-xs text-sand-300 m-0">thermocork.es</p>
         </div>
       </div>
     </>

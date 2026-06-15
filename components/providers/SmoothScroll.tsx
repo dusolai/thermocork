@@ -51,14 +51,13 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         })
       }
 
-      // Side CTA
+      // Side CTA — appears after scrolling past the first viewport (works on every page)
       const sideCta = document.getElementById('sideCta')
       if (sideCta) {
         ScrollTrigger.create({
-          trigger: '#hero',
-          start: 'bottom top',
-          onEnter: () => sideCta.classList.add('visible'),
-          onLeaveBack: () => sideCta.classList.remove('visible'),
+          start: 'top -600',
+          end: 99999,
+          onToggle: (self) => sideCta.classList.toggle('visible', self.isActive),
         })
       }
 
