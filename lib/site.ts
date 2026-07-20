@@ -18,7 +18,6 @@ export const NAV: { href: string; label: Bi }[] = [
   { href: '/proyectos', label: { es: 'Proyectos', en: 'Projects' } },
   { href: '/sobre-nosotros', label: { es: 'Empresa', en: 'Company' } },
   { href: '/formacion', label: { es: 'Formación', en: 'Training' } },
-  { href: '/ayudas', label: { es: 'Ayudas', en: 'Grants' } },
 ]
 
 // The 12 official product properties, each tied to a real brand icon.
@@ -32,8 +31,8 @@ export const PROPERTIES: { icon: IconName; name: Bi; desc: Bi }[] = [
   { icon: 'ecologic', name: { es: 'Ecológico', en: 'Ecological' }, desc: { es: 'Renovable, base acuosa, huella de carbono negativa.', en: 'Renewable, water-based, negative carbon footprint.' } },
   { icon: 'non-toxic', name: { es: 'No tóxico', en: 'Non-toxic' }, desc: { es: 'Sin disolventes ni compuestos orgánicos volátiles.', en: 'Solvent-free, no volatile organic compounds.' } },
   { icon: 'conductivity', name: { es: 'Baja conductividad', en: 'Low conductivity' }, desc: { es: 'Coeficiente de conductividad térmica muy reducido.', en: 'Very low thermal conductivity coefficient.' } },
-  { icon: 'fast', name: { es: 'Aplicación rápida', en: 'Fast application' }, desc: { es: 'Hasta 500 m² al día, listo en 24-48 h.', en: 'Up to 500 m² per day, ready in 24-48 h.' } },
-  { icon: 'decorative', name: { es: 'Decorativo', en: 'Decorative' }, desc: { es: '20 colores y 2 texturas, fabricación RAL/NCS a medida.', en: '20 colours and 2 textures, custom RAL/NCS manufacturing.' } },
+  { icon: 'fast', name: { es: 'Aplicación rápida', en: 'Fast application' }, desc: { es: 'Hasta 500 m² al día, seco en un mínimo de 48 h.', en: 'Up to 500 m² per day, cured in a minimum of 48 h.' } },
+  { icon: 'decorative', name: { es: 'Decorativo', en: 'Decorative' }, desc: { es: 'Miles de colores y 2 texturas, fabricación RAL/NCS a medida.', en: 'Thousands of colours and 2 textures, custom RAL/NCS manufacturing.' } },
   { icon: 'versatile', name: { es: 'Versátil', en: 'Versatile' }, desc: { es: 'Adhiere sobre ladrillo, hormigón, madera, metal y curvas.', en: 'Adheres to brick, concrete, wood, metal and curves.' } },
 ]
 
@@ -49,26 +48,22 @@ export const APP_IMAGES: Record<string, string> = {
 export const FAQ: { q: Bi; a: Bi }[] = [
   {
     q: { es: '¿Hay que hacer obra o retirar el revestimiento existente?', en: 'Do you need building works or to remove the existing finish?' },
-    a: { es: 'No. Thermocork se proyecta directamente sobre el soporte existente (ladrillo, hormigón, madera, metal). Sin escombros, sin polvo y sin interrumpir tu vida cotidiana.', en: 'No. Thermocork is sprayed directly onto the existing substrate (brick, concrete, wood, metal). No debris, no dust and no disruption to your daily life.' },
+    a: { es: 'No. Thermocork se proyecta directamente sobre el soporte existente (ladrillo, hormigón, madera, metal), sin escombros, sin polvo y sin interrumpir tu vida cotidiana. La única excepción son los trabajos de mantenimiento de la propia fachada: si en el futuro hay que intervenir sobre el soporte, sí sería necesario retirar el revestimiento en la zona afectada.', en: 'No. Thermocork is sprayed directly onto the existing substrate (brick, concrete, wood, metal), with no debris, no dust and no disruption to your daily life. The only exception is maintenance work on the facade itself: if the substrate needs to be accessed in the future, the coating would have to be removed in the affected area.' },
   },
   {
     q: { es: '¿Cuánto dura la aplicación?', en: 'How long does the application take?' },
-    a: { es: 'La mayoría de proyectos estándar se completan en un solo día. El equipo cubre hasta 500 m² diarios y el producto está seco y funcional en 24-48 horas.', en: 'Most standard projects are completed in a single day. The team covers up to 500 m² per day and the product is dry and functional within 24-48 hours.' },
+    a: { es: 'La mayoría de proyectos estándar se completan en un solo día. El equipo cubre hasta 500 m² diarios y el producto está seco y funcional en un mínimo de 48 horas.', en: 'Most standard projects are completed in a single day. The team covers up to 500 m² per day and the product is dry and functional within a minimum of 48 hours.' },
   },
   {
     q: { es: '¿Es realmente impermeable?', en: 'Is it really waterproof?' },
-    a: { es: 'Sí. El producto TCI crea una membrana continua, elástica y sin juntas que elimina goteras de forma definitiva, incluso en climas extremos como el atlántico.', en: 'Yes. The TCI product creates a continuous, elastic, jointless membrane that permanently eliminates leaks, even in extreme climates such as the Atlantic.' },
+    a: { es: 'Depende del producto y de la superficie. La gama base (natural y blanca) es impermeable al agua en superficies verticales e inclinadas, ideal para fachadas y tejados con pendiente. Para superficies planas o con posible acumulación de agua —cubiertas y terrazas transitables— utilizamos las formulaciones TCI y Techo Frío, totalmente impermeables: crean una membrana continua, elástica y sin juntas que elimina goteras de forma definitiva, incluso en climas extremos como el atlántico.', en: 'It depends on the product and the surface. The base range (natural and white) is waterproof on vertical and sloped surfaces, ideal for facades and pitched roofs. For flat surfaces or areas where water can pool —flat roofs and walkable terraces— we use the TCI and Techo Frío formulations, which are fully waterproof: they create a continuous, elastic, jointless membrane that permanently eliminates leaks, even in extreme climates such as the Atlantic.' },
   },
   {
     q: { es: '¿Qué garantía tiene?', en: 'What warranty does it carry?' },
     a: { es: 'Las aplicaciones realizadas por aplicadores certificados cuentan con 10 años de garantía oficial, y el producto mantiene sus prestaciones más de 25 años sin mantenimiento.', en: 'Applications by certified applicators carry a 10-year official warranty, and the product retains its performance for over 25 years with no maintenance.' },
   },
   {
-    q: { es: '¿Es subvencionable?', en: 'Is it eligible for grants?' },
-    a: { es: 'En la mayoría de los casos, sí. Como solución certificada de aislamiento ecológico es elegible para los fondos Next Generation, el PREE y deducciones de IRPF de hasta el 60%.', en: 'In most cases, yes. As a certified ecological insulation solution it is eligible for Next Generation funds, the PREE programme and income-tax deductions of up to 60%.' },
-  },
-  {
     q: { es: '¿Puedo elegir el color y el acabado?', en: 'Can I choose the colour and finish?' },
-    a: { es: 'Sí. Thermocork está disponible en 20 colores y 2 texturas (fina y gruesa), con posibilidad de fabricación a medida en cartas RAL y NCS.', en: 'Yes. Thermocork is available in 20 colours and 2 textures (fine and coarse), with custom manufacturing in RAL and NCS colour charts.' },
+    a: { es: 'Sí. Thermocork está disponible en miles de colores y 2 texturas (fina y gruesa), con fabricación a medida en cartas RAL y NCS.', en: 'Yes. Thermocork is available in thousands of colours and 2 textures (fine and coarse), with custom manufacturing in RAL and NCS colour charts.' },
   },
 ]

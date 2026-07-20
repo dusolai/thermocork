@@ -25,7 +25,7 @@ export default function ProductDetails() {
       <Section tone="cream">
         <SectionHeading
           tag={tr({ es: 'Acabados y color', en: 'Finishes & colour' })}
-          title={tr({ es: 'Dos texturas, veinte colores,', en: 'Two textures, twenty colours,' })}
+          title={tr({ es: 'Dos texturas, miles de colores,', en: 'Two textures, thousands of colours,' })}
           accent={tr({ es: 'infinitas posibilidades.', en: 'endless possibilities.' })}
           sub={tr({ es: 'Elige entre acabado fino o grueso y personaliza el color con cartas RAL y NCS a medida.', en: 'Choose between a fine or coarse finish and customise the colour with bespoke RAL and NCS charts.' })}
           className="mb-12"
@@ -34,7 +34,7 @@ export default function ProductDetails() {
           {[
             { img: '/img/cork-wall.webp', t: { es: 'Textura fina · F01', en: 'Fine texture · F01' } },
             { img: '/img/facade-louvers.webp', t: { es: 'Textura gruesa · G01', en: 'Coarse texture · G01' } },
-            { img: '/img/info/colores.webp', t: { es: '20 colores RAL/NCS', en: '20 RAL/NCS colours' } },
+            { img: '/img/info/colores.webp', t: { es: 'Miles de colores RAL/NCS', en: 'Thousands of RAL/NCS colours' } },
           ].map((f, i) => (
             <AnimateIn key={i} delay={i * 0.08}>
               <div className="rounded-3xl overflow-hidden shadow-soft bg-white">

@@ -23,7 +23,6 @@ const COLS = [
       { href: '/sobre-nosotros', label: { es: 'Sobre nosotros', en: 'About us' } },
       { href: '/proyectos', label: { es: 'Proyectos', en: 'Projects' } },
       { href: '/formacion', label: { es: 'Formación', en: 'Training' } },
-      { href: '/ayudas', label: { es: 'Ayudas y subvenciones', en: 'Grants & subsidies' } },
     ],
   },
   {

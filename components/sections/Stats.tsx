@@ -12,7 +12,7 @@ export default function Stats() {
       <Container className="py-14">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-6 text-center">
           {t.stats.map((s, i) => (
-            <Stat key={i} value={s.num} label={tr(s.label)} className="flex flex-col items-center" />
+            <Stat key={i} value={tr(s.num)} label={tr(s.label)} className="flex flex-col items-center" />
           ))}
         </div>
       </Container>

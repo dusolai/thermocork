@@ -4,7 +4,7 @@ import { projects } from '@/lib/projects'
 const SITE = 'https://thermocork.es'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ['', '/productos', '/aplicaciones', '/proyectos', '/sobre-nosotros', '/formacion', '/ayudas', '/contacto']
+  const routes = ['', '/productos', '/aplicaciones', '/proyectos', '/sobre-nosotros', '/formacion', '/contacto']
   const now = new Date()
 
   const staticEntries = routes.map((r) => ({

@@ -14,19 +14,19 @@ export const t = {
     line1: { es: 'El Futuro del', en: 'The Future of' },
     line2: { es: 'Aislamiento Natural', en: 'Natural Insulation' },
     sub: {
-      es: 'Termoacústica ecológica de corcho proyectado. Sin obras, sin disolventes, sin compromisos. Disponible en todo el mundo a través de nuestra red de aplicadores certificados.',
-      en: 'Eco-friendly thermoacoustic cork spray insulation. No demolition, no solvents, no compromise. Available worldwide through our certified applicator network.',
+      es: 'Revestimiento de corcho natural proyectado, termoacústico y ecológico. Sin obras, sin disolventes, sin compromisos. Disponible en todo el mundo a través de nuestra red de aplicadores certificados.',
+      en: 'Sprayed natural cork coating — thermoacoustic and eco-friendly. No demolition, no solvents, no compromise. Available worldwide through our certified applicator network.',
     },
     cta1: { es: 'Solicitar Presupuesto', en: 'Get a Free Quote' },
     cta2: { es: 'Ver Productos', en: 'View Products' },
     scroll: { es: 'Descubrir', en: 'Discover' },
   },
   stats: [
-    { num: '70%', label: { es: 'Ahorro energético', en: 'Energy savings' } },
-    { num: '10+', label: { es: 'Países', en: 'Countries' } },
-    { num: '25+', label: { es: 'Años de duración', en: 'Years durability' } },
-    { num: '100+', label: { es: 'Aplicadores cert.', en: 'Certified applicators' } },
-    { num: '20', label: { es: 'Colores disponibles', en: 'Available colours' } },
+    { num: { es: 'Hasta 70%', en: 'Up to 70%' }, label: { es: 'Ahorro energético', en: 'Energy savings' } },
+    { num: { es: '+30', en: '+30' }, label: { es: 'Países', en: 'Countries' } },
+    { num: { es: 'Hasta 25', en: 'Up to 25' }, label: { es: 'Años de duración', en: 'Years durability' } },
+    { num: { es: '100+', en: '100+' }, label: { es: 'Aplicadores cert.', en: 'Certified applicators' } },
+    { num: { es: '1000+', en: '1000+' }, label: { es: 'Colores disponibles', en: 'Available colours' } },
   ],
   about: {
     tag: { es: 'Qué es Thermocork', en: 'What is Thermocork' },
@@ -79,7 +79,7 @@ export const t = {
           es: ['Fachadas y paramentos verticales exteriores', 'Interiores de alta prestación decorativa', 'Techos y zonas de difícil acceso', 'Compatible con pinturas y acabados'],
           en: ['Facades and exterior vertical surfaces', 'High-performance decorative interiors', 'Ceilings and hard-to-reach areas', 'Compatible with paints and finishes'],
         },
-        badge: { es: 'Disponible en 20 colores', en: 'Available in 20 colours' },
+        badge: { es: 'Disponible en miles de colores', en: 'Available in thousands of colours' },
         img: 'https://image.pollinations.ai/prompt/fine+cork+granules+texture+macro+warm+golden+light+premium+editorial+photography+dark+background+8k?width=800&height=600&seed=1201&nologo=true&model=flux',
       },
       {
@@ -116,7 +116,7 @@ export const t = {
       { icon: '💧', name: { es: 'Impermeabilización', en: 'Waterproofing' }, desc: { es: 'Membrana continua sin juntas. Elimina filtraciones, condensaciones y humedad de forma definitiva.', en: 'Continuous jointless membrane. Permanently eliminates leaks, condensation and capillary moisture.' }, value: '100%' },
       { icon: '🔥', name: { es: 'Resistencia al Fuego', en: 'Fire Resistance' }, desc: { es: 'El corcho es ignífugo de forma natural. No propaga llamas, no emite gases tóxicos y cumple normativa.', en: 'Cork is naturally fire-resistant. Doesn\'t propagate flames, doesn\'t emit toxic gases.' }, value: 'M1' },
       { icon: '🌿', name: { es: '100% Ecológico', en: '100% Ecological' }, desc: { es: 'Material renovable, huella de carbono negativa, base acuosa sin disolventes. El único aislante que cuida el planeta.', en: 'Renewable material, negative carbon footprint, water-based solvent-free.' }, value: 'CO₂−' },
-      { icon: '✨', name: { es: 'Acabado Decorativo', en: 'Decorative Finish' }, desc: { es: '20 colores, 2 texturas, posibilidad de fabricación RAL/NCS a medida. Tu fachada, tu identidad.', en: '20 colours, 2 textures, custom RAL/NCS manufacturing. Your facade, your identity.' }, value: '20+' },
+      { icon: '✨', name: { es: 'Acabado Decorativo', en: 'Decorative Finish' }, desc: { es: 'Miles de colores, 2 texturas y fabricación RAL/NCS a medida. Tu fachada, tu identidad.', en: 'Thousands of colours, 2 textures and custom RAL/NCS manufacturing. Your facade, your identity.' }, value: '1000+' },
     ],
   },
   applications: {
@@ -196,9 +196,9 @@ export const t = {
     },
     steps: [
       { num: 1, title: { es: 'Inspección', en: 'Inspection' }, desc: { es: 'El aplicador certificado inspecciona el sustrato, identifica patologías y diseña la solución óptima.', en: 'The certified applicator inspects the substrate, identifies pathologies and designs the optimal solution.' } },
-      { num: 2, title: { es: 'Preparación', en: 'Preparation' }, desc: { es: 'Limpieza y consolidación del sustrato. Protección de zonas no tratadas. Sin picar ni retirar revestimiento existente.', en: 'Cleaning and consolidation of the substrate. Protection of untreated areas. No chipping needed.' } },
+      { num: 2, title: { es: 'Preparación', en: 'Preparation' }, desc: { es: 'Limpieza, saneamiento y consolidación del sustrato. Protección de zonas no tratadas. Sin picar ni retirar revestimiento existente.', en: 'Cleaning, sanitation and consolidation of the substrate. Protection of untreated areas. No chipping needed.' } },
       { num: 3, title: { es: 'Proyección', en: 'Projection' }, desc: { es: 'Aplicación mediante equipo neumático de alta presión. El corcho crea una capa continua sin juntas en tiempo récord.', en: 'Application using high-pressure pneumatic equipment. Cork adheres creating a continuous jointless layer.' } },
-      { num: 4, title: { es: 'Entrega', en: 'Delivery' }, desc: { es: 'Revisión de acabado, limpieza y entrega. El producto está seco y funcional en 24-48 horas.', en: 'Finish review, cleanup and client handover. The product is dry and functional within 24-48 hours.' } },
+      { num: 4, title: { es: 'Entrega', en: 'Delivery' }, desc: { es: 'Revisión de acabado, limpieza y entrega. El producto está seco y funcional en un mínimo de 48 horas.', en: 'Finish review, cleanup and client handover. The product is dry and functional within a minimum of 48 hours.' } },
     ],
   },
   ecological: {
@@ -232,8 +232,8 @@ export const t = {
     title1: { es: 'De Navarra', en: 'From Navarre' },
     title2: { es: 'al mundo.', en: 'to the world.' },
     sub: {
-      es: 'Nuestra red de aplicadores certificados cubre 10 países y sigue creciendo. Si eres profesional de la construcción, podemos formarte y certificarte.',
-      en: 'Our certified applicator network covers 10 countries and keeps growing. If you\'re a construction professional, we can train and certify you.',
+      es: 'Nuestra red de aplicadores certificados cubre más de 30 países y sigue creciendo. Si eres profesional de la construcción, podemos formarte y certificarte.',
+      en: 'Our certified applicator network covers more than 30 countries and keeps growing. If you\'re a construction professional, we can train and certify you.',
     },
     countries: [
       { flag: '🇪🇸', name: { es: 'España', en: 'Spain' }, desc: { es: 'Red completa nacional', en: 'Full national network' } },
@@ -247,22 +247,6 @@ export const t = {
       { flag: '🇦🇹', name: { es: 'Austria', en: 'Austria' }, desc: { es: 'Lanzamiento 2026', en: 'Launching 2026' } },
       { flag: '🌍', name: { es: 'Tu país', en: 'Your country' }, desc: { es: 'Contáctanos para distribuir', en: 'Contact us to distribute' } },
     ],
-  },
-  subsidies: {
-    tag: { es: 'Ayudas y Subvenciones', en: 'Grants & Subsidies' },
-    title1: { es: 'Tu proyecto puede ser', en: 'Your project may be' },
-    title2: { es: 'subvencionado.', en: 'subsidised.' },
-    intro: {
-      es: 'La Unión Europea, a través de los fondos Next Generation y el Plan de Recuperación, financia gran parte de la rehabilitación energética de edificios. Thermocork, como solución certificada de aislamiento ecológico, es subvencionable en la mayoría de programas disponibles.',
-      en: 'The European Union, through Next Generation funds and the Recovery Plan, finances a large part of building energy rehabilitation. Thermocork, as a certified ecological insulation solution, is eligible for most available subsidy programmes.',
-    },
-    items: [
-      { pct: 'Hasta 40%', title: { es: 'Next Generation EU', en: 'Next Generation EU' }, desc: { es: 'Fondos europeos para rehabilitación energética de edificios residenciales y terciarios.', en: 'European funds for energy rehabilitation of residential and tertiary buildings.' } },
-      { pct: 'Hasta 35%', title: { es: 'Programa PREE 5000', en: 'PREE 5000 Programme' }, desc: { es: 'Plan de Recuperación con deducción en IRPF de hasta el 60% para mejoras de eficiencia energética.', en: 'Recovery Plan with income tax deduction of up to 60% for energy efficiency improvements.' } },
-      { pct: 'Hasta 60%', title: { es: 'Deducción fiscal IRPF', en: 'Income Tax Deduction' }, desc: { es: 'Deducción directa en la declaración de la renta por obras de mejora de eficiencia energética.', en: 'Direct income tax deduction for energy efficiency improvement works in main residence.' } },
-      { pct: 'Variable', title: { es: 'Ayudas Autonómicas', en: 'Regional Grants' }, desc: { es: 'Cada comunidad autónoma cuenta con programas propios adicionales para rehabilitación energética.', en: 'Each autonomous community has its own additional programmes for energy rehabilitation.' } },
-    ],
-    cta: { es: 'Consulta si tu proyecto es subvencionable', en: 'Check if your project is eligible' },
   },
   training: {
     tag: { es: 'Red de Aplicadores', en: 'Applicator Network' },
@@ -293,8 +277,8 @@ export const t = {
     title2: { es: 'nuestros clientes.', en: 'clients say.' },
     items: [
       { quote: { es: 'Después de aplicar Thermocork en mi fachada, la factura de gas bajó 180€ al mes. En invierno, los radiadores casi no arrancan. La inversión se amortizó en menos de 3 años.', en: 'After applying Thermocork to my facade, my gas bill dropped by €180 a month. In winter, the radiators barely switch on. The investment paid for itself in less than 3 years.' }, name: 'Carlos M.', loc: { es: 'Vivienda unifamiliar · Pamplona', en: 'Family home · Pamplona' }, saving: { es: '💰 Ahorro: 180€/mes · Amortización: 2,8 años', en: '💰 Saving: €180/month · Payback: 2.8 years' } },
-      { quote: { es: 'El verano pasado no encendí el aire acondicionado ni un solo día. Mi terraza plana tenía una diferencia de 18°C entre interior y exterior. Thermocork la eliminó completamente.', en: 'Last summer I didn\'t switch on the air conditioning a single day. My flat roof had an 18°C difference inside and outside. Thermocork eliminated it completely.' }, name: 'María J.', loc: { es: 'Piso con terraza plana · Sevilla', en: 'Flat with roof terrace · Seville' }, saving: { es: '🌡️ Reducción: 18°C en cubierta · Sin AC todo el verano', en: '🌡️ Reduction: 18°C on roof · No AC all summer' } },
-      { quote: { es: 'La obra duró 8 horas. No tuve que salir de casa. Ahora mi piso suena completamente diferente, los vecinos ya no se escuchan. Fue la mejor inversión que hice.', en: 'The work took 8 hours. I didn\'t have to leave the house. Now my flat sounds completely different, you can\'t hear the neighbours. It was the best investment I made.' }, name: 'Roberto A.', loc: { es: 'Piso en edificio · Madrid', en: 'Apartment building · Madrid' }, saving: { es: '🔇 Reducción acústica: 35dB · Obra: 1 solo día', en: '🔇 Acoustic reduction: 35dB · Work: just 1 day' } },
+      { quote: { es: 'Mi terraza plana convertía el piso en un horno en verano. Desde que aplicamos Thermocork, la casa se mantiene mucho más fresca y apenas necesito el aire acondicionado. La diferencia se nota desde el primer día de calor.', en: 'My flat roof turned the apartment into an oven in summer. Since we applied Thermocork, the home stays much cooler and I barely need the air conditioning. You notice the difference from the first hot day.' }, name: 'María J.', loc: { es: 'Piso con terraza plana · Sevilla', en: 'Flat with roof terrace · Seville' }, saving: { es: '🌡️ Mucho más fresco · Aire acondicionado al mínimo', en: '🌡️ Much cooler · A/C down to a minimum' } },
+      { quote: { es: 'Nuestro local tenía tanta reverberación que costaba mantener una conversación entre mesas. Proyectamos Thermocork en techo y paredes y el eco se redujo drásticamente: ahora el ambiente es mucho más confortable y encima quedó precioso.', en: 'Our venue had so much reverberation it was hard to hold a conversation between tables. We sprayed Thermocork on the ceiling and walls and the echo dropped dramatically: the space is now far more comfortable and looks beautiful too.' }, name: 'Javier R.', loc: { es: 'Local de hostelería · Madrid', en: 'Hospitality venue · Madrid' }, saving: { es: '🔇 Absorción acústica · Reverberación muy reducida', en: '🔇 Acoustic absorption · Reverberation greatly reduced' } },
     ],
   },
   contact: {

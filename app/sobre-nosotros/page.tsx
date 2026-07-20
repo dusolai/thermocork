@@ -9,7 +9,7 @@ import CtaBand from '@/components/sections/CtaBand'
 export const metadata: Metadata = {
   title: 'Sobre nosotros · Corcho natural fabricado en España',
   description:
-    'Thermocork: aislamiento de corcho natural proyectado fabricado en Cintruénigo (Navarra) y presente en 10 países a través de una red de aplicadores certificados.',
+    'Thermocork: aislamiento de corcho natural proyectado fabricado en Cintruénigo (Navarra) y presente en más de 30 países a través de una red de aplicadores certificados.',
 }
 
 export default function SobreNosotrosPage() {
