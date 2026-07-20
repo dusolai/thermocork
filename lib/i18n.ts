@@ -292,6 +292,16 @@ export const t = {
       type: { es: 'Tipo de proyecto', en: 'Project type' },
       area: { es: 'Superficie aproximada (m²)', en: 'Approximate area (m²)' },
       message: { es: 'Mensaje (opcional)', en: 'Message (optional)' },
+      profile: { es: '¿Particular o empresa?', en: 'Individual or company?' },
+      cif: { es: 'CIF de la empresa', en: 'Company tax ID (CIF)' },
+    },
+    profileOptions: {
+      particular: { es: 'Particular', en: 'Individual' },
+      empresa: { es: 'Empresa', en: 'Company' },
+    },
+    profileHint: {
+      es: 'Los particulares se derivan a un aplicador certificado de su zona. Las empresas y profesionales se gestionan directamente con nosotros.',
+      en: 'Individuals are referred to a certified applicator in their area. Companies and professionals are handled directly by us.',
     },
     projectTypes: {
       es: ['Vivienda unifamiliar', 'Piso en edificio', 'Local o comercio', 'Edificio de viviendas', 'Nave industrial', 'Vehículo / Camper', 'Otro'],
