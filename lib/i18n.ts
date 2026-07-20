@@ -123,9 +123,11 @@ export const t = {
     tag: { es: 'Dónde se Aplica', en: 'Where it\'s Applied' },
     title1: { es: 'Cada superficie.', en: 'Every surface.' },
     title2: { es: 'Una solución.', en: 'One solution.' },
+    groups: { exterior: { es: 'Exterior', en: 'Exterior' }, interior: { es: 'Interior', en: 'Interior' } },
     tabs: [
       {
         id: 'facades',
+        group: 'exterior',
         label: { es: 'Fachadas', en: 'Facades' },
         icon: '🏠',
         title: { es: 'Fachadas y Paramentos Exteriores', en: 'Facades & Exterior Walls' },
@@ -138,6 +140,7 @@ export const t = {
       },
       {
         id: 'roofs',
+        group: 'exterior',
         label: { es: 'Cubiertas', en: 'Roofs' },
         icon: '🏚️',
         title: { es: 'Cubiertas y Tejados', en: 'Roofs & Coverings' },
@@ -150,6 +153,7 @@ export const t = {
       },
       {
         id: 'interiors',
+        group: 'interior',
         label: { es: 'Interiores', en: 'Interiors' },
         icon: '🛋️',
         title: { es: 'Interiores y Decoración', en: 'Interiors & Decoration' },
@@ -162,6 +166,7 @@ export const t = {
       },
       {
         id: 'commercial',
+        group: 'interior',
         label: { es: 'Comercial', en: 'Commercial' },
         icon: '🏪',
         title: { es: 'Espacios Comerciales e Industriales', en: 'Commercial & Industrial Spaces' },
@@ -174,6 +179,7 @@ export const t = {
       },
       {
         id: 'vehicles',
+        group: 'interior',
         label: { es: 'Vehículos', en: 'Vehicles' },
         icon: '🚐',
         title: { es: 'Vehículos y Aplicaciones Especiales', en: 'Vehicles & Special Applications' },

@@ -24,22 +24,32 @@ export default function Applications() {
         className="mb-10"
       />
 
-      {/* Tabs */}
-      <div className="tabs-scroll flex gap-2 mb-10 flex-nowrap pb-1">
-        {t.applications.tabs.map((tb, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className="rounded-full text-[13px] font-semibold tracking-wide px-5 py-2.5 transition-all duration-200 whitespace-nowrap"
-            style={{
-              border: '1px solid',
-              borderColor: active === i ? 'transparent' : 'var(--border-soft)',
-              background: active === i ? 'linear-gradient(135deg,var(--gold-600),var(--cork-400))' : 'transparent',
-              color: active === i ? 'var(--ink-900)' : 'var(--sand-300)',
-            }}
-          >
-            {tr(tb.label)}
-          </button>
+      {/* Tabs grouped by Exterior / Interior */}
+      <div className="flex flex-col gap-4 mb-10">
+        {(['exterior', 'interior'] as const).map((g) => (
+          <div key={g} className="flex items-center gap-2 flex-wrap">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-sand-400 mr-1 shrink-0">
+              {tr(t.applications.groups[g])}
+            </span>
+            {t.applications.tabs
+              .map((tb, i) => ({ tb, i }))
+              .filter(({ tb }) => tb.group === g)
+              .map(({ tb, i }) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  className="rounded-full text-[13px] font-semibold tracking-wide px-5 py-2.5 transition-all duration-200 whitespace-nowrap"
+                  style={{
+                    border: '1px solid',
+                    borderColor: active === i ? 'transparent' : 'var(--border-soft)',
+                    background: active === i ? 'linear-gradient(135deg,var(--gold-600),var(--cork-400))' : 'transparent',
+                    color: active === i ? 'var(--ink-900)' : 'var(--sand-300)',
+                  }}
+                >
+                  {tr(tb.label)}
+                </button>
+              ))}
+          </div>
         ))}
       </div>
 
