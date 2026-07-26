@@ -23,12 +23,12 @@ export const NAV: { href: string; label: Bi }[] = [
 // The 12 official product properties, each tied to a real brand icon.
 export const PROPERTIES: { icon: IconName; name: Bi; desc: Bi }[] = [
   { icon: 'thermal', name: { es: 'Aislamiento térmico', en: 'Thermal insulation' }, desc: { es: 'Elimina puentes térmicos: fresco en verano, cálido en invierno.', en: 'Eliminates thermal bridges: cool in summer, warm in winter.' } },
-  { icon: 'acoustic', name: { es: 'Aislamiento acústico', en: 'Acoustic insulation' }, desc: { es: 'Absorbe ruido aéreo, de impacto y reverberación.', en: 'Absorbs airborne, impact noise and reverberation.' } },
+  { icon: 'acoustic', name: { es: 'Absorción acústica', en: 'Acoustic absorption' }, desc: { es: 'Absorbe el ruido aéreo y reduce el eco y la reverberación.', en: 'Absorbs airborne noise and reduces echo and reverberation.' } },
   { icon: 'waterproof', name: { es: 'Impermeable', en: 'Waterproof' }, desc: { es: 'Membrana continua sin juntas que elimina filtraciones.', en: 'Continuous jointless membrane that eliminates leaks.' } },
   { icon: 'breathable', name: { es: 'Transpirable', en: 'Breathable' }, desc: { es: 'Deja respirar al soporte y evita condensaciones.', en: 'Lets the substrate breathe and prevents condensation.' } },
   { icon: 'fire', name: { es: 'Resistente al fuego', en: 'Fire resistant' }, desc: { es: 'Ignífugo por naturaleza, no propaga la llama.', en: 'Naturally fire-resistant, does not spread flames.' } },
   { icon: 'elastic', name: { es: 'Elástico', en: 'Elastic' }, desc: { es: 'Acompaña los movimientos del edificio sin fisurarse.', en: 'Follows building movements without cracking.' } },
-  { icon: 'ecologic', name: { es: 'Ecológico', en: 'Ecological' }, desc: { es: 'Renovable, base acuosa, huella de carbono negativa.', en: 'Renewable, water-based, negative carbon footprint.' } },
+  { icon: 'ecologic', name: { es: 'Ecológico', en: 'Ecological' }, desc: { es: 'Renovable, base acuosa y de baja huella de carbono.', en: 'Renewable, water-based and low carbon footprint.' } },
   { icon: 'non-toxic', name: { es: 'No tóxico', en: 'Non-toxic' }, desc: { es: 'Sin disolventes ni compuestos orgánicos volátiles.', en: 'Solvent-free, no volatile organic compounds.' } },
   { icon: 'conductivity', name: { es: 'Baja conductividad', en: 'Low conductivity' }, desc: { es: 'Coeficiente de conductividad térmica muy reducido.', en: 'Very low thermal conductivity coefficient.' } },
   { icon: 'fast', name: { es: 'Aplicación rápida', en: 'Fast application' }, desc: { es: 'Hasta 500 m² al día, seco en un mínimo de 48 h.', en: 'Up to 500 m² per day, cured in a minimum of 48 h.' } },

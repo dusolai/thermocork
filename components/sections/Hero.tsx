@@ -88,7 +88,7 @@ export default function Hero() {
             </div>
             <div className="absolute -left-6 top-10 rounded-2xl px-4 py-3 shadow-soft" style={{ background: 'var(--ink-800)', border: '1px solid var(--border)' }}>
               <div className="font-display text-xl font-semibold text-gold-400 leading-none">38 dB</div>
-              <div className="text-[10px] uppercase tracking-[0.14em] text-sand-300 mt-1">{tr({ es: 'Reducción acústica', en: 'Acoustic reduction' })}</div>
+              <div className="text-[10px] uppercase tracking-[0.14em] text-sand-300 mt-1">{tr({ es: 'Absorción de ruido', en: 'Noise absorption' })}</div>
             </div>
           </div>
         </div>

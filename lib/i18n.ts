@@ -133,8 +133,8 @@ export const t = {
         title: { es: 'Fachadas y Paramentos Exteriores', en: 'Facades & Exterior Walls' },
         desc: { es: 'La aplicación de Thermocork en fachadas transforma la eficiencia energética del edificio sin necesidad de andamios. Una sola capa crea el aislamiento continuo que elimina los puentes térmicos.', en: 'Applying Thermocork on facades transforms the building\'s energy efficiency without scaffolding. A single layer creates continuous insulation eliminating thermal bridges.' },
         benefits: {
-          es: ['Mejora de 2-3 letras en la calificación energética', 'Compatible con SATE como capa de terminación', 'Aplicable sobre ladrillo, hormigón, madera y metal', 'Acabado continuo sin juntas visibles'],
-          en: ['2-3 letter improvement in energy rating', 'Compatible with ETICS as a finishing layer', 'Applicable on brick, concrete, wood and metal', 'Continuous finish without visible joints'],
+          es: ['Mejora la calificación energética del edificio', 'Compatible con SATE como capa de terminación', 'Aplicable sobre ladrillo, hormigón, madera y metal', 'Acabado continuo sin juntas visibles'],
+          en: ['Improves the building\'s energy rating', 'Compatible with ETICS as a finishing layer', 'Applicable on brick, concrete, wood and metal', 'Continuous finish without visible joints'],
         },
         img: 'https://image.pollinations.ai/prompt/modern+building+facade+cork+spray+insulation+applied+warm+tones+architectural+photography+premium+editorial+8k?width=800&height=600&seed=1211&nologo=true&model=flux',
       },
@@ -209,8 +209,8 @@ export const t = {
   },
   ecological: {
     tag: { es: 'Compromiso Ecológico', en: 'Ecological Commitment' },
-    title1: { es: 'El único aislante con', en: 'The only insulation with' },
-    title2: { es: 'huella de carbono negativa.', en: 'a negative carbon footprint.' },
+    title1: { es: 'Un aislamiento con', en: 'Insulation with' },
+    title2: { es: 'una huella de carbono muy baja.', en: 'a very low carbon footprint.' },
     p1: {
       es: 'El alcornoque es el árbol más sostenible de la naturaleza. Cada 9 años se puede extraer su corteza sin talar el árbol, que sigue viviendo y absorbiendo CO₂ durante cientos de años.',
       en: 'The cork oak is the most sustainable tree in nature. Every 9 years its bark can be harvested without felling the tree, which continues absorbing CO₂ for hundreds of years.',
@@ -228,7 +228,7 @@ export const t = {
     pills: [
       { es: '🌿 Base acuosa', en: '🌿 Water-based' },
       { es: '♻️ 100% reciclable', en: '♻️ 100% recyclable' },
-      { es: '🌍 Carbono negativo', en: '🌍 Carbon negative' },
+      { es: '🌍 Baja huella de CO₂', en: '🌍 Low CO₂ footprint' },
       { es: '🚫 Sin COVs', en: '🚫 No VOCs' },
       { es: '🌳 Sin tala', en: '🌳 No felling' },
     ],
@@ -282,7 +282,7 @@ export const t = {
     title1: { es: 'Lo que dicen', en: 'What our' },
     title2: { es: 'nuestros clientes.', en: 'clients say.' },
     items: [
-      { quote: { es: 'Después de aplicar Thermocork en mi fachada, la factura de gas bajó 180€ al mes. En invierno, los radiadores casi no arrancan. La inversión se amortizó en menos de 3 años.', en: 'After applying Thermocork to my facade, my gas bill dropped by €180 a month. In winter, the radiators barely switch on. The investment paid for itself in less than 3 years.' }, name: 'Carlos M.', loc: { es: 'Vivienda unifamiliar · Pamplona', en: 'Family home · Pamplona' }, saving: { es: '💰 Ahorro: 180€/mes · Amortización: 2,8 años', en: '💰 Saving: €180/month · Payback: 2.8 years' } },
+      { quote: { es: 'Después de aplicar Thermocork en mi fachada, la factura de gas bajó de forma notable. En invierno los radiadores casi no arrancan y la casa aguanta mucho mejor el frío y el calor.', en: 'After applying Thermocork to my facade, my gas bill dropped noticeably. In winter the radiators barely switch on and the house copes far better with both cold and heat.' }, name: 'Carlos M.', loc: { es: 'Vivienda unifamiliar · Pamplona', en: 'Family home · Pamplona' }, saving: { es: '💰 Menos gasto en calefacción · Más confort todo el año', en: '💰 Lower heating costs · More comfort all year' } },
       { quote: { es: 'Mi terraza plana convertía el piso en un horno en verano. Desde que aplicamos Thermocork, la casa se mantiene mucho más fresca y apenas necesito el aire acondicionado. La diferencia se nota desde el primer día de calor.', en: 'My flat roof turned the apartment into an oven in summer. Since we applied Thermocork, the home stays much cooler and I barely need the air conditioning. You notice the difference from the first hot day.' }, name: 'María J.', loc: { es: 'Piso con terraza plana · Sevilla', en: 'Flat with roof terrace · Seville' }, saving: { es: '🌡️ Mucho más fresco · Aire acondicionado al mínimo', en: '🌡️ Much cooler · A/C down to a minimum' } },
       { quote: { es: 'Nuestro local tenía tanta reverberación que costaba mantener una conversación entre mesas. Proyectamos Thermocork en techo y paredes y el eco se redujo drásticamente: ahora el ambiente es mucho más confortable y encima quedó precioso.', en: 'Our venue had so much reverberation it was hard to hold a conversation between tables. We sprayed Thermocork on the ceiling and walls and the echo dropped dramatically: the space is now far more comfortable and looks beautiful too.' }, name: 'Javier R.', loc: { es: 'Local de hostelería · Madrid', en: 'Hospitality venue · Madrid' }, saving: { es: '🔇 Absorción acústica · Reverberación muy reducida', en: '🔇 Acoustic absorption · Reverberation greatly reduced' } },
     ],

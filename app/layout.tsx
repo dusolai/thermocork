@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: '%s · THERMOCORK',
   },
   description:
-    'Aislamiento térmico, acústico e impermeabilizante de corcho natural proyectado. Sin obras, sin disolventes, huella de carbono negativa. Fabricado en España, disponible en todo el mundo.',
+    'Aislamiento térmico, acústico e impermeabilizante de corcho natural proyectado. Sin obras, sin disolventes y de baja huella de carbono. Fabricado en España, disponible en todo el mundo.',
   keywords: [
     'corcho proyectado', 'aislamiento corcho', 'thermocork', 'aislamiento termoacústico',
     'cork insulation', 'impermeabilización corcho', 'techo frío', 'cool roof', 'SATE corcho',

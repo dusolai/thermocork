@@ -9,7 +9,7 @@ import AnimateIn from '@/components/ui/AnimateIn'
 const SPECS: { k: { es: string; en: string }; v: string }[] = [
   { k: { es: 'Reflexión solar (cool roof)', en: 'Solar reflectance (cool roof)' }, v: '86%' },
   { k: { es: 'Emisividad térmica', en: 'Thermal emissivity' }, v: '0.81' },
-  { k: { es: 'Reducción acústica', en: 'Acoustic reduction' }, v: '38 dB' },
+  { k: { es: 'Absorción de ruido', en: 'Noise absorption' }, v: '38 dB' },
   { k: { es: 'Reacción al fuego', en: 'Fire reaction' }, v: 'M1 / B-s1,d0' },
   { k: { es: 'Rendimiento de aplicación', en: 'Application rate' }, v: '≤ 500 m²/día' },
   { k: { es: 'Base', en: 'Base' }, v: { es: 'Acuosa · sin disolventes', en: 'Water · solvent-free' } as any },
