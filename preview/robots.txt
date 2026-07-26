@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /legal/
+
+Sitemap: https://thermocork.es/sitemap.xml
