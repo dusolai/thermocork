@@ -14,7 +14,7 @@ export default function CtaBand() {
       <div className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={asset('/img/interior-atrium.webp')} alt="" aria-hidden loading="lazy" decoding="async" className="w-full h-full object-cover" style={{ opacity: 0.28 }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(12,30,82,0.85), rgba(12,30,82,0.92))' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.85), rgba(10,8,6,0.92))' }} />
       </div>
       <Container className="relative z-10 py-24 text-center">
         <AnimateIn className="mx-auto">

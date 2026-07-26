@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
-import { NAV, CONTACT } from '@/lib/site'
+import { NAV } from '@/lib/site'
 import Logo from '@/components/ui/Logo'
 import clsx from 'clsx'
 
@@ -46,7 +46,7 @@ export default function Nav() {
         style={{
           height: scrolled ? 60 : 76,
           padding: '0 clamp(16px,4vw,40px)',
-          background: scrolled ? 'rgba(12,30,82,0.96)' : 'rgba(12,30,82,0.55)',
+          background: scrolled ? 'rgba(10,8,6,0.96)' : 'rgba(10,8,6,0.55)',
           backdropFilter: 'blur(18px)',
           WebkitBackdropFilter: 'blur(18px)',
           borderColor: scrolled ? 'var(--border-soft)' : 'transparent',
@@ -74,24 +74,20 @@ export default function Nav() {
         <div className="flex items-center gap-2.5">
           <button
             onClick={toggle}
-            className="font-mono text-[11px] font-semibold tracking-[0.14em] transition-all duration-200 shrink-0 text-gold-600"
+            className="rounded-full text-[11px] font-bold tracking-[0.14em] transition-all duration-200 shrink-0 text-gold-400"
             style={{ background: 'var(--border-soft)', border: '1px solid var(--border)', padding: '6px 12px' }}
             aria-label="Toggle language"
           >
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
 
-          {/* Acción de éxito confirmada: contacto directo antes que formulario */}
-          <a href={`tel:${CONTACT.phoneIntl}`} className="hidden xl:inline-flex items-center font-mono text-[12px] font-semibold tracking-[0.1em] text-sand-100 no-underline hover:text-gold-600 transition-colors mr-1">
-            {CONTACT.phone}
-          </a>
-          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="btn btn-primary hidden lg:inline-flex" style={{ padding: '10px 18px', fontSize: 12 }}>
-            WhatsApp
-          </a>
+          <Link href="/contacto" className="btn btn-primary hidden lg:inline-flex" style={{ padding: '9px 20px', fontSize: 12 }}>
+            {tr(t.nav.quote)}
+          </Link>
 
           {/* Hamburger */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center gap-[5px] rounded-none"
+            className="lg:hidden flex flex-col justify-center items-center gap-[5px] rounded-xl"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
             aria-expanded={open}
@@ -108,7 +104,7 @@ export default function Nav() {
       <div
         className="lg:hidden fixed inset-0 z-[99] flex flex-col"
         style={{
-          background: 'rgba(12,30,82,0.98)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+          background: 'rgba(10,8,6,0.98)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
           transform: open ? 'translateY(0)' : 'translateY(-100%)',
           transition: 'transform 0.45s cubic-bezier(0.4,0,0.2,1)', paddingTop: 76,
         }}

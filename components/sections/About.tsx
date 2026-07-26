@@ -14,11 +14,11 @@ export default function About() {
         {/* Image */}
         <AnimateIn className="order-2 lg:order-1">
           <div className="relative">
-            <div className="relative rounded-none overflow-hidden shadow-lift aspect-[4/5]">
+            <div className="relative rounded-3xl overflow-hidden shadow-lift aspect-[4/5]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset('/img/cork-oak.webp')} alt={tr({ es: 'Alcornoque, origen del corcho Thermocork', en: 'Cork oak, the origin of Thermocork cork' })} loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
-            <div className="absolute -right-4 lg:-right-8 bottom-8 rounded-none px-5 py-4 bg-ink-900 text-sand-100 shadow-lift max-w-[200px]">
+            <div className="absolute -right-4 lg:-right-8 bottom-8 rounded-2xl px-5 py-4 bg-ink-900 text-sand-100 shadow-lift max-w-[200px]">
               <div className="font-display text-3xl font-semibold text-gold-400 leading-none">9</div>
               <div className="text-xs text-sand-200 mt-1.5 leading-snug">{tr({ es: 'años entre cosechas, sin talar el árbol', en: 'years between harvests, without felling the tree' })}</div>
             </div>

@@ -39,7 +39,7 @@ export default function Training() {
             <div className="mt-8"><Button href="/contacto" variant="primary">{tr(t.training.cta)} →</Button></div>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <div className="grid grid-cols-2 gap-px rounded-none overflow-hidden" style={{ background: 'rgba(26,22,17,0.08)' }}>
+            <div className="grid grid-cols-2 gap-px rounded-3xl overflow-hidden" style={{ background: 'rgba(26,22,17,0.08)' }}>
               {t.training.stats.map((s, i) => (
                 <div key={i} className="bg-cream-50 p-8 flex flex-col items-center text-center text-sand-900">
                   <Stat value={s.num} label={tr(s.label)} className="flex flex-col items-center" />

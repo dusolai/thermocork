@@ -63,7 +63,7 @@ export default function Contact() {
 
           {state === 'sent' ? (
             <div className="text-center py-10">
-              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(239,183,0,0.15)', border: '1px solid var(--border)' }}>
+              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(201,160,69,0.15)', border: '1px solid var(--border)' }}>
                 <span className="text-gold-400 text-2xl">✓</span>
               </div>
               <p className="font-display text-lg font-semibold text-gold-400">{lang === 'es' ? '¡Recibido! Te contactaremos en menos de 24 h.' : 'Received! We will contact you within 24 h.'}</p>
@@ -81,9 +81,9 @@ export default function Contact() {
                       type="button"
                       onClick={() => setProfile(p)}
                       aria-pressed={profile === p}
-                      className={`rounded-none px-4 py-2.5 text-sm font-semibold transition-colors ${profile === p ? 'text-gold-400' : 'text-sand-200'}`}
+                      className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${profile === p ? 'text-gold-400' : 'text-sand-200'}`}
                       style={profile === p
-                        ? { background: 'rgba(239,183,0,0.18)', border: '1px solid var(--border)' }
+                        ? { background: 'rgba(201,160,69,0.18)', border: '1px solid var(--border)' }
                         : { background: 'transparent', border: '1px solid var(--border-soft)' }}
                     >
                       {tr(t.contact.profileOptions[p])}
@@ -136,8 +136,8 @@ export default function Contact() {
         {/* Info */}
         <div className="flex flex-col gap-6">
           <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 rounded-none p-4 font-bold text-white no-underline transition-transform hover:-translate-y-0.5"
-            style={{ background: '#128C7E' }}>
+            className="flex items-center justify-center gap-3 rounded-2xl p-4 font-bold text-white no-underline transition-transform hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg,#25D366,#128C7E)' }}>
             {tr(t.contact.whatsapp)}
           </a>
 

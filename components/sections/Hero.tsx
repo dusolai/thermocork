@@ -6,19 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
 import { asset } from '@/lib/asset'
-import { CONTACT } from '@/lib/site'
 import Button from '@/components/ui/Button'
 
-// Datos de lote: solo cifras respaldadas por ficha técnica u obra real.
-const LOTE = [
-  { k: { es: 'Rendimiento', en: 'Rate' }, v: '≤500 m²/día' },
-  { k: { es: 'Reflexión solar', en: 'Solar refl.' }, v: '86%' },
-  { k: { es: 'Fuego', en: 'Fire' }, v: 'M1 · B-s1,d0' },
-  { k: { es: 'Garantía', en: 'Warranty' }, v: '10 años' },
-]
-
 export default function Hero() {
-  const { t: tr, lang } = useLang()
+  const { t: tr } = useLang()
   const bgRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -27,73 +18,86 @@ export default function Hero() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const ctx = gsap.context(() => {
       if (bgRef.current)
-        gsap.to(bgRef.current, { yPercent: 14, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } })
+        gsap.to(bgRef.current, { yPercent: 18, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } })
       if (contentRef.current)
-        gsap.to(contentRef.current, { opacity: 0, y: -40, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'center top', end: 'bottom top', scrub: true } })
+        gsap.to(contentRef.current, { opacity: 0, y: -50, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'center top', end: 'bottom top', scrub: true } })
     })
     return () => ctx.revert()
   }, [])
 
   return (
-    <section id="hero" className="relative flex items-end overflow-hidden bg-ink-900" style={{ minHeight: '100svh' }}>
-      {/* Obra real a sangre: el soporte sobre el que se deposita la marca */}
-      <div ref={bgRef} className="absolute inset-0 -top-[8%] h-[116%] z-0">
+    <section id="hero" className="relative flex items-center overflow-hidden bg-ink-900" style={{ minHeight: '100svh' }}>
+      {/* Video background */}
+      <div ref={bgRef} className="absolute inset-0 -top-[10%] h-[120%] z-0">
         <video autoPlay muted loop playsInline poster={asset('/video/nave-industrial.jpg')}
-          className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.42 }}>
+          className="absolute inset-0 w-full h-full object-cover" style={{ opacity: 0.5 }}>
           <source src={asset('/cork-bg.mp4')} type="video/mp4" />
         </video>
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(12,30,82,0.72) 0%, rgba(12,30,82,0.55) 45%, rgba(12,30,82,0.96) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.6) 0%, rgba(10,8,6,0.4) 40%, rgba(10,8,6,0.92) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 60% at 30% 50%, rgba(201,160,69,0.12), transparent 70%)' }} />
       </div>
 
-      {/* Franja de lote: el parte técnico, pegado al margen */}
-      <div className="hidden lg:flex absolute left-0 top-0 bottom-0 z-10 w-[74px] flex-col items-center justify-center gap-9 border-r"
-        style={{ borderColor: 'var(--border-soft)', background: 'rgba(0,0,0,0.22)' }}>
-        <span className="lote text-gold-600" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-          LOTE · NAV-ES · {lang === 'es' ? 'FABRICADO EN ESPAÑA' : 'MADE IN SPAIN'}
-        </span>
-      </div>
+      <div ref={contentRef} className="relative z-10 w-full max-w-content mx-auto px-5 sm:px-8 lg:px-10 grid items-center gap-12 lg:gap-16"
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%,440px),1fr))', paddingTop: 140, paddingBottom: 80 }}>
 
-      <div ref={contentRef} className="relative z-10 w-full max-w-wide mx-auto px-5 sm:px-8 lg:pl-[110px] lg:pr-10"
-        style={{ paddingTop: 150, paddingBottom: 54 }}>
-
-        <div className="tag mb-8 hero-anim" style={{ animationDelay: '0.05s' }}>
-          <span className="tag-dot" /> {tr(t.hero.badge)}
-        </div>
-
-        {/* La marca: pulverizada a través de la plantilla, a escala de muro */}
-        <h1 className="m-0">
-          <span className="marca stencil spray-in block text-gold-600"
-            style={{ fontSize: 'clamp(74px,16.5vw,250px)', animationDelay: '0.2s' }}>
-            THERMOCORK
-          </span>
-          <span className="marca block text-sand-100 hero-anim mt-3"
-            style={{ fontSize: 'clamp(24px,4.4vw,58px)', animationDelay: '0.45s', lineHeight: 0.95 }}>
-            {tr(t.hero.line1)} <span className="text-gold-600">{tr(t.hero.line2)}</span>
-          </span>
-        </h1>
-
-        <div className="mt-9 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <p className="text-[16px] leading-relaxed text-sand-200 hero-anim m-0" style={{ maxWidth: 560, animationDelay: '0.55s' }}>
+        {/* Text */}
+        <div>
+          <div className="tag mb-7 hero-anim" style={{ animationDelay: '0.05s' }}>
+            <span className="tag-dot animate-pulse-dot" /> {tr(t.hero.badge)}
+          </div>
+          <h1 className="font-display font-semibold tracking-tightest hero-anim" style={{ fontSize: 'clamp(42px,6.4vw,84px)', lineHeight: 1.02, animationDelay: '0.15s' }}>
+            <span className="block text-sand-100">{tr(t.hero.line1)}</span>
+            <span className="block text-cork">{tr(t.hero.line2)}</span>
+          </h1>
+          <p className="mt-7 text-[17px] leading-relaxed text-sand-200 hero-anim" style={{ maxWidth: 540, animationDelay: '0.3s' }}>
             {tr(t.hero.sub)}
           </p>
+          <div className="mt-10 flex gap-4 flex-wrap hero-anim" style={{ animationDelay: '0.45s' }}>
+            <Button href="/contacto" variant="primary">{tr(t.hero.cta1)} →</Button>
+            <Button href="/productos" variant="outline">{tr(t.hero.cta2)}</Button>
+          </div>
 
-          {/* Acción de éxito: contacto directo. Bloques macizos, no píldoras. */}
-          <div className="flex flex-wrap gap-3 hero-anim" style={{ animationDelay: '0.65s' }}>
-            <Button href={CONTACT.whatsapp} variant="primary" external>WhatsApp →</Button>
-            <Button href={`tel:${CONTACT.phoneIntl}`} variant="outline">{CONTACT.phone}</Button>
+          <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 hero-anim" style={{ animationDelay: '0.6s' }}>
+            {[
+              { n: '70%', l: { es: 'Ahorro energético', en: 'Energy savings' } },
+              { n: '25+', l: { es: 'Años de duración', en: 'Years durability' } },
+              { n: '10', l: { es: 'Países', en: 'Countries' } },
+            ].map((s, i) => (
+              <div key={i}>
+                <div className="font-display text-2xl font-semibold text-gold-400 leading-none">{s.n}</div>
+                <div className="mt-1 text-[11px] uppercase tracking-[0.16em] text-sand-300">{tr(s.l)}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Parte de lote: datos respaldados */}
-        <dl className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px hero-anim m-0"
-          style={{ animationDelay: '0.75s', background: 'var(--border-soft)', border: '1px solid var(--border-soft)' }}>
-          {LOTE.map((d, i) => (
-            <div key={i} className="px-4 py-4" style={{ background: 'rgba(12,30,82,0.72)' }}>
-              <dt className="lote text-sand-300 m-0">{tr(d.k)}</dt>
-              <dd className="font-mono text-gold-600 m-0 mt-1.5 text-[15px] font-semibold">{d.v}</dd>
+        {/* Visual */}
+        <div className="hidden md:flex justify-center items-center hero-anim" style={{ animationDelay: '0.5s' }}>
+          <div className="relative" style={{ width: 'clamp(300px,32vw,420px)', aspectRatio: '4/5' }}>
+            <div className="absolute -inset-5 rounded-[28px] border animate-spin-slow opacity-40" style={{ borderColor: 'transparent', borderTopColor: 'var(--gold-600)' }} />
+            <div className="relative w-full h-full rounded-[24px] overflow-hidden shadow-lift" style={{ border: '1px solid var(--border)' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset('/img/villa-pool.webp')} alt="Proyecto Thermocork" className="w-full h-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(10,8,6,0.7) 100%)' }} />
+              <div className="absolute left-5 bottom-5 right-5">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em]"
+                  style={{ background: 'rgba(10,8,6,0.6)', border: '1px solid var(--border)', color: 'var(--gold-400)', backdropFilter: 'blur(8px)' }}>
+                  Obra real · Thermocork
+                </div>
+              </div>
             </div>
-          ))}
-        </dl>
+            <div className="absolute -left-6 top-10 rounded-2xl px-4 py-3 shadow-soft" style={{ background: 'var(--ink-800)', border: '1px solid var(--border)' }}>
+              <div className="font-display text-xl font-semibold text-gold-400 leading-none">38 dB</div>
+              <div className="text-[10px] uppercase tracking-[0.14em] text-sand-300 mt-1">{tr({ es: 'Absorción de ruido', en: 'Noise absorption' })}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 hero-anim" style={{ animationDelay: '1.2s' }}>
+        <span className="text-[10px] tracking-[0.2em] uppercase text-sand-300">{tr(t.hero.scroll)}</span>
+        <div className="w-px h-9 animate-scroll-line" style={{ background: 'linear-gradient(to bottom,var(--gold-600),transparent)' }} />
       </div>
     </section>
   )

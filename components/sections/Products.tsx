@@ -40,7 +40,7 @@ export default function Products({ withCta = true }: { withCta?: boolean }) {
               <div className="relative overflow-hidden aspect-[16/10]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={asset(meta.img)} alt={tr(product.name)} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(12,30,82,0.85) 100%)' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,8,6,0.85) 100%)' }} />
                 <span className="absolute left-5 bottom-4 text-xs font-bold tracking-[0.16em] uppercase" style={{ color: meta.accent }}>
                   Thermocork · {code}
                 </span>

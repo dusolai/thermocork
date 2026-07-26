@@ -9,48 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Marking ink — the committed field. Owns whole regions, never an accent.
+        // Dark "ink" scale (luxury spine)
         ink: {
-          900: '#0C1E52',
-          800: '#112A6E',
-          700: '#16358A',
-          600: '#1B3FAE',
-          500: '#2A4FC0',
+          900: '#0A0806',
+          800: '#120E09',
+          700: '#1C1510',
+          600: '#261C11',
+          500: '#352818',
         },
-        // Signal — live state, primary action, stencil marks on the blue field.
+        // Brand gold (from the official logo)
         gold: {
-          300: '#FBE28A',
-          400: '#F7CE3A',
-          500: '#F3C31B',
-          600: '#EFB700',
-          700: '#C79800',
+          300: '#F4DDA0',
+          400: '#F0D080',
+          500: '#E8C060',
+          600: '#C9A045',
+          700: '#A8823A',
         },
-        // Cork granule / bale kraft
+        // Cork / earth
         cork: {
-          400: '#E0D0B4',
-          500: '#C2AC88',
-          600: '#9B855F',
+          400: '#C4956A',
+          500: '#8B5E3C',
+          600: '#6E4626',
         },
-        // Kraft grounds (the material the page is printed on)
+        // Editorial light palette (cream / ivory)
         cream: {
-          50: '#E9DEC8',
-          100: '#D9C9AC',
-          200: '#CFBC9B',
-          300: '#C3AE8B',
+          50: '#FBF8F1',
+          100: '#F6F1E7',
+          200: '#EFE7D6',
+          300: '#E7DFCE',
         },
-        // Text neutrals
+        // Warm neutrals for text
         sand: {
-          100: '#F4ECDD',
-          200: '#DCD0B8',
-          300: '#A9B6D8',
-          700: '#5C513F',
-          900: '#17140F',
+          100: '#F8F2E8',
+          200: '#D4C8B0',
+          300: '#9A8870',
+          700: '#6B5E4B',
+          900: '#1A1611',
         },
-        pitch: '#17140F',
-        burnt: '#231B12',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Impact', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
         sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },

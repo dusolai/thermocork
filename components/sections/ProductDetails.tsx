@@ -37,7 +37,7 @@ export default function ProductDetails() {
             { img: '/img/info/colores.webp', t: { es: 'Miles de colores RAL/NCS', en: 'Thousands of RAL/NCS colours' } },
           ].map((f, i) => (
             <AnimateIn key={i} delay={i * 0.08}>
-              <div className="rounded-none overflow-hidden shadow-soft bg-white">
+              <div className="rounded-3xl overflow-hidden shadow-soft bg-white">
                 <div className="aspect-[4/3] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={asset(f.img)} alt={tr(f.t)} loading="lazy" decoding="async" className="w-full h-full object-cover" />
@@ -58,7 +58,7 @@ export default function ProductDetails() {
               title={tr({ es: 'Rendimiento', en: 'Performance' })}
               accent={tr({ es: 'medible.', en: 'you can measure.' })}
             />
-            <div className="mt-8 rounded-none overflow-hidden" style={{ border: '1px solid var(--border-soft)' }}>
+            <div className="mt-8 rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border-soft)' }}>
               {SPECS.map((s, i) => (
                 <div key={i} className="flex items-center justify-between gap-4 px-5 py-3.5" style={{ background: i % 2 ? 'var(--ink-800)' : 'var(--ink-700)' }}>
                   <span className="text-sm text-sand-300">{tr(s.k)}</span>
@@ -72,7 +72,7 @@ export default function ProductDetails() {
           <AnimateIn delay={0.1}>
             <div className="flex flex-col gap-6">
               {['/img/info/comparativa.webp', '/img/info/datos_tecnicos.webp'].map((src, i) => (
-                <div key={i} className="rounded-none overflow-hidden shadow-soft" style={{ border: '1px solid var(--border-soft)' }}>
+                <div key={i} className="rounded-2xl overflow-hidden shadow-soft" style={{ border: '1px solid var(--border-soft)' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={asset(src)} alt="Thermocork" loading="lazy" decoding="async" className="w-full h-auto block" />
                 </div>
