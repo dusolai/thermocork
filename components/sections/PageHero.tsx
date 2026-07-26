@@ -25,10 +25,10 @@ export default function PageHero({
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={asset(image)} alt="" aria-hidden className="w-full h-full object-cover" style={{ opacity: 0.32 }} />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.7) 0%, rgba(10,8,6,0.78) 60%, rgba(10,8,6,0.96) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(12,30,82,0.7) 0%, rgba(12,30,82,0.78) 60%, rgba(12,30,82,0.96) 100%)' }} />
         </div>
       )}
-      <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 20% 30%, rgba(201,160,69,0.1), transparent 70%)' }} />
+      <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 20% 30%, rgba(239,183,0,0.1), transparent 70%)' }} />
       <Container className="relative z-10" >
         <div style={{ paddingTop: 150, paddingBottom: 70 }} className="max-w-3xl">
           <span className="tag mb-6"><span className="tag-dot" /> {tr(tag)}</span>

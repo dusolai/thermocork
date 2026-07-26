@@ -25,7 +25,7 @@ export default function ApplicationsGrid() {
             <div className="relative overflow-hidden aspect-[16/10]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset(APP_IMAGES[tab.id] ?? '/img/villa-pool.webp')} alt={tr(tab.title)} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 45%, rgba(10,8,6,0.85) 100%)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 45%, rgba(12,30,82,0.85) 100%)' }} />
               <h3 className="absolute left-5 bottom-4 right-5 font-display text-lg font-semibold text-sand-100">{tr(tab.title)}</h3>
             </div>
             <div className="p-6 flex flex-col flex-1">

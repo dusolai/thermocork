@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google'
+import { Big_Shoulders_Display, Archivo, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { LangProvider } from '@/hooks/useLang'
 import SmoothScroll from '@/components/providers/SmoothScroll'
@@ -9,12 +9,14 @@ import Footer from '@/components/sections/Footer'
 import PwaRegister from '@/components/PwaRegister'
 import JsonLd from '@/components/JsonLd'
 
-const display = Fraunces({
+// Industrial signage lettering — carries the stencil mark at scale.
+const display = Big_Shoulders_Display({
   subsets: ['latin'],
+  weight: ['600', '700', '800', '900'],
   variable: '--font-display',
   display: 'swap',
 })
-const sans = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
+const sans = Archivo({ subsets: ['latin'], variable: '--font-sans', display: 'swap' })
 const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
 const SITE = 'https://thermocork.es'
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  width: 'device-width', initialScale: 1, maximumScale: 5, themeColor: '#0A0806',
+  width: 'device-width', initialScale: 1, maximumScale: 5, themeColor: '#0C1E52',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

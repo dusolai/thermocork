@@ -33,7 +33,7 @@ export default function Ecological() {
         </AnimateIn>
 
         <AnimateIn delay={0.1}>
-          <div className="grid grid-cols-2 gap-px rounded-3xl overflow-hidden" style={{ background: 'var(--border-soft)' }}>
+          <div className="grid grid-cols-2 gap-px rounded-none overflow-hidden" style={{ background: 'var(--border-soft)' }}>
             {t.ecological.stats.map((s, i) => (
               <div key={i} className="bg-ink-800 p-8 flex flex-col items-center text-center">
                 <Stat value={s.num} label={tr(s.label)} className="flex flex-col items-center" />

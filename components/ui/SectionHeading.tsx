@@ -26,8 +26,8 @@ export default function SectionHeading({
         </span>
       )}
       <h2
-        className="font-display font-semibold tracking-tightest"
-        style={{ fontSize: 'clamp(30px,4.4vw,52px)', lineHeight: 1.06 }}
+        className="marca m-0"
+        style={{ fontSize: 'clamp(32px,5vw,64px)' }}
       >
         {title}
         {accent && (
@@ -37,6 +37,11 @@ export default function SectionHeading({
           </>
         )}
       </h2>
+      {/* Hilo de tinta bajo el rótulo: cierra la región marcada */}
+      <span
+        aria-hidden
+        className={clsx('block mt-5 h-[3px] w-16 bg-gold-600', align === 'center' && 'mx-auto')}
+      />
       {sub && (
         <p className="mt-5 text-[17px] leading-relaxed opacity-80" style={{ maxWidth: '52ch' }}>
           {sub}

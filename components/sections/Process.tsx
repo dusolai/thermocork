@@ -22,11 +22,11 @@ export default function Process() {
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
         {/* Video */}
         <AnimateIn>
-          <div className="relative rounded-3xl overflow-hidden shadow-lift aspect-[4/3]">
+          <div className="relative rounded-none overflow-hidden shadow-lift aspect-[4/3]">
             <video autoPlay muted loop playsInline poster={asset('/video/corcho-impermeable.jpg')} className="w-full h-full object-cover">
               <source src={asset('/video/corcho-impermeable.mp4')} type="video/mp4" />
             </video>
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(10,8,6,0.35) 100%)' }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(12,30,82,0.35) 100%)' }} />
           </div>
         </AnimateIn>
 
@@ -35,8 +35,8 @@ export default function Process() {
           {t.process.steps.map((step, i) => (
             <AnimateIn key={i} delay={i * 0.08}>
               <div className="flex gap-5 py-5 border-b border-[rgba(26,22,17,0.1)] last:border-0">
-                <div className="shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center font-display text-lg font-semibold"
-                  style={{ background: 'rgba(201,160,69,0.14)', color: 'var(--cork-500)', border: '1px solid rgba(201,160,69,0.3)' }}>
+                <div className="shrink-0 w-12 h-12 rounded-none flex items-center justify-center font-display text-lg font-semibold"
+                  style={{ background: 'rgba(239,183,0,0.14)', color: 'var(--cork-500)', border: '1px solid rgba(239,183,0,0.3)' }}>
                   {step.num}
                 </div>
                 <div>

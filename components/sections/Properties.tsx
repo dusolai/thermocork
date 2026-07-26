@@ -22,10 +22,10 @@ export default function Properties() {
         })}
         className="mb-14"
       />
-      <StaggerList className="grid gap-px rounded-3xl overflow-hidden sm:grid-cols-2 lg:grid-cols-3" style={{ background: 'var(--border-soft)' }}>
+      <StaggerList className="grid gap-px rounded-none overflow-hidden sm:grid-cols-2 lg:grid-cols-3" style={{ background: 'var(--border-soft)' }}>
         {PROPERTIES.map((p, i) => (
           <div key={i} className="group bg-ink-800 p-7 transition-colors duration-300 hover:bg-ink-700">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ background: 'var(--border-soft)', border: '1px solid var(--border-soft)' }}>
+            <div className="w-14 h-14 rounded-none flex items-center justify-center mb-5" style={{ background: 'var(--border-soft)', border: '1px solid var(--border-soft)' }}>
               <Icon name={p.icon} size={32} />
             </div>
             <h3 className="font-display text-lg font-semibold text-sand-100 mb-2">{tr(p.name)}</h3>
