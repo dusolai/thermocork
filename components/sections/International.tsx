@@ -17,7 +17,7 @@ export default function International() {
         sub={tr(t.international.sub)}
         className="mb-12"
       />
-      <StaggerList className="grid gap-px rounded-3xl overflow-hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ background: 'var(--border-soft)' }}>
+      <StaggerList className="grid gap-px rounded-[3px] overflow-hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ background: 'var(--border-soft)' }}>
         {t.international.countries.map((c, i) => (
           <div key={i} className="bg-ink-800 p-6 flex flex-col items-center text-center transition-colors duration-300 hover:bg-ink-700">
             <span className="text-3xl mb-3" aria-hidden>{c.flag}</span>

@@ -62,14 +62,14 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-start">
           <AnimateIn>
             {project.video ? (
-              <div className="rounded-3xl overflow-hidden shadow-lift" style={{ border: '1px solid var(--border-soft)' }}>
+              <div className="rounded-[3px] overflow-hidden" style={{ border: '1px solid var(--border-soft)' }}>
                 <video controls playsInline preload="metadata" poster={asset(project.video.poster)} className="w-full h-auto block bg-black">
                   <source src={asset(project.video.src)} type="video/mp4" />
                 </video>
               </div>
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={asset(project.cover)} alt={tr(project.title)} className="rounded-3xl w-full shadow-lift" />
+              <img src={asset(project.cover)} alt={tr(project.title)} className="rounded-[3px] w-full" />
             )}
             <p className="mt-3 text-xs text-sand-300">{tr({ es: 'Vídeo real de obra · red de aplicadores Thermocork', en: 'Real on-site video · Thermocork applicator network' })}</p>
           </AnimateIn>
@@ -92,7 +92,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
           {project.gallery.map((src, i) => (
             <AnimateIn key={i} delay={(i % 2) * 0.06}>
-              <div className="rounded-2xl overflow-hidden shadow-soft aspect-[4/3]" style={{ border: '1px solid var(--border-soft)' }}>
+              <div className="rounded-[3px] overflow-hidden aspect-[4/3]" style={{ border: '1px solid var(--border-soft)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={asset(src)} alt={`${tr(project.title)} — ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>

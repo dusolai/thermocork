@@ -28,9 +28,9 @@ export default function FeaturedProjects({ limit = 3, compact = false }: { limit
       <StaggerList className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {items.map((p) => (
           <Link key={p.slug} href={`/proyectos/${p.slug}`} className="card card-hover overflow-hidden no-underline group flex flex-col">
-            <div className="relative overflow-hidden aspect-[4/3]">
+            <div className="media relative aspect-[4/3]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset(p.cover)} alt={tr(p.title)} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src={asset(p.cover)} alt={tr(p.title)} loading="lazy" decoding="async" />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 45%, rgba(10,8,6,0.88) 100%)' }} />
               <span className="absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em]" style={{ background: 'rgba(10,8,6,0.6)', border: '1px solid var(--border)', color: 'var(--gold-400)', backdropFilter: 'blur(6px)' }}>
                 {tr(p.sector)}

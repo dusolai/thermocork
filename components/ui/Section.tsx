@@ -30,7 +30,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={clsx('relative isolate', TONES[tone], pad && 'py-20 sm:py-28', className)}
+      className={clsx('relative isolate', TONES[tone], pad && 'py-24 sm:py-32 lg:py-40', className)}
     >
       <Container size={size} className={containerClassName}>
         {children}

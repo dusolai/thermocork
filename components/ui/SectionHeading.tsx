@@ -21,13 +21,13 @@ export default function SectionHeading({
       className={clsx(align === 'center' && 'mx-auto text-center', 'max-w-prose2', className)}
     >
       {tag && (
-        <span className="tag mb-5">
+        <span className="tag mb-7">
           <span className="tag-dot" /> {tag}
         </span>
       )}
       <h2
-        className="font-display font-semibold tracking-tightest"
-        style={{ fontSize: 'clamp(30px,4.4vw,52px)', lineHeight: 1.06 }}
+        className="font-display m-0"
+        style={{ fontSize: 'clamp(32px,4.8vw,58px)' }}
       >
         {title}
         {accent && (
@@ -38,7 +38,7 @@ export default function SectionHeading({
         )}
       </h2>
       {sub && (
-        <p className="mt-5 text-[17px] leading-relaxed opacity-80" style={{ maxWidth: '52ch' }}>
+        <p className="mt-6 text-[17px] leading-[1.75] opacity-75 m-0" style={{ maxWidth: '54ch' }}>
           {sub}
         </p>
       )}

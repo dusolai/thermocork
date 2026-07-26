@@ -4,6 +4,7 @@ import './globals.css'
 import { LangProvider } from '@/hooks/useLang'
 import SmoothScroll from '@/components/providers/SmoothScroll'
 import FloatingElements from '@/components/FloatingElements'
+import SectionRail from '@/components/SectionRail'
 import Nav from '@/components/Nav'
 import Footer from '@/components/sections/Footer'
 import PwaRegister from '@/components/PwaRegister'
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LangProvider>
           <SmoothScroll>
             <Nav />
+            <SectionRail />
             {children}
             <Footer />
             <FloatingElements />

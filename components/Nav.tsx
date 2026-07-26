@@ -87,7 +87,7 @@ export default function Nav() {
 
           {/* Hamburger */}
           <button
-            className="lg:hidden flex flex-col justify-center items-center gap-[5px] rounded-xl"
+            className="lg:hidden flex flex-col justify-center items-center gap-[5px] rounded-[3px]"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
             aria-expanded={open}

@@ -62,7 +62,7 @@ export default function Applications() {
           transition={{ duration: 0.4, ease: 'easeOut' }}
           className="grid gap-10 lg:gap-14 items-center lg:grid-cols-2"
         >
-          <div className="relative rounded-3xl overflow-hidden shadow-lift aspect-[4/3]" style={{ border: '1px solid var(--border-soft)' }}>
+          <div className="relative rounded-[3px] overflow-hidden aspect-[4/3]" style={{ border: '1px solid var(--border-soft)' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset(img)} alt={tr(tab.title)} loading="lazy" decoding="async" className="w-full h-full object-cover" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, transparent 40%, rgba(10,8,6,0.7) 100%)' }} />
