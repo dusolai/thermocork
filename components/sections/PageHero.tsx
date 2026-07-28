@@ -2,9 +2,13 @@
 
 import { useLang } from '@/hooks/useLang'
 import { asset } from '@/lib/asset'
-import Container from '@/components/ui/Container'
 import type { Bi } from '@/lib/site'
 
+/**
+ * Cabecera de página interior. Mismo criterio que la portada: la obra al fondo
+ * a sangre, titular dominante y el texto retirado. Sin lavado radial dorado —
+ * el degradado sobre la foto basta para sostener la lectura.
+ */
 export default function PageHero({
   tag,
   title,
@@ -20,25 +24,33 @@ export default function PageHero({
 }) {
   const { t: tr } = useLang()
   return (
-    <header className="relative overflow-hidden bg-ink-900 border-b" style={{ borderColor: 'var(--border-soft)' }}>
+    <header
+      className="relative overflow-hidden bg-ink-900 border-b flex items-end"
+      style={{ borderColor: 'var(--border-soft)', minHeight: 'clamp(420px,62vh,640px)' }}
+    >
       {image && (
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={asset(image)} alt="" aria-hidden className="w-full h-full object-cover" style={{ opacity: 0.32 }} />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.7) 0%, rgba(10,8,6,0.78) 60%, rgba(10,8,6,0.96) 100%)' }} />
+          <img src={asset(image)} alt="" aria-hidden className="w-full h-full object-cover" style={{ opacity: 0.5 }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.74) 0%, rgba(10,8,6,0.4) 42%, rgba(10,8,6,0.9) 100%)' }} />
         </div>
       )}
-      <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(ellipse 60% 50% at 20% 30%, rgba(201,160,69,0.1), transparent 70%)' }} />
-      <Container className="relative z-10" >
-        <div style={{ paddingTop: 150, paddingBottom: 70 }} className="max-w-3xl">
-          <span className="tag mb-6"><span className="tag-dot" /> {tr(tag)}</span>
-          <h1 className="font-display font-semibold tracking-tightest" style={{ fontSize: 'clamp(36px,5.4vw,68px)', lineHeight: 1.04 }}>
-            <span className="text-sand-100">{tr(title)}</span>
-            {accent && <> <span className="text-cork">{tr(accent)}</span></>}
-          </h1>
-          {sub && <p className="mt-6 text-[17px] leading-relaxed text-sand-200" style={{ maxWidth: '56ch' }}>{tr(sub)}</p>}
-        </div>
-      </Container>
+
+      <div
+        className="relative z-10 w-full max-w-wide mx-auto px-5 sm:px-8 lg:px-14"
+        style={{ paddingTop: 'clamp(140px,20vh,210px)', paddingBottom: 'clamp(44px,7vh,76px)' }}
+      >
+        <span className="tag mb-7"><span className="tag-dot" /> {tr(tag)}</span>
+        <h1 className="font-display m-0" style={{ fontSize: 'clamp(38px,6.6vw,96px)', lineHeight: 0.96 }}>
+          <span className="text-sand-100">{tr(title)}</span>
+          {accent && <> <span className="text-cork">{tr(accent)}</span></>}
+        </h1>
+        {sub && (
+          <p className="mt-7 text-[17px] leading-[1.75] text-sand-200 m-0" style={{ maxWidth: '52ch' }}>
+            {tr(sub)}
+          </p>
+        )}
+      </div>
     </header>
   )
 }

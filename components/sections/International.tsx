@@ -19,10 +19,14 @@ export default function International() {
       />
       <StaggerList className="grid gap-px rounded-[3px] overflow-hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" style={{ background: 'var(--border-soft)' }}>
         {t.international.countries.map((c, i) => (
-          <div key={i} className="bg-ink-800 p-6 flex flex-col items-center text-center transition-colors duration-300 hover:bg-ink-700">
-            <span className="text-3xl mb-3" aria-hidden>{c.flag}</span>
-            <div className="font-display font-semibold text-sand-100">{tr(c.name)}</div>
-            <div className="text-[12px] text-sand-300 mt-1">{tr(c.desc)}</div>
+          // Sin banderas emoji: Windows no las dibuja (salen como "ES", "PT").
+          // El número de orden en mono da orden y aire sin depender del sistema.
+          <div key={i} className="bg-ink-800 px-6 py-8 flex flex-col items-start transition-colors duration-300 hover:bg-ink-700">
+            <span className="font-mono text-[11px] tracking-[0.18em] text-gold-600" aria-hidden>
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div className="font-display text-lg text-sand-100 mt-4">{tr(c.name)}</div>
+            <div className="text-[12px] leading-snug text-sand-300 mt-1.5">{tr(c.desc)}</div>
           </div>
         ))}
       </StaggerList>

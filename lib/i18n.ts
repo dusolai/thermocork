@@ -226,11 +226,11 @@ export const t = {
       { num: '25+', label: { es: 'años de vida útil', en: 'years useful life' } },
     ],
     pills: [
-      { es: '🌿 Base acuosa', en: '🌿 Water-based' },
-      { es: '♻️ 100% reciclable', en: '♻️ 100% recyclable' },
-      { es: '🌍 Baja huella de CO₂', en: '🌍 Low CO₂ footprint' },
-      { es: '🚫 Sin COVs', en: '🚫 No VOCs' },
-      { es: '🌳 Sin tala', en: '🌳 No felling' },
+      { es: 'Base acuosa', en: 'Water-based' },
+      { es: '100% reciclable', en: '100% recyclable' },
+      { es: 'Baja huella de CO₂', en: 'Low CO₂ footprint' },
+      { es: 'Sin COVs', en: 'No VOCs' },
+      { es: 'Sin tala', en: 'No felling' },
     ],
   },
   international: {

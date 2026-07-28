@@ -20,22 +20,37 @@ export default function Faq({ limit }: { limit?: number }) {
         accent={tr({ es: 'pregunta.', en: 'asks.' })}
         className="mb-12"
       />
-      <div className="flex flex-col gap-3">
+      {/* Lista editorial: filas separadas por filete, sin cajas. La pregunta
+          manda en display y la respuesta se despliega debajo. */}
+      <div className="border-t" style={{ borderColor: 'var(--border-soft)' }}>
         {items.map((item, i) => {
           const isOpen = open === i
           return (
-            <div key={i} className="card overflow-hidden">
+            <div key={i} className="border-b" style={{ borderColor: 'var(--border-soft)' }}>
               <button
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="w-full flex items-center justify-between gap-4 text-left p-6"
+                className="w-full flex items-start justify-between gap-6 text-left py-7 group"
                 aria-expanded={isOpen}
               >
-                <span className="font-display text-[17px] font-semibold text-sand-100">{tr(item.q)}</span>
-                <span className="shrink-0 text-gold-600 text-xl transition-transform duration-300" style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}>+</span>
+                <span
+                  className="font-display text-sand-100 transition-colors duration-300 group-hover:text-gold-600"
+                  style={{ fontSize: 'clamp(19px,2.1vw,26px)', lineHeight: 1.25 }}
+                >
+                  {tr(item.q)}
+                </span>
+                <span
+                  aria-hidden
+                  className="shrink-0 mt-1.5 text-gold-600 text-2xl font-light leading-none transition-transform duration-500"
+                  style={{ transform: isOpen ? 'rotate(135deg)' : 'none' }}
+                >
+                  +
+                </span>
               </button>
-              <div className="grid transition-all duration-300 ease-out" style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}>
+              <div className="grid transition-all duration-500 ease-out" style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}>
                 <div className="overflow-hidden">
-                  <p className="px-6 pb-6 text-[15px] leading-relaxed text-sand-300 m-0">{tr(item.a)}</p>
+                  <p className="pb-8 pr-12 text-[16px] leading-[1.75] text-sand-300 m-0" style={{ maxWidth: '62ch' }}>
+                    {tr(item.a)}
+                  </p>
                 </div>
               </div>
             </div>

@@ -13,12 +13,12 @@ export default function CtaBand() {
     <section className="relative overflow-hidden bg-ink-900">
       <div className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={asset('/img/interior-atrium.webp')} alt="" aria-hidden loading="lazy" decoding="async" className="w-full h-full object-cover" style={{ opacity: 0.28 }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.85), rgba(10,8,6,0.92))' }} />
+        <img src={asset('/img/interior-atrium.webp')} alt="" aria-hidden loading="lazy" decoding="async" className="w-full h-full object-cover" style={{ opacity: 0.45 }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.78), rgba(10,8,6,0.9))' }} />
       </div>
-      <Container className="relative z-10 py-24 text-center">
+      <Container className="relative z-10 text-center py-28 sm:py-36 lg:py-44">
         <AnimateIn className="mx-auto">
-          <h2 className="font-display font-semibold tracking-tightest mx-auto" style={{ fontSize: 'clamp(30px,4.6vw,56px)', lineHeight: 1.05, maxWidth: '16ch' }}>
+          <h2 className="font-display m-0 mx-auto" style={{ fontSize: 'clamp(34px,6vw,82px)', lineHeight: 0.98, maxWidth: '15ch' }}>
             <span className="text-sand-100">{tr({ es: '¿Listo para aislar', en: 'Ready to insulate' })}</span>{' '}
             <span className="text-cork">{tr({ es: 'con corcho natural?', en: 'with natural cork?' })}</span>
           </h2>

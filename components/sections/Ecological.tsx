@@ -11,21 +11,23 @@ export default function Ecological() {
   const { t: tr } = useLang()
   return (
     <Section id="ecological" tone="dark" className="overflow-hidden">
-      {/* ambient */}
-      <div className="ambient-blob" style={{ width: 520, height: 520, top: '-15%', right: '-10%', background: 'radial-gradient(circle, rgba(90,140,60,0.35), transparent 65%)' }} />
-
-      <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+      <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
         <AnimateIn>
-          <span className="tag mb-5"><span className="tag-dot" /> {tr(t.ecological.tag)}</span>
-          <h2 className="font-display font-semibold tracking-tightest" style={{ fontSize: 'clamp(28px,3.8vw,46px)', lineHeight: 1.1 }}>
+          <span className="tag mb-7"><span className="tag-dot" /> {tr(t.ecological.tag)}</span>
+          <h2 className="font-display m-0" style={{ fontSize: 'clamp(32px,4.8vw,58px)' }}>
             <span className="text-sand-100">{tr(t.ecological.title1)}</span>{' '}
             <span className="text-cork">{tr(t.ecological.title2)}</span>
           </h2>
           <p className="mt-6 text-[16px] leading-relaxed text-sand-200">{tr(t.ecological.p1)}</p>
           <p className="mt-4 text-[16px] leading-relaxed text-sand-300">{tr(t.ecological.p2)}</p>
-          <div className="mt-7 flex flex-wrap gap-2.5">
+          {/* Marbetes en versalita sobre filete: sin cápsulas blandas */}
+          <div className="mt-9 flex flex-wrap gap-x-7 gap-y-3">
             {t.ecological.pills.map((pill, i) => (
-              <span key={i} className="rounded-full px-4 py-2 text-[13px] font-medium" style={{ background: 'var(--border-soft)', border: '1px solid var(--border-soft)', color: 'var(--sand-200)' }}>
+              <span
+                key={i}
+                className="text-[11px] uppercase tracking-[0.18em] text-sand-200 pt-3 border-t"
+                style={{ borderColor: 'var(--border)' }}
+              >
                 {tr(pill)}
               </span>
             ))}

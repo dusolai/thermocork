@@ -37,9 +37,9 @@ export default function Products({ withCta = true }: { withCta?: boolean }) {
           const meta = PRODUCT_META[code] ?? PRODUCT_META.F01
           return (
             <article key={i} className="card card-hover overflow-hidden flex flex-col">
-              <div className="relative overflow-hidden aspect-[16/10]">
+              <div className="media relative aspect-[16/10]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={asset(meta.img)} alt={tr(product.name)} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={asset(meta.img)} alt={tr(product.name)} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(10,8,6,0.85) 100%)' }} />
                 <span className="absolute left-5 bottom-4 text-xs font-bold tracking-[0.16em] uppercase" style={{ color: meta.accent }}>
                   Thermocork · {code}

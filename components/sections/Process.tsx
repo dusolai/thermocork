@@ -22,7 +22,7 @@ export default function Process() {
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
         {/* Video */}
         <AnimateIn>
-          <div className="relative rounded-[3px] overflow-hidden aspect-[4/3]">
+          <div className="media relative aspect-[4/3]">
             <video autoPlay muted loop playsInline poster={asset('/video/corcho-impermeable.jpg')} className="w-full h-full object-cover">
               <source src={asset('/video/corcho-impermeable.mp4')} type="video/mp4" />
             </video>

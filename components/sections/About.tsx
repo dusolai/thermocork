@@ -14,7 +14,7 @@ export default function About() {
         {/* Image */}
         <AnimateIn className="order-2 lg:order-1">
           <div className="relative">
-            <div className="relative rounded-[3px] overflow-hidden aspect-[4/5]">
+            <div className="media relative aspect-[4/5]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset('/img/cork-oak.webp')} alt={tr({ es: 'Alcornoque, origen del corcho Thermocork', en: 'Cork oak, the origin of Thermocork cork' })} loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>

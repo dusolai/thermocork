@@ -92,7 +92,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
           {project.gallery.map((src, i) => (
             <AnimateIn key={i} delay={(i % 2) * 0.06}>
-              <div className="rounded-[3px] overflow-hidden aspect-[4/3]" style={{ border: '1px solid var(--border-soft)' }}>
+              <div className="media aspect-[4/3]" style={{ border: '1px solid var(--border-soft)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={asset(src)} alt={`${tr(project.title)} — ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
