@@ -9,9 +9,9 @@ import StaggerList from '@/components/ui/StaggerList'
 import Button from '@/components/ui/Button'
 
 const PRODUCT_META: Record<string, { accent: string; img: string }> = {
-  F01: { accent: '#C9A045', img: '/img/cork-wall.webp' },
-  G01: { accent: '#8B5E3C', img: '/img/roof-slats.webp' },
-  TCI: { accent: '#C4956A', img: '/img/coating-path.webp' },
+  F01: { accent: '#C9A045', img: '/img/real/producto-f01.webp' },
+  G01: { accent: '#8B5E3C', img: '/img/real/producto-g01.webp' },
+  TCI: { accent: '#C4956A', img: '/img/real/producto-xg01.webp' },
 }
 
 function getCode(codeStr: string) {

@@ -17,7 +17,7 @@ export default function FormacionPage() {
         title={{ es: 'Certifícate.', en: 'Get certified.' }}
         accent={{ es: 'Empieza a crecer.', en: 'Start growing.' }}
         sub={{ es: 'Únete a la red de aplicadores certificados Thermocork y accede a un mercado de rehabilitación energética en plena expansión.', en: 'Join the Thermocork certified applicator network and access a fast-growing energy-rehabilitation market.' }}
-        image="/img/team.webp"
+        image="/img/real/proy-demostracion-impermeabilizacion.webp"
       />
       <Training />
       <CtaBand />

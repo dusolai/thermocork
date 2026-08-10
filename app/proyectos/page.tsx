@@ -18,7 +18,7 @@ export default function ProyectosPage() {
         title={{ es: 'Obra real,', en: 'Real projects,' }}
         accent={{ es: 'resultados reales.', en: 'real results.' }}
         sub={{ es: 'Una selección de proyectos de nuestra red de aplicadores certificados, documentados con fotografía y vídeo en obra.', en: 'A selection of projects from our certified applicator network, documented with on-site photography and video.' }}
-        image="/img/roof-aerial.webp"
+        image="/img/real/proy-infinito-delicias-2.webp"
       />
       <FeaturedProjects limit={projects.length} compact />
       <CtaBand />

@@ -36,13 +36,31 @@ export const PROPERTIES: { icon: IconName; name: Bi; desc: Bi }[] = [
   { icon: 'versatile', name: { es: 'Versátil', en: 'Versatile' }, desc: { es: 'Adhiere sobre ladrillo, hormigón, madera, metal y curvas.', en: 'Adheres to brick, concrete, wood, metal and curves.' } },
 ]
 
-// Real images per application sector id (overrides the placeholder URLs in i18n)
+// Fotografía real de obra por sector (sustituye a las URLs de relleno de i18n).
+// Cada bloque usa una toma distinta del mismo sector, según el documento de fotos:
+// portada → bloque 3.x, página de aplicaciones → 9.x, rejilla de sectores → 10.x.
 export const APP_IMAGES: Record<string, string> = {
-  facades: '/img/facade-louvers.webp',
-  roofs: '/img/roof-aerial.webp',
-  interiors: '/img/interior-atrium.webp',
-  commercial: '/img/interior-lobby.webp',
-  vehicles: '/img/cork-wall.webp',
+  facades: '/img/real/home-app-fachadas.webp',
+  roofs: '/img/real/home-app-cubiertas.webp',
+  interiors: '/img/real/home-app-interiores.webp',
+  commercial: '/img/real/home-app-comercial.webp',
+  vehicles: '/img/real/home-app-vehiculos.webp',
+}
+
+export const APP_IMAGES_PAGE: Record<string, string> = {
+  facades: '/img/real/app-fachadas.webp',
+  roofs: '/img/real/app-cubiertas.webp',
+  interiors: '/img/real/app-interiores.webp',
+  commercial: '/img/real/app-comercial.webp',
+  vehicles: '/img/real/app-vehiculos.webp',
+}
+
+export const SECTOR_IMAGES: Record<string, string> = {
+  facades: '/img/real/sector-fachadas.webp',
+  roofs: '/img/real/sector-cubiertas.webp',
+  interiors: '/img/real/sector-interiores.webp',
+  commercial: '/img/real/sector-comercial.webp',
+  vehicles: '/img/real/sector-especiales.webp',
 }
 
 export const FAQ: { q: Bi; a: Bi }[] = [

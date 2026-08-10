@@ -19,7 +19,7 @@ export default function ProductosPage() {
         title={{ es: 'Corcho proyectado para', en: 'Projected cork for' }}
         accent={{ es: 'cada superficie.', en: 'every surface.' }}
         sub={{ es: 'Tres formulaciones especializadas fabricadas con corcho natural de alcornoque, sin disolventes, con doce propiedades en una sola aplicación.', en: 'Three specialised formulations made with natural cork oak, solvent-free, with twelve properties in a single application.' }}
-        image="/img/facade-louvers.webp"
+        image="/img/real/producto-f01.webp"
       />
       <Products withCta={false} />
       <Properties />

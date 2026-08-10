@@ -24,7 +24,7 @@ export default function Home() {
 
       {/* Respiro: una obra real a pantalla completa entre dos bloques densos */}
       <FullBleedReveal
-        img="/img/facade-louvers.webp"
+        img="/img/real/portada-fachada.webp"
         quote={{ es: 'Una sola capa. Sin obra.', en: 'One single layer. No demolition.' }}
         credit={{ es: 'Obra real · Fachada con corcho proyectado', en: 'Real project · Sprayed cork facade' }}
       />

@@ -18,9 +18,9 @@ export default function AplicacionesPage() {
         title={{ es: 'Cada superficie,', en: 'Every surface,' }}
         accent={{ es: 'una solución.', en: 'one solution.' }}
         sub={{ es: 'Del tejado a la fachada, del restaurante a la nave industrial: el corcho proyectado se adapta a cualquier soporte y geometría.', en: 'From roof to facade, from restaurant to industrial unit: projected cork adapts to any substrate and geometry.' }}
-        image="/img/roof-slats.webp"
+        image="/img/real/sector-fachadas.webp"
       />
-      <Applications />
+      <Applications variant="page" />
       <ApplicationsGrid />
       <CtaBand />
     </main>

@@ -32,8 +32,8 @@ export default function ProductDetails() {
         />
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { img: '/img/cork-wall.webp', t: { es: 'Textura fina · F01', en: 'Fine texture · F01' } },
-            { img: '/img/facade-louvers.webp', t: { es: 'Textura gruesa · G01', en: 'Coarse texture · G01' } },
+            { img: '/img/real/producto-f01.webp', t: { es: 'Textura fina · F01', en: 'Fine texture · F01' } },
+            { img: '/img/real/producto-g01.webp', t: { es: 'Textura gruesa · G01', en: 'Coarse texture · G01' } },
             { img: '/img/info/colores.webp', t: { es: 'Miles de colores RAL/NCS', en: 'Thousands of RAL/NCS colours' } },
           ].map((f, i) => (
             <AnimateIn key={i} delay={i * 0.08}>

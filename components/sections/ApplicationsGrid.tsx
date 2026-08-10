@@ -3,7 +3,7 @@
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
 import { asset } from '@/lib/asset'
-import { APP_IMAGES } from '@/lib/site'
+import { SECTOR_IMAGES } from '@/lib/site'
 import Section from '@/components/ui/Section'
 import SectionHeading from '@/components/ui/SectionHeading'
 import StaggerList from '@/components/ui/StaggerList'
@@ -24,7 +24,7 @@ export default function ApplicationsGrid() {
           <article key={tab.id} className="card card-hover overflow-hidden flex flex-col">
             <div className="media relative aspect-[16/10]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset(APP_IMAGES[tab.id] ?? '/img/villa-pool.webp')} alt={tr(tab.title)} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={asset(SECTOR_IMAGES[tab.id] ?? SECTOR_IMAGES.facades)} alt={tr(tab.title)} loading="lazy" decoding="async" className="w-full h-full object-cover" />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 45%, rgba(10,8,6,0.85) 100%)' }} />
               <h3 className="absolute left-5 bottom-4 right-5 font-display text-lg font-semibold text-sand-100">{tr(tab.title)}</h3>
             </div>

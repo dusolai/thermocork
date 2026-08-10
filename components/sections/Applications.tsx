@@ -5,15 +5,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
 import { asset } from '@/lib/asset'
-import { APP_IMAGES } from '@/lib/site'
+import { APP_IMAGES, APP_IMAGES_PAGE } from '@/lib/site'
 import Section from '@/components/ui/Section'
 import SectionHeading from '@/components/ui/SectionHeading'
 
-export default function Applications() {
+/** `variant` elige el juego de fotos: la portada y la página de aplicaciones
+ *  muestran obras distintas del mismo sector. */
+export default function Applications({ variant = 'home' }: { variant?: 'home' | 'page' }) {
   const { t: tr, lang } = useLang()
   const [active, setActive] = useState(0)
   const tab = t.applications.tabs[active]
-  const img = APP_IMAGES[tab.id] ?? '/img/villa-pool.webp'
+  const images = variant === 'page' ? APP_IMAGES_PAGE : APP_IMAGES
+  const img = images[tab.id] ?? APP_IMAGES.facades
 
   return (
     <Section id="applications" tone="dark">

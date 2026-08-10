@@ -22,9 +22,10 @@ export default function Process() {
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
         {/* Video */}
         <AnimateIn>
-          <div className="media relative aspect-[4/3]">
-            <video autoPlay muted loop playsInline poster={asset('/video/corcho-impermeable.jpg')} className="w-full h-full object-cover">
-              <source src={asset('/video/corcho-impermeable.mp4')} type="video/mp4" />
+          {/* Vídeo real de obra, grabado en vertical: el marco acompaña al original */}
+          <div className="media relative aspect-[3/4] mx-auto" style={{ maxWidth: 'clamp(280px,80%,460px)' }}>
+            <video autoPlay muted loop playsInline poster={asset('/video/como-se-aplica.jpg')} className="w-full h-full object-cover">
+              <source src={asset('/video/como-se-aplica.mp4')} type="video/mp4" />
             </video>
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(10,8,6,0.35) 100%)' }} />
           </div>

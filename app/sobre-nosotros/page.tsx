@@ -20,7 +20,7 @@ export default function SobreNosotrosPage() {
         title={{ es: 'De Navarra', en: 'From Navarre' }}
         accent={{ es: 'al mundo.', en: 'to the world.' }}
         sub={{ es: 'Fabricamos en Cintruénigo un aislamiento de corcho natural que ya protege edificios en diez países, siempre a través de aplicadores certificados.', en: 'In Cintruénigo we manufacture a natural cork insulation that already protects buildings in ten countries, always through certified applicators.' }}
-        image="/img/cork-oak.webp"
+        image="/img/real/proy-ciecem.webp"
       />
       <About />
       <Stats />

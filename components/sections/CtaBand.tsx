@@ -13,7 +13,7 @@ export default function CtaBand() {
     <section className="relative overflow-hidden bg-ink-900">
       <div className="absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={asset('/img/interior-atrium.webp')} alt="" aria-hidden loading="lazy" decoding="async" className="w-full h-full object-cover" style={{ opacity: 0.45 }} />
+        <img src={asset('/img/real/app-fachadas.webp')} alt="" aria-hidden loading="lazy" decoding="async" className="w-full h-full object-cover" style={{ opacity: 0.45 }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(10,8,6,0.78), rgba(10,8,6,0.9))' }} />
       </div>
       <Container className="relative z-10 text-center py-28 sm:py-36 lg:py-44">
