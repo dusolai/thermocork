@@ -1,0 +1,58 @@
+# Redirecciones 301 del WordPress anterior de thermocork.es a la web nueva.
+# Cloudflare Pages lee este fichero desde la raíz del build (out/_redirects).
+# Sin esto, las 42 URLs que Google tiene indexadas darían 404 al sustituir la web.
+
+# --- Soluciones -> Aplicaciones ---
+/soluciones                       /aplicaciones/            301
+/soluciones/fachadas              /aplicaciones/            301
+/soluciones/tejados               /aplicaciones/            301
+/soluciones/decoracion            /aplicaciones/            301
+/soluciones/suelos                /aplicaciones/            301
+/soluciones/aplicaciones-especiales  /aplicaciones/         301
+/soluciones/encapsulado-amianto   /proyectos/amianto/       301
+/techo-frio                       /proyectos/ibiza-techo-frio/  301
+/terminacion-sate                 /proyectos/terminacion-sate/  301
+/residencial                      /proyectos/residencial/   301
+
+# --- Retail ---
+/retail                           /proyectos/restaurante-madrid/  301
+/retail/aislamiento-tiendas       /aplicaciones/            301
+/retail/aislamiento-hoteles       /aplicaciones/            301
+/retail/aislamiento-oficinas      /aplicaciones/            301
+/retail/aislamiento-restaurantes  /proyectos/restaurante-madrid/  301
+
+# --- Productos ---
+/productos/mortero-corcho         /productos/               301
+/productos/f01                    /productos/               301
+/productos/g01                    /productos/               301
+/productos/tci                    /productos/               301
+
+# --- Empresa y formación ---
+/cursos                           /formacion/               301
+/renovables                       /sobre-nosotros/          301
+/mapa-web                         /                         301
+
+# --- Legales ---
+/aviso-legal                      /legal/aviso-legal/       301
+/politica-de-cookies              /legal/cookies/           301
+/politica-de-privacidad           /legal/privacidad/        301
+/declaracion-de-accesibilidad     /legal/aviso-legal/       301
+
+# --- Blog (no hay blog en la web nueva; van a proyectos) ---
+/blog                             /proyectos/               301
+/thermocork-cataluna-impermeabilizacion   /proyectos/galicia-pizarra/   301
+/thermocork-catalunya                     /proyectos/                   301
+/thermcork-cataluna-lleida                /proyectos/                   301
+/thermocork-aragon-teruel                 /proyectos/                   301
+/thermocork-aragon-alfamen                /proyectos/                   301
+/thermocork-andalucia-cadiz-espectacular-trabajo  /proyectos/           301
+/thermocork-galicia                       /proyectos/galicia-pizarra/   301
+/thermocork-internacional                 /sobre-nosotros/              301
+/thermocork-internacional-aplicacion-corcho-proyectado  /sobre-nosotros/  301
+/mejora-tu-aislamiento-termico-con-el-revestimiento-de-corcho-thermocork  /productos/  301
+/corcho-thermocork-como-revestimiento-acustico-y-termico  /productos/    301
+/ecologico-energeticamente-eficiente-el-corcho-proyectado-thermocork-es-respetuosp-con-el-medio-ambiente  /sobre-nosotros/  301
+
+# --- Restos de WordPress ---
+/wp-sitemap.xml                   /sitemap.xml              301
+/sitemap_index.xml                /sitemap.xml              301

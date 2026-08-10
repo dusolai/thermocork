@@ -11,7 +11,7 @@ const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ''
 
 export default function Contact() {
   const { t: tr, lang } = useLang()
-  const [state, setState] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
+  const [state, setState] = useState<'idle' | 'loading' | 'sent' | 'error' | 'mailto'>('idle')
   const [profile, setProfile] = useState<'particular' | 'empresa'>('particular')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -19,15 +19,16 @@ export default function Contact() {
     const form = e.currentTarget
     const data = new FormData(form)
 
-    // No backend configured → graceful mailto fallback
+    // Sin backend configurado → se abre el correo del visitante. No se da por
+    // enviado: el envío depende de que el visitante le dé a enviar en su cliente
+    // de correo, y en muchos móviles el mailto ni siquiera abre nada.
     if (!WEB3FORMS_KEY) {
       const body = Array.from(data.entries())
         .filter(([k]) => !k.startsWith('access_key') && !k.startsWith('botcheck'))
         .map(([k, v]) => `${k}: ${v}`)
         .join('\n')
       window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Presupuesto Thermocork')}&body=${encodeURIComponent(body)}`
-      setState('sent')
-      form.reset()
+      setState('mailto')
       return
     }
 
@@ -129,6 +130,13 @@ export default function Contact() {
                 {state === 'loading' ? '…' : tr(t.contact.submit)}
               </button>
               {state === 'error' && <p className="text-sm text-red-400">{lang === 'es' ? 'No se pudo enviar. Inténtalo por WhatsApp.' : 'Could not send. Please try WhatsApp.'}</p>}
+              {state === 'mailto' && (
+                <p className="text-sm text-sand-300">
+                  {lang === 'es'
+                    ? <>Hemos abierto tu programa de correo con los datos. Si no se ha abierto, escríbenos a <a href={`mailto:${CONTACT.email}`} className="text-gold-400">{CONTACT.email}</a> o por WhatsApp.</>
+                    : <>We&apos;ve opened your email app with the details. If nothing opened, write to <a href={`mailto:${CONTACT.email}`} className="text-gold-400">{CONTACT.email}</a> or use WhatsApp.</>}
+                </p>
+              )}
             </form>
           )}
         </div>
