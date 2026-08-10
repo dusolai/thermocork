@@ -23,7 +23,7 @@ export default function Process() {
         {/* Video */}
         <AnimateIn>
           {/* Vídeo real de obra, grabado en vertical: el marco acompaña al original */}
-          <div className="media relative aspect-[3/4] mx-auto" style={{ maxWidth: 'clamp(280px,80%,460px)' }}>
+          <div className="media relative aspect-[9/16] mx-auto" style={{ maxWidth: 'clamp(240px,66%,360px)' }}>
             <video autoPlay muted loop playsInline poster={asset('/video/como-se-aplica.jpg')} className="w-full h-full object-cover">
               <source src={asset('/video/como-se-aplica.mp4')} type="video/mp4" />
             </video>
