@@ -24,10 +24,9 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # Dominio propio (public/CNAME -> thermocork.es): sin basePath.
       - name: Build static site
         run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /thermocork
       - run: touch out/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
