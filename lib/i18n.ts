@@ -80,7 +80,6 @@ export const t = {
           en: ['Facades and exterior vertical surfaces', 'High-performance decorative interiors', 'Ceilings and hard-to-reach areas', 'Compatible with paints and finishes'],
         },
         badge: { es: 'Disponible en miles de colores', en: 'Available in thousands of colours' },
-        img: 'https://image.pollinations.ai/prompt/fine+cork+granules+texture+macro+warm+golden+light+premium+editorial+photography+dark+background+8k?width=800&height=600&seed=1201&nologo=true&model=flux',
       },
       {
         code: 'Thermocork · G01',
@@ -91,7 +90,6 @@ export const t = {
           en: ['Maximum thermal and acoustic performance', 'Facades with rustic and natural finish', 'Industrial buildings and warehouses', 'Unique architecture projects'],
         },
         badge: { es: 'Mayor espesor disponible', en: 'Greatest available thickness' },
-        img: 'https://image.pollinations.ai/prompt/coarse+cork+texture+rustic+natural+wall+close+up+warm+tones+architectural+photography+premium+dark+moody+8k?width=800&height=600&seed=1202&nologo=true&model=flux',
       },
       {
         code: 'Thermocork · TCI',
@@ -102,7 +100,6 @@ export const t = {
           en: ['Flat roofs and walkable terraces', 'Rooftops and pitched roofs', 'Waterproofing pools and fountains', 'Eliminates leaks permanently'],
         },
         badge: { es: 'Anti-goteras garantizado', en: 'Anti-leak guaranteed' },
-        img: 'https://image.pollinations.ai/prompt/water+droplet+on+cork+surface+macro+photography+cinematic+moody+dark+premium+editorial+8k?width=800&height=600&seed=1203&nologo=true&model=flux',
       },
     ],
   },
@@ -136,7 +133,6 @@ export const t = {
           es: ['Mejora la calificación energética del edificio', 'Compatible con SATE como capa de terminación', 'Aplicable sobre ladrillo, hormigón, madera y metal', 'Acabado continuo sin juntas visibles'],
           en: ['Improves the building\'s energy rating', 'Compatible with ETICS as a finishing layer', 'Applicable on brick, concrete, wood and metal', 'Continuous finish without visible joints'],
         },
-        img: 'https://image.pollinations.ai/prompt/modern+building+facade+cork+spray+insulation+applied+warm+tones+architectural+photography+premium+editorial+8k?width=800&height=600&seed=1211&nologo=true&model=flux',
       },
       {
         id: 'roofs',
@@ -149,7 +145,6 @@ export const t = {
           es: ['Elimina goteras de forma definitiva', 'Reduce hasta 15°C la temperatura interior en verano', 'Membrana elástica que sigue los movimientos del edificio', 'Sin necesidad de retirar la cubierta existente'],
           en: ['Eliminates leaks permanently', 'Reduces interior temperature by up to 15°C in summer', 'Elastic membrane following building movements', 'No need to remove existing roof'],
         },
-        img: 'https://image.pollinations.ai/prompt/flat+roof+terrace+modern+architecture+warm+sunset+light+premium+editorial+photography+8k?width=800&height=600&seed=1212&nologo=true&model=flux',
       },
       {
         id: 'interiors',
@@ -162,7 +157,6 @@ export const t = {
           es: ['Absorbe el ruido entre estancias y plantas', 'Elimina la condensación en paredes frías', 'Acabado cálido y acogedor de textura natural', 'Aplicable en paredes, techos y suelos'],
           en: ['Absorbs noise between rooms and floors', 'Eliminates condensation on cold walls', 'Warm and welcoming natural texture finish', 'Applicable on walls, ceilings and floors'],
         },
-        img: 'https://image.pollinations.ai/prompt/premium+interior+design+cork+wall+texture+warm+ambient+lighting+modern+architecture+editorial+8k?width=800&height=600&seed=1213&nologo=true&model=flux',
       },
       {
         id: 'commercial',
@@ -175,7 +169,6 @@ export const t = {
           es: ['Aplicación nocturna sin interrumpir el negocio', 'Soluciones específicas para cámaras frigoríficas', 'Certificación contra incendios para edificios públicos', 'ROI demostrable en reducción de facturas de energía'],
           en: ['Night-time application without disrupting business', 'Specific solutions for cold storage rooms', 'Fire certification for public buildings', 'Demonstrable ROI in energy bill reduction'],
         },
-        img: 'https://image.pollinations.ai/prompt/modern+commercial+space+natural+materials+warm+lighting+premium+architectural+photography+editorial+8k?width=800&height=600&seed=1214&nologo=true&model=flux',
       },
       {
         id: 'vehicles',
@@ -188,7 +181,6 @@ export const t = {
           es: ['Interior fresco en verano, cálido en invierno', 'Sin condensación ni formación de moho', 'Reduce el ruido del motor y la carretera', 'Aplicable en curvas y geometrías complejas'],
           en: ['Cool interior in summer, warm in winter', 'No condensation or mould formation', 'Reduces engine and road noise', 'Applicable on curves and complex geometries'],
         },
-        img: 'https://image.pollinations.ai/prompt/camper+van+interior+natural+cork+insulation+warm+cozy+modern+adventure+lifestyle+editorial+8k?width=800&height=600&seed=1215&nologo=true&model=flux',
       },
     ],
   },
