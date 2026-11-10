@@ -1,36 +1,20 @@
-const CACHE = 'thermocork-v1';
-const PRECACHE = ['/', '/index.html'];
+// Service worker retirado (10-11-2026).
+//
+// El anterior servía cada página desde su caché antes de mirar la red
+// (stale-while-revalidate), así que quien ya había visitado la web seguía viendo
+// la versión vieja después de publicar. Este fichero tiene que seguir existiendo
+// en esta misma URL: los navegadores que tienen instalado el viejo lo descargan
+// al comprobar actualizaciones, y este borra la caché, se da de baja y recarga
+// las pestañas abiertas desde la red. No tiene manejador de fetch: nada pasa por él.
 
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(PRECACHE)));
-  self.skipWaiting();
-});
+self.addEventListener('install', () => self.skipWaiting());
 
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    )
-  );
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
-  // Videos: network-first (too large to cache)
-  if (e.request.url.match(/\.(mp4)$/i)) {
-    e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
-    return;
-  }
-  // Everything else: stale-while-revalidate
-  e.respondWith(
-    caches.open(CACHE).then(async cache => {
-      const cached = await cache.match(e.request);
-      const fresh = fetch(e.request).then(res => {
-        if (res.ok) cache.put(e.request, res.clone());
-        return res;
-      }).catch(() => cached);
-      return cached || fresh;
-    })
-  );
+self.addEventListener('activate', (e) => {
+  e.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.map((k) => caches.delete(k)));
+    await self.registration.unregister();
+    const tabs = await self.clients.matchAll({ type: 'window' });
+    tabs.forEach((tab) => tab.navigate(tab.url));
+  })());
 });
