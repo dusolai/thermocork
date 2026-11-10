@@ -7,6 +7,9 @@ export default function JsonLd() {
         '@type': 'Organization',
         '@id': 'https://thermocork.es/#org',
         name: 'Thermocork',
+        legalName: 'THERMOCORK, S.L.',
+        taxID: 'B71476584',
+        vatID: 'ESB71476584',
         url: 'https://thermocork.es',
         logo: 'https://thermocork.es/brand/logos/logo-largo.png',
         description:
@@ -24,10 +27,10 @@ export default function JsonLd() {
         priceRange: '€€',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Paseo Industrial Calle 8',
-          addressLocality: 'Cintruénigo',
+          streetAddress: 'Polígono Industrial Ombatillo, Calle B, Nave 9',
+          addressLocality: 'Corella',
           addressRegion: 'Navarra',
-          postalCode: '31592',
+          postalCode: '31591',
           addressCountry: 'ES',
         },
         areaServed: ['ES', 'PT', 'FR', 'DE', 'GB', 'IT', 'BE', 'NL', 'AT'],

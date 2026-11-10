@@ -17,7 +17,12 @@ export default function LegalDoc({ docKey }: { docKey: keyof typeof LEGAL }) {
           {doc.blocks.map((b, i) => (
             <div key={i}>
               {b.h && <h2 className="font-display text-xl font-semibold text-sand-100 mb-2">{tr(b.h)}</h2>}
-              <p className="text-[15px] leading-relaxed text-sand-300 m-0">{tr(b.p)}</p>
+              {b.p && <p className="text-[15px] leading-relaxed text-sand-300 m-0">{tr(b.p)}</p>}
+              {b.items && (
+                <ul className={`list-disc pl-5 m-0 flex flex-col gap-1.5 text-[15px] leading-relaxed text-sand-300 ${b.p ? 'mt-3' : ''}`}>
+                  {b.items.map((it, j) => <li key={j}>{tr(it)}</li>)}
+                </ul>
+              )}
             </div>
           ))}
         </div>

@@ -64,21 +64,34 @@ npm run build      # genera el sitio estático en out/
 Crea `.env.local`:
 
 ```env
-# Formulario de contacto (Web3Forms — gratis, sin backend). Sin esta clave,
-# el formulario hace fallback a un email mailto automáticamente.
-NEXT_PUBLIC_WEB3FORMS_KEY=tu_access_key
-
 # Solo si se despliega como "project site" en GitHub Pages (p. ej. /thermocork).
 # Déjalo vacío para dominio propio (thermocork.es) o Vercel.
 NEXT_PUBLIC_BASE_PATH=
 ```
 
+## Formulario de presupuesto
+
+No hay backend: el formulario redacta la solicitud y la abre en el WhatsApp del
+visitante, dirigida al número de `CONTACT.phoneIntl` (`lib/site.ts`). Lo envía el
+visitante, así que la web no recoge ni guarda datos personales.
+
 ## Despliegue
 
-- **Dominio propio / Vercel:** sin configuración. `npm run build` y publica `out/`.
-- **GitHub Pages (project site):** define `NEXT_PUBLIC_BASE_PATH=/nombre-repo` antes del build.
+thermocork.es lo sirve GitHub Pages **desde la rama `gh-pages`** (no desde
+Actions). Para publicar:
 
-## Pendiente de aportar por el cliente
+1. `npm run build` (sin `NEXT_PUBLIC_BASE_PATH`).
+2. Sustituir el contenido de la rama `gh-pages` por el de `out/`, conservando
+   `CNAME` (thermocork.es) y `.nojekyll`, y hacer push.
 
-- Clave de Web3Forms (o EmailJS) para recibir los leads del formulario.
-- Datos registrales reales (CIF, razón social) para las páginas legales.
+El workflow `.github/workflows/deploy.yml` es del método anterior (Pages desde
+Actions) y solo se lanza a mano; con Pages configurado desde rama no sirve.
+
+## Legal
+
+Aviso legal, privacidad y cookies están en `lib/legal.ts`; los datos del titular
+(razón social, CIF, domicilio social, Registro Mercantil), en `LEGAL_ENTITY` de
+`lib/site.ts`, sacados del BORME (BORME-A-2023-60-31). La política de cookies dice
+que la web no usa cookies ni servicios de terceros: **si se añade analítica, un
+mapa, un vídeo incrustado o fuentes externas, hay que actualizarla y poner un
+aviso de consentimiento antes de publicar.**

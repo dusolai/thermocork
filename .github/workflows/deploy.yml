@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
+# Solo manual: desde el 25-08-2026 GitHub Pages publica la rama gh-pages (ver
+# README > Despliegue). Con push a master este workflow fallaría o pisaría la web.
 on:
-  push:
-    branches: [master]
   workflow_dispatch:
 
 permissions:

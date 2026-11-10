@@ -9,7 +9,7 @@ import CtaBand from '@/components/sections/CtaBand'
 export const metadata: Metadata = {
   title: 'Sobre nosotros · Corcho natural fabricado en España',
   description:
-    'Thermocork: aislamiento de corcho natural proyectado fabricado en Cintruénigo (Navarra) y presente en más de 30 países a través de una red de aplicadores certificados.',
+    'Thermocork: aislamiento de corcho natural proyectado fabricado en Corella (Navarra) y presente en más de 30 países a través de una red de aplicadores certificados.',
 }
 
 export default function SobreNosotrosPage() {
@@ -19,7 +19,7 @@ export default function SobreNosotrosPage() {
         tag={{ es: 'La empresa', en: 'The company' }}
         title={{ es: 'De Navarra', en: 'From Navarre' }}
         accent={{ es: 'al mundo.', en: 'to the world.' }}
-        sub={{ es: 'Fabricamos en Cintruénigo un aislamiento de corcho natural que ya protege edificios en diez países, siempre a través de aplicadores certificados.', en: 'In Cintruénigo we manufacture a natural cork insulation that already protects buildings in ten countries, always through certified applicators.' }}
+        sub={{ es: 'Fabricamos en Corella un aislamiento de corcho natural que ya protege edificios en diez países, siempre a través de aplicadores certificados.', en: 'In Corella we manufacture a natural cork insulation that already protects buildings in ten countries, always through certified applicators.' }}
         image="/img/real/proy-ciecem.webp"
       />
       <About />

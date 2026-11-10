@@ -8,8 +8,30 @@ export const CONTACT = {
   email: 'info@thermocork.es',
   whatsapp:
     'https://wa.me/34646185803?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Thermocork',
-  address: { es: 'Paseo Industrial Calle 8\n31592 Cintruénigo, Navarra, España', en: 'Paseo Industrial Calle 8\n31592 Cintruénigo, Navarra, Spain' },
+  address: { es: 'Polígono Industrial Ombatillo\nCalle B, Nave 9\n31591 Corella, Navarra, España', en: 'Polígono Industrial Ombatillo\nCalle B, Nave 9\n31591 Corella, Navarra, Spain' },
   hours: { es: 'Lun – Vie · 8:00 – 18:00', en: 'Mon – Fri · 8:00 – 18:00' },
+}
+
+// Titular del sitio (art. 10 LSSI-CE). Fuente: BORME-A-2023-60-31 (28-03-2023),
+// Registro Mercantil de Navarra. Es sociedad unipersonal y la Ley de Sociedades
+// de Capital (art. 13) obliga a hacerlo constar mientras lo siga siendo.
+// El domicilio social (registro) no es la nave: la nave es CONTACT.address.
+export const LEGAL_ENTITY = {
+  name: 'THERMOCORK, S.L.',
+  form: { es: 'sociedad unipersonal', en: 'single-member company' },
+  cif: 'B71476584',
+  registeredOffice: {
+    es: 'Calle María Villar Díaz 19, 31591 Corella (Navarra), España',
+    en: 'Calle María Villar Díaz 19, 31591 Corella (Navarra), Spain',
+  },
+  premises: {
+    es: 'Polígono Industrial Ombatillo, Calle B, Nave 9, 31591 Corella (Navarra), España',
+    en: 'Polígono Industrial Ombatillo, Calle B, Nave 9, 31591 Corella (Navarra), Spain',
+  },
+  registry: {
+    es: 'Registro Mercantil de Navarra, tomo 2098, folio 208, hoja NA-41996, inscripción 1.ª',
+    en: 'Navarra Commercial Registry, volume 2098, folio 208, sheet NA-41996, entry 1',
+  },
 }
 
 export const NAV: { href: string; label: Bi }[] = [

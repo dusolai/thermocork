@@ -311,7 +311,7 @@ export const t = {
     info: {
       phone: '646 18 58 03',
       email: 'info@thermocork.es',
-      address: { es: 'Paseo Industrial Calle 8\n31592 Cintruénigo, Navarra\nEspaña', en: 'Paseo Industrial Calle 8\n31592 Cintruénigo, Navarra\nSpain' },
+      address: { es: 'Polígono Industrial Ombatillo\nCalle B, Nave 9\n31591 Corella, Navarra\nEspaña', en: 'Polígono Industrial Ombatillo\nCalle B, Nave 9\n31591 Corella, Navarra\nSpain' },
       hours: { es: 'Lun – Vie: 8:00 – 18:00\nRespuesta a presupuestos en 24h', en: 'Mon – Fri: 8:00 – 18:00\nQuote response within 24h' },
     },
   },
@@ -321,8 +321,8 @@ export const t = {
       en: 'Natural projected cork thermal and acoustic insulation. Made in Spain. Available worldwide.',
     },
     copyright: {
-      es: '© 2026 Thermocork — Todos los derechos reservados · Fabricado en Cintruénigo, Navarra, España',
-      en: '© 2026 Thermocork — All rights reserved · Made in Cintruénigo, Navarra, Spain',
+      es: '© 2026 THERMOCORK, S.L. · CIF B71476584 · Todos los derechos reservados · Fabricado en Corella, Navarra, España',
+      en: '© 2026 THERMOCORK, S.L. · Tax ID B71476584 · All rights reserved · Made in Corella, Navarra, Spain',
     },
     cols: {
       products: { es: 'Productos', en: 'Products' },

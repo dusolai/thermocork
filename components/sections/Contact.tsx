@@ -1,51 +1,48 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useLang } from '@/hooks/useLang'
 import { t } from '@/lib/i18n'
-import { CONTACT } from '@/lib/site'
+import { CONTACT, LEGAL_ENTITY } from '@/lib/site'
 import Section from '@/components/ui/Section'
 import SectionHeading from '@/components/ui/SectionHeading'
 
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || ''
+// La solicitud se envía por WhatsApp al número de Thermocork: la web es estática
+// (GitHub Pages) y no tiene servidor. El formulario solo redacta el mensaje; lo
+// envía el visitante desde su WhatsApp, así que la web no recoge ni guarda datos.
+const WA_NUMBER = CONTACT.phoneIntl.replace(/\D/g, '')
 
 export default function Contact() {
   const { t: tr, lang } = useLang()
-  const [state, setState] = useState<'idle' | 'loading' | 'sent' | 'error' | 'mailto'>('idle')
+  const [waUrl, setWaUrl] = useState<string | null>(null)
   const [profile, setProfile] = useState<'particular' | 'empresa'>('particular')
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const form = e.currentTarget
-    const data = new FormData(form)
+    const data = new FormData(e.currentTarget)
+    const val = (k: string) => String(data.get(k) ?? '').trim()
 
-    // Sin backend configurado → se abre el correo del visitante. No se da por
-    // enviado: el envío depende de que el visitante le dé a enviar en su cliente
-    // de correo, y en muchos móviles el mailto ni siquiera abre nada.
-    if (!WEB3FORMS_KEY) {
-      const body = Array.from(data.entries())
-        .filter(([k]) => !k.startsWith('access_key') && !k.startsWith('botcheck'))
-        .map(([k, v]) => `${k}: ${v}`)
-        .join('\n')
-      window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Presupuesto Thermocork')}&body=${encodeURIComponent(body)}`
-      setState('mailto')
-      return
-    }
+    // El mensaje va siempre en español: lo lee Thermocork.
+    const lines: (string | null)[] = [
+      'Hola, quiero pedir presupuesto (desde thermocork.es).',
+      '',
+      `Perfil: ${val('perfil')}`,
+      profile === 'empresa' && val('cif') ? `CIF: ${val('cif')}` : null,
+      `Nombre: ${val('name')}`,
+      `Teléfono: ${val('phone')}`,
+      `Tipo de proyecto: ${val('type')}`,
+      val('area') ? `Superficie: ${val('area')}` : null,
+      val('message') ? `\n${val('message')}` : null,
+    ]
+    const text = lines.filter((l) => l !== null).join('\n')
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`
+    setWaUrl(url)
 
-    setState('loading')
-    try {
-      data.append('access_key', WEB3FORMS_KEY)
-      data.append('subject', 'Nuevo presupuesto · thermocork.es')
-      data.append('from_name', 'Web Thermocork')
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-      const json = await res.json()
-      if (json.success) {
-        setState('sent')
-        form.reset()
-      } else setState('error')
-    } catch {
-      setState('error')
-    }
+    // Pestaña nueva para no perder la web; si el navegador la bloquea, misma pestaña.
+    const w = window.open(url, '_blank')
+    if (w) w.opener = null
+    else window.location.href = url
   }
 
   return (
@@ -62,16 +59,7 @@ export default function Contact() {
         <div className="card p-7 sm:p-9">
           <h3 className="font-display text-xl font-semibold text-sand-100 mb-6">{tr(t.contact.formTitle)}</h3>
 
-          {state === 'sent' ? (
-            <div className="text-center py-10">
-              <div className="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style={{ background: 'rgba(201,160,69,0.15)', border: '1px solid var(--border)' }}>
-                <span className="text-gold-400 text-2xl">✓</span>
-              </div>
-              <p className="font-display text-lg font-semibold text-gold-400">{lang === 'es' ? '¡Recibido! Te contactaremos en menos de 24 h.' : 'Received! We will contact you within 24 h.'}</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               {/* Perfil: particular / empresa (B2C / B2B) */}
               <div>
                 <label className="field-label">{tr(t.contact.fields.profile)}</label>
@@ -126,19 +114,31 @@ export default function Contact() {
                 <label className="field-label">{tr(t.contact.fields.message)}</label>
                 <textarea name="message" rows={4} className="field" placeholder={lang === 'es' ? 'Cuéntanos más sobre tu proyecto…' : 'Tell us more about your project…'} />
               </div>
-              <button type="submit" disabled={state === 'loading'} className="btn btn-primary w-full disabled:opacity-70">
-                {state === 'loading' ? '…' : tr(t.contact.submit)}
+              {/* Información básica de protección de datos (art. 13 RGPD) */}
+              <p className="text-[12px] leading-relaxed text-sand-300 m-0">
+                {lang === 'es'
+                  ? <><strong className="text-sand-200">Protección de datos.</strong> Responsable: {LEGAL_ENTITY.name}. Finalidad: atender tu solicitud de presupuesto. Legitimación: medidas precontractuales que nos pides. Destinatarios: WhatsApp, desde donde envías tú el mensaje, y, si hace falta, el aplicador certificado de tu zona. Derechos: acceso, rectificación, supresión y demás, en {CONTACT.email}. Más información en la <Link href="/legal/privacidad" className="text-gold-400">política de privacidad</Link>.</>
+                  : <><strong className="text-sand-200">Data protection.</strong> Controller: {LEGAL_ENTITY.name}. Purpose: handling your quote request. Legal basis: pre-contractual steps you ask us to take. Recipients: WhatsApp, from which you send the message yourself, and, if needed, the certified applicator in your area. Rights: access, rectification, erasure and others, at {CONTACT.email}. More in our <Link href="/legal/privacidad" className="text-gold-400">privacy policy</Link>.</>}
+              </p>
+              <label className="flex items-start gap-3 text-sm text-sand-200 leading-relaxed cursor-pointer">
+                <input type="checkbox" name="privacidad" required className="mt-1 h-4 w-4 shrink-0 accent-gold-400" />
+                <span>{lang === 'es' ? 'He leído la información sobre protección de datos.' : 'I have read the data protection information.'}</span>
+              </label>
+              <button type="submit" className="btn btn-primary w-full">
+                {tr(t.contact.submit)}
               </button>
-              {state === 'error' && <p className="text-sm text-red-400">{lang === 'es' ? 'No se pudo enviar. Inténtalo por WhatsApp.' : 'Could not send. Please try WhatsApp.'}</p>}
-              {state === 'mailto' && (
-                <p className="text-sm text-sand-300">
+              {waUrl ? (
+                <p className="text-sm text-sand-200 m-0" role="status">
                   {lang === 'es'
-                    ? <>Hemos abierto tu programa de correo con los datos. Si no se ha abierto, escríbenos a <a href={`mailto:${CONTACT.email}`} className="text-gold-400">{CONTACT.email}</a> o por WhatsApp.</>
-                    : <>We&apos;ve opened your email app with the details. If nothing opened, write to <a href={`mailto:${CONTACT.email}`} className="text-gold-400">{CONTACT.email}</a> or use WhatsApp.</>}
+                    ? <>Te hemos abierto WhatsApp con tu solicitud ya escrita: <strong>pulsa enviar</strong> para que nos llegue. ¿No se ha abierto? <a href={waUrl} target="_blank" rel="noopener noreferrer" className="text-gold-400">Abrir WhatsApp</a>.</>
+                    : <>We&apos;ve opened WhatsApp with your request already written: <strong>press send</strong> so it reaches us. Didn&apos;t open? <a href={waUrl} target="_blank" rel="noopener noreferrer" className="text-gold-400">Open WhatsApp</a>.</>}
+                </p>
+              ) : (
+                <p className="text-xs text-sand-300 m-0 text-center">
+                  {lang === 'es' ? 'Se abrirá WhatsApp con tu solicitud para que la envíes.' : 'WhatsApp will open with your request so you can send it.'}
                 </p>
               )}
             </form>
-          )}
         </div>
 
         {/* Info */}

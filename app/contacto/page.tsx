@@ -5,7 +5,7 @@ import Contact from '@/components/sections/Contact'
 export const metadata: Metadata = {
   title: 'Contacto · Solicita tu presupuesto gratis',
   description:
-    'Solicita un presupuesto gratuito de aislamiento de corcho proyectado Thermocork. Respuesta en menos de 24 horas. Cintruénigo, Navarra.',
+    'Solicita un presupuesto gratuito de aislamiento de corcho proyectado Thermocork. Respuesta en menos de 24 horas. Corella, Navarra.',
 }
 
 export default function ContactoPage() {
